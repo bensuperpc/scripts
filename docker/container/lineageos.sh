@@ -10,4 +10,4 @@ docker run \
     -v "/home/bensuperpc/lineage/cache:/srv/ccache" \
     -v "/home/bensuperpc/lineage/keys:/srv/keys" \
     -v "/home/bensuperpc/lineage/manifests:/srv/local_manifests" \
-    lineageos4microg/docker-lineage-cicd 
+    lineageos4microg/docker-lineage-cicd

@@ -5,4 +5,4 @@ docker run -d \
     -v $HOME:/storage:ro \
     -v $HOME/HandBrake/watch:/watch:rw \
     -v $HOME/HandBrake/output:/output:rw \
-    jlesage/handbrake 
+    jlesage/handbrake

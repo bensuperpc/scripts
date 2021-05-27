@@ -18,4 +18,4 @@
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
-docker save $1 | 7z a -si -m0=lzma2 -mx=9 -mmt -ms=on -aoa $1.tar.7z 
+docker save $1 | 7z a -si -m0=lzma2 -mx=9 -mmt -ms=on -aoa $1.tar.7z

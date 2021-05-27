@@ -19,5 +19,5 @@
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 if (( $# < 2 )); then
-sudo mount -t tmpfs -o size=512M tmpfs $1
+    sudo mount -t tmpfs -o size=512M tmpfs $1
 fi

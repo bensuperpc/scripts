@@ -23,5 +23,5 @@ if (( $# < 3 )); then
     sudo cryptsetup luksOpen $1 test
     sudo mkfs.btrfs /dev/mapper/test
     sudo mkfs.btrfs -f --label $2 /dev/mapper/test
-    sudo cryptsetup luksClose test 
+    sudo cryptsetup luksClose test
 fi

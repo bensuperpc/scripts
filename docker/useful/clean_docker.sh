@@ -1,1 +1,1 @@
-docker system prune 
+docker system prune

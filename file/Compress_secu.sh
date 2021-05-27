@@ -28,4 +28,4 @@ compresslevel="-mx=9"
 threading="-mmt"
 
 time 7z a $fname_output $fname_input $algo $compresslevel -aoa $threading
- 
+
