@@ -1,0 +1,3 @@
+[submodule "Bash-Snippet"]
+	path = Bash-Snippet
+	url = https://github.com/alexanderepstein/Bash-Snippets.git

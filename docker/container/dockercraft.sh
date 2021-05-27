@@ -18,10 +18,8 @@
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
-echo "copy..."
-sudo mkdir -p /usr/bin/ben_script && sudo cp -a . /usr/bin/ben_script
-echo "copy done"
-echo "create symlink..."
-find /usr/bin/ben_script -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" -exec sudo ln -s {} /usr/bin \;
-echo "create symlink done"
-echo "work done"
+docker pull gaetan/dockercraft
+docker run -t -i -d -p 25565:25565 \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    --name dockercraft \
+    gaetan/dockercraft

@@ -18,10 +18,11 @@
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
-echo "copy..."
-sudo mkdir -p /usr/bin/ben_script && sudo cp -a . /usr/bin/ben_script
-echo "copy done"
-echo "create symlink..."
-find /usr/bin/ben_script -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" -exec sudo ln -s {} /usr/bin \;
-echo "create symlink done"
-echo "work done"
+docker run -it \
+    -p 25565:25565 \
+    -v ~/minecraft/config:/opt/minecraft/config \
+    -v ~/minecraft/worlds:/opt/minecraft/worlds \
+    -v ~/minecraft/plugins:/opt/minecraft/plugins \
+    -v ~/minecraft/data:/opt/minecraft/data \
+    -v ~/minecraft/logs:/opt/minecraft/logs \
+    felixklauke/paperspigot:1.16.5

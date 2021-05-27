@@ -1,0 +1,87 @@
+Language: Cpp
+
+# Use 80 columns. (2.1)
+ColumnLimit: 160
+
+# Indentation MUST be done using whitespaces only (2.2)
+UseTab: Never
+
+# Regex denoting the diff #include categories used for ordering them. (5.11)
+IncludeCategories:
+  - Regex:           '".*"'
+    Priority:        1
+  - Regex:           '<.*>'
+    Priority:        -1
+  - Regex:           '.*'
+    Priority:        2
+# Merge multiple #include blocks together and sort as one.
+IncludeBlocks: Merge
+
+# Tabulation. (6.4)
+IndentWidth: 4
+TabWidth: 4
+
+# Make all braces {} on new line. (6.5)
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: false
+  AfterControlStatement: false
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterStruct: true
+  AfterUnion: true
+  AfterExternBlock: true
+  BeforeCatch: true
+  BeforeElse: false
+
+# Pointer and reference alignment style (7.2)
+PointerAlignment: Right
+
+# Add space before assignment operators. (7.15)
+SpaceBeforeAssignmentOperators: true
+
+# Break before operators. (7.17)
+BreakBeforeBinaryOperators: All
+BreakBeforeTernaryOperators: true
+
+# Spaces will not be inserted after ( and before ). (7.18)
+SpacesInParentheses: false
+# Spaces may not be inserted into C style casts.
+SpacesInCStyleCastParentheses: false
+# Spaces may not be inserted into ().
+SpaceInEmptyParentheses: false
+
+# Indent case labels one level from the switch statement. (7.27)
+IndentCaseLabels: true
+
+# Horizontally aligns arguments after an open bracket.
+AlignAfterOpenBracket: DontAlign
+BinPackParameters: true
+
+# Indents directives after the hash.
+IndentPPDirectives: AfterHash
+
+# If true, clang-format will sort #includes.
+SortIncludes: true
+
+# A space will be inserted before a C++11 braced list used to init an obj.
+SpaceBeforeCpp11BracedList: true
+
+# Put a space before opening parentheses only after control statement keywords.
+SpaceBeforeParens: ControlStatements
+
+# Spaces will not be inserted after < and before > in template argument lists.
+SpacesInAngles: false
+
+# The maximum number of consecutive empty lines to keep.
+MaxEmptyLinesToKeep: 1
+
+# Dependent on the value, int f() { return 0; } can be put on a single line.
+AllowShortFunctionsOnASingleLine: None
+
+# The function declaration return type breaking style to use.
+AlwaysBreakAfterReturnType: None
+
+# Prevent comment formatting
+CommentPragmas:  '^\* .*'
