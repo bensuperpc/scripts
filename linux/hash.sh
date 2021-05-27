@@ -28,5 +28,5 @@ TYPE=sha512
 #find $1 -type f -name "*" ! -name "checksums.*" -exec ${TYPE}sum {} \; > checksums.${TYPE}
 #${TYPE}sum -c checksums.${TYPE}
 find $1 -type f -name "*" ! -name "checksums.*" | parallel -j $(nproc) ${TYPE}sum > checksums.${TYPE}
-cat checksums.${TYPE} | parallel --pipe -N1 -j $(nproc) ${TYPE}sum --quiet -c -
+cat checksums.${TYPE} | parallel --pipe -N100 -j $(nproc) ${TYPE}sum --quiet -c -
 echo "OK"
