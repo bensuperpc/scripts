@@ -19,16 +19,32 @@
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-if [ $# -eq 0 ]
+CONTAINER_NAME=$1
+VOLUME_NAME=$2
+
+usage() {
+  echo "Usage: $0 [container name] [volume name or path]"
+  exit 1
+}
+
+if [ -z $CONTAINER_NAME ]
 then
-    echo "No arguments supplied"
-    exit 1
+  echo "Error: missing container/volume name parameter."
+  usage
 fi
 
-docker run -d -v $1:/data \
-    -e TYPE=PAPER -e MEMORY=2G \
-    -p 25565:25565 -e EULA=TRUE \
+docker run -v ${VOLUME_NAME}:/data \
+    -e TYPE=PAPER -e MEMORY=4G -e ONLINE_MODE=true \
+    -e OPS=Bensuperpc -e OVERRIDE_SERVER_PROPERTIES=true \
+    -e BUILD_FROM_SOURCE=false -e VERSION=1.16.5 \
+    -e ENABLE_RCON=false -e RCON_PASSWORD=testing -e RCON_PORT=28016 \
+    -e SPIGET_RESOURCES=9089,34315 \
+    -p 25565:25565 -e EULA=TRUE -e EXEC_DIRECTLY=true \
+    -e SERVER_PORT=25565 \
     -e ALLOW_NETHER=true -e DIFFICULTY=hard \
-    -e SERVER_PORT=25566 -e ENABLE_COMMAND_BLOCK=true \
-    -e USE_AIKAR_FLAGS=true -e MOTD="My Server" \
-    --name mc itzg/minecraft-server
+    -e MAX_PLAYERS=50 -e GENERATE_STRUCTURES=true \
+    -e SERVER_PORT=25565 -e ENABLE_COMMAND_BLOCK=true \
+    -e USE_AIKAR_FLAGS=true -e USE_LARGE_PAGES=false \
+    -e ENABLE_AUTOPAUSE=false \
+    -e MOTD="My Server" \
+    --name ${CONTAINER_NAME} itzg/minecraft-server:latest
