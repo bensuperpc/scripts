@@ -14,31 +14,23 @@
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: https://stackoverflow.com/a/26339869/10152334                                               //
+#//          https://github.com/fjh1997/docker_named_volume_backup/blob/master/backup_docker_volume.sh
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-# This script allows you to backup a single volume from a container
-# Data in given volume is saved in the current directory in a tar archive.
-CONTAINER_NAME=$1
-VOLUME_NAME=$2
+VOLUME_NAME=$1
 
 usage() {
-  echo "Usage: $0 [container name] [volume name]"
+  echo "Usage: $0 [volume name]"
   exit 1
 }
 
-if [ -z $CONTAINER_NAME ]
+if [ -z $VOLUME_NAME ]
 then
   echo "Error: missing container name parameter."
   usage
 fi
 
-if [ -z $VOLUME_NAME ]
-then
-  echo "Error: missing volume name parameter."
-  usage
-fi
-
-sudo docker run --rm --volumes-from $CONTAINER_NAME -v $(pwd):/backup busybox tar cvf /backup/backup.tar $VOLUME_NAME
+docker run --rm   --volume ${VOLUME_NAME}:/dbdata   --volume $(pwd):/backup   ubuntu   tar cvf /backup/${VOLUME_NAME}.tar /dbdata

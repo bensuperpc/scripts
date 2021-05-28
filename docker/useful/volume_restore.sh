@@ -14,24 +14,23 @@
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: https://stackoverflow.com/a/26339869/10152334                                               //
+#//          https://github.com/fjh1997/docker_named_volume_backup/blob/master/backup_docker_volume.sh
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-# This script allows you to restore a single volume from a container
-# Data in restored in volume with same backupped path
-NEW_CONTAINER_NAME=$1
+VOLUME_NAME=$1
 
 usage() {
-  echo "Usage: $0 [container name]"
+  echo "Usage: $0 [volume name]"
   exit 1
 }
 
-if [ -z $NEW_CONTAINER_NAME ]
+if [ -z $VOLUME_NAME ]
 then
   echo "Error: missing container name parameter."
   usage
 fi
 
-sudo docker run --rm --volumes-from $NEW_CONTAINER_NAME -v $(pwd):/backup busybox tar xvf /backup/backup.tar
+docker run --rm  --volume ${VOLUME_NAME}:/dbdata --volume $(pwd):/backup ubuntu  tar xvf /backup/${VOLUME_NAME}.tar -C /dbdata --strip 1
