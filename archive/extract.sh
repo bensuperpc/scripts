@@ -23,9 +23,9 @@
 extractAllTypeFiles(){ 
        if [ -f $1 ] ; then 
         case $1 in 
-           *.ark)   arc x $1         ;; 
-           *.arc)   arc x $1         ;; 
-           *.arj)   arj e $1         ;; 
+           *.ark)       arc x $1            ;; 
+           *.arc)       arc x $1            ;; 
+           *.arj)       arj e $1            ;; 
            *.tar.bz2)   tar xvjf $1         ;; 
            *.tar.gz)    tar xvzf $1         ;; 
            *.tar.lzma)  tar --lzma -xvf $1  ;; 
@@ -33,6 +33,7 @@ extractAllTypeFiles(){
            *.tar.lz)    lzip -d $1          ;; #tar --lzip -tf $1   ;;
            *.tar.7z)    7z x -so $1 | tar -xf - ;; # tar -cJf
            *.tar.Z)     zcat $1 | tar -xvf - ;; 
+           *.jar)       jar xf $1           ;; 
            *.bz2)       bunzip2 $1          ;; 
            *.rar)       unrar x $1          ;; 
            *.gz)        gunzip $1           ;; 
