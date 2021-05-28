@@ -49,7 +49,7 @@ extractAllTypeFiles(){
            *.zst)       zstd -dc $1         ;; 
            *.zpaq)      zpaq x $1           ;;
            *.zoo)       zoo -extract $1     ;; 
-           *)           echo "don't know how to extract '$1'..." ;; 
+           *)           echo "File not supported : '$1'..." ;; 
         esac 
        else 
         echo "'$1' is not a valid file!" 
