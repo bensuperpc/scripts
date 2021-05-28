@@ -13,43 +13,18 @@
 #//  Modified: 27, May, 2021                                 //
 #//  file: -                                                 //
 #//  -                                                       //
-#//  Source: https://unix.stackexchange.com/a/39341/359833                                               //
-#//          https://stackoverflow.com/a/42876846/10152334                                               //
+#//  Source: -                                               //
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
-
-
-read -p "Uninstall Software ? [Y/n]: " answ
- if [ "$answ" == 'n' ]; then
-   exit 1
- fi
-
-if [[ "$EUID" = 0 ]]; then
-    echo "(1) already root"
-else
-    sudo -k # make sure to ask for password on next sudo
-    if sudo true; then
-        echo "(2) correct password"
-    else
-        echo "(3) wrong password"
-        exit 1
-    fi
-fi
-
-echo "Removing ben's scripts..."
-echo "Remove symlink..."
-sudo find /usr/bin -lname '/usr/bin/ben_script/*' -delete
-echo "Remove symlink done"
-
-echo "Removing Bash-Snippet..."
-cd /usr/bin/ben_script/Bash-Snippet
-sudo ./uninstall.sh all
-echo "Removing Bash-Snippet done"
-
-sudo rm -fr /usr/bin/ben_script
-
-echo "Removing ben's scripts done"
-#sudo rm -fr /usr/bin/ben_script && sudo find /usr/bin/ -xtype l -delete
-echo "Removing done"
+docker run -d \
+  --name Watchtower \
+  -e TZ=America/New_York \
+  -e WATCHTOWER_CLEANUP=true \
+  -e WATCHTOWER_DEBUG=true \
+  -e WATCHTOWER_INCLUDE_STOPPED=true \
+  -e WATCHTOWER_REVIVE_STOPPED=true \
+  -e WATCHTOWER_POLL_INTERVAL=3600  \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  containrrr/watchtower
