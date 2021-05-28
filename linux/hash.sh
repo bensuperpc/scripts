@@ -24,9 +24,13 @@ then
     exit 1
 fi
 
-TYPE=sha512
+#TYPE=sha512
 #find $1 -type f -name "*" ! -name "checksums.*" -exec ${TYPE}sum {} \; > checksums.${TYPE}
 #${TYPE}sum -c checksums.${TYPE}
-find $1 -type f -name "*" ! -name "checksums.*" | parallel -j $(nproc) ${TYPE}sum > checksums.${TYPE}
-cat checksums.${TYPE} | parallel --pipe -N100 -j $(nproc) ${TYPE}sum --quiet -c -
+#find $1 -type f -name "*" ! -name "checksums.*" | parallel -j $(nproc) ${TYPE}sum > checksums.${TYPE}
+#cat checksums.${TYPE} | parallel --pipe -N100 -j $(nproc) ${TYPE}sum --quiet -c -
+
+TYPE=sha3-512
+find $1 -type f -name "*" ! -name "checksums.*" | parallel -j $(nproc) rhash --${TYPE} > checksums.${TYPE}
+cat checksums.${TYPE} | parallel --pipe -N100 -j $(nproc) rhash --${TYPE} -c -
 echo "OK"

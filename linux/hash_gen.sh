@@ -24,6 +24,9 @@ then
     exit 1
 fi
 
-TYPE=sha512
-find $1 -type f -name "*" ! -name "checksums.*" | parallel -j $(nproc) ${TYPE}sum > checksums.${TYPE}
+#TYPE=sha512
+#find $1 -type f -name "*" ! -name "checksums.*" | parallel -j $(nproc) ${TYPE}sum > checksums.${TYPE}
+
+TYPE=sha3-512
+find $1 -type f -name "*" ! -name "checksums.*" | parallel -j $(nproc) rhash --${TYPE} > checksums.${TYPE}
 echo "OK"
