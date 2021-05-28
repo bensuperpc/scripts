@@ -20,7 +20,7 @@
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-read -p "Install Software ?? [Y/n]: " answ
+read -p "Install Software ? [Y/n]: " answ
  if [ "$answ" == 'n' ]; then
    exit 1
  fi
@@ -50,6 +50,10 @@ echo "create symlink done"
 echo "Install ben's scripts done"
 
 echo "Install Bash-Snippet..."
+echo "Pull Bash-Snippet..."
+git pull --recurse-submodules
+echo "Pull Bash-Snippet done"
+
 cd /usr/bin/ben_script/Bash-Snippet
 sudo ./install.sh all
 echo "Install Bash-Snippet done"
