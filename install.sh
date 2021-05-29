@@ -50,8 +50,9 @@ echo "copy..."
 sudo mkdir -p /usr/bin/ben_script && sudo cp -a . /usr/bin/ben_script
 echo "copy done"
 
+echo "Install ben's scripts..."
 echo "create symlink..."
-find /usr/bin/ben_script -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" -exec sudo ln -s {} /usr/bin \;
+find /usr/bin/ben_script -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" -exec sudo ln -s {} /usr/bin \;
 echo "create symlink done"
 echo "Install ben's scripts done"
 
@@ -64,5 +65,10 @@ echo "Install git-extras..."
 cd /usr/bin/ben_script/git-extras
 sudo ./install.sh
 echo "Install git-extras done"
+
+echo "Install git-scripts..."
+find /usr/bin/ben_script/git-scripts -type f -name "git-*" ! -path "*./git/*" -exec sudo ln -s {} /usr/bin \;
+echo "Install git-scripts done"
+
 
 echo "Install done"

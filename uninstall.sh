@@ -48,13 +48,13 @@ cd /usr/bin/ben_script/git-extras
 sudo make uninstall
 echo "Removing git-extras done"
 
-echo "Removing ben's scripts..."
+echo "Removing ben's scripts and git-scripts..."
 echo "Remove symlink..."
 sudo find /usr/bin -lname '/usr/bin/ben_script/*' -delete
 echo "Remove symlink done"
 
 sudo rm -fr /usr/bin/ben_script
 
-echo "Removing ben's scripts done"
+echo "Removing ben's scripts and git-scripts done"
 #sudo rm -fr /usr/bin/ben_script && sudo find /usr/bin/ -xtype l -delete
 echo "Removing done"
