@@ -38,11 +38,6 @@ else
     fi
 fi
 
-echo "Removing ben's scripts..."
-echo "Remove symlink..."
-sudo find /usr/bin -lname '/usr/bin/ben_script/*' -delete
-echo "Remove symlink done"
-
 echo "Removing Bash-Snippet..."
 cd /usr/bin/ben_script/Bash-Snippet
 sudo ./uninstall.sh all
@@ -52,6 +47,11 @@ echo "Removing git-extras..."
 cd /usr/bin/ben_script/git-extras
 sudo make uninstall
 echo "Removing git-extras done"
+
+echo "Removing ben's scripts..."
+echo "Remove symlink..."
+sudo find /usr/bin -lname '/usr/bin/ben_script/*' -delete
+echo "Remove symlink done"
 
 sudo rm -fr /usr/bin/ben_script
 
