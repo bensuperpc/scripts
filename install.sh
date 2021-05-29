@@ -15,6 +15,7 @@
 #//  -                                                       //
 #//  Source: https://unix.stackexchange.com/a/39341/359833                                               //
 #//          https://stackoverflow.com/a/42876846/10152334                                               //
+#//          https://stackoverflow.com/a/3837487/10152334
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
@@ -53,6 +54,8 @@ echo "copy done"
 echo "Install ben's scripts..."
 echo "create symlink..."
 find /usr/bin/ben_script -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" -exec sudo ln -s {} /usr/bin \;
+# Move it by remove file extension (if does not exit)
+find /usr/bin -lname '/usr/bin/ben_script/*.sh' | while read NAME ; do sudo mv -nv "${NAME}" "${NAME%.sh}" ; done
 echo "create symlink done"
 echo "Install ben's scripts done"
 
