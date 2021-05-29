@@ -38,6 +38,12 @@ else
 fi
 
 
+echo "Pull Submodule..."
+git submodule update --init --recursive
+git submodule update --recursive --remote
+echo "Pull Submodule done"
+
+
 echo "Install ben's scripts"
 
 echo "copy..."
@@ -50,12 +56,13 @@ echo "create symlink done"
 echo "Install ben's scripts done"
 
 echo "Install Bash-Snippet..."
-echo "Pull Bash-Snippet..."
-git pull --recurse-submodules
-echo "Pull Bash-Snippet done"
-
 cd /usr/bin/ben_script/Bash-Snippet
 sudo ./install.sh all
 echo "Install Bash-Snippet done"
+
+echo "Install git-extras..."
+cd /usr/bin/ben_script/git-extras
+sudo ./install.sh
+echo "Install git-extras done"
 
 echo "Install done"
