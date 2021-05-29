@@ -36,10 +36,9 @@ cd scripts
 License
 ----
 
-[MIT] License
+MIT License
 
 
 **Free Software forever !**
-   [MIT]: LICENSE
    
  
