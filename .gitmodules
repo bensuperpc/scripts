@@ -10,3 +10,6 @@
 [submodule "docker-scripts"]
 	path = docker-scripts
 	url = https://github.com/Bensuperpc/docker-scripts.git
+[submodule "git/git-updater"]
+	path = git/git-updater
+	url = https://github.com/Bensuperpc/git-updater.git
