@@ -7,3 +7,6 @@
 [submodule "git-scripts"]
 	path = git-scripts
 	url = https://github.com/jwiegley/git-scripts.git
+[submodule "docker-scripts"]
+	path = docker-scripts
+	url = https://github.com/Bensuperpc/docker-scripts.git
