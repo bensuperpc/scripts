@@ -1,0 +1,34 @@
+name: scripts
+
+on:
+  push:
+    branches:
+    - 'main'
+    - 'master'
+    - 'dev'
+    paths-ignore:
+      - '**/README.md'
+  pull_request:
+    branches:
+    - '*'
+  schedule:
+    - cron: '0 3 * * 1'  # every monday at 7:00 https://crontab.guru/#0_7_*_*_1
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: scripts
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-18.04, ubuntu-20.04]
+    steps:
+      - name: "📥 Checkout Code"
+        uses: actions/checkout@v2.2.0
+        with:
+          submodules: 'recursive'
+          fetch-depth: 0
+      - name: "🛠️ Install"
+        run: yes Y | sudo ./install.sh
+      - name: "🧹 Uninstall"
+        run: yes n | sudo ./uninstall.sh
