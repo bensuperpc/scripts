@@ -29,6 +29,6 @@ jobs:
           submodules: 'recursive'
           fetch-depth: 0
       - name: "🛠️ Install"
-        run: yes Y | sudo ./install.sh
+        run: yes Y 2>/dev/null | sudo ./install.sh
       - name: "🧹 Uninstall"
-        run: yes n | sudo ./uninstall.sh
+        run: yes n 2>/dev/null | sudo ./uninstall.sh
