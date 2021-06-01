@@ -21,10 +21,12 @@
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-read -p "Install Software ? [Y/n]: " answ
- if [ "$answ" == 'n' ]; then
-   exit 1
- fi
+if [ $# -eq 0 ]; then
+    read -p "Uninstall Software ? [Y/n]: " answ
+    if [ "$answ" == 'n' ]; then
+        exit 1
+    fi
+fi
 
 if [[ "$EUID" = 0 ]]; then
     echo "(1) already root"
