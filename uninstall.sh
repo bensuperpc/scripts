@@ -41,6 +41,14 @@ else
     fi
 fi
 
+DIR="/usr/bin/ben_script/"
+if [ ! -d "$DIR" ]; then
+  # Take action if $DIR exists. #
+  echo "${DIR} does not exist..."
+  exit 0
+fi
+
+
 echo "Removing Bash-Snippet..."
 cd /usr/bin/ben_script/Bash-Snippet
 sudo ./uninstall.sh all

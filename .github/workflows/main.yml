@@ -29,11 +29,11 @@ jobs:
           submodules: 'recursive'
           fetch-depth: 0
       - name: "✅ Check bash syntax"
-        run: find . -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" -exec bash -n {} \;
+        run: find . -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" -exec bash -n {} \;
       - name: "🛠️ Install"
-        run: sudo ./install.sh --yes
+        run: sudo make install
       - name: "🧹 Uninstall"
-        run: sudo ./uninstall.sh --yes
+        run: sudo make uninstall
   check-quality:
     runs-on: ubuntu-latest
     name: A job to check my code quality
