@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 #//////////////////////////////////////////////////////////////
 #//   ____                                                   //
 #//  | __ )  ___ _ __  ___ _   _ _ __   ___ _ __ _ __   ___  //
@@ -10,7 +11,7 @@
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 28, May, 2021                                  //
-#//  Modified: 28, May, 2021                                 //
+#//  Modified: 17, June, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: https://www.quora.com/What-is-the-most-useful-bash-script-that-you-have-ever-written                                                //
