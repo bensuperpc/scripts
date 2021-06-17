@@ -12,9 +12,9 @@ on:
     branches:
     - '*'
   schedule:
-    - cron: '0 3 * * 1'  # every monday at 7:00 https://crontab.guru/#0_7_*_*_1
+    - cron: '0 22 */7 * *'  # every 7 days https://crontab.guru/#0_7_*_*_1
   workflow_dispatch:
-find /usr/bin/ben_script -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" -exec sudo ln -s {} /usr/bin \;
+
 jobs:
   build:
     name: scripts
