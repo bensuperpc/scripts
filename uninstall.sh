@@ -48,7 +48,6 @@ if [ ! -d "$DIR" ]; then
   exit 0
 fi
 
-
 echo "Removing Bash-Snippet..."
 cd /usr/bin/ben_script/Bash-Snippet
 sudo ./uninstall.sh all
@@ -64,7 +63,9 @@ echo "Remove symlink..."
 sudo find /usr/bin -lname '/usr/bin/ben_script/*' -delete
 echo "Remove symlink done"
 
+echo "Remove ben_script file from /usr/bin..."
 sudo rm -fr /usr/bin/ben_script
+echo "Remove ben_script done"
 
 echo "Removing ben's scripts, git-scripts, git-extra-commands, cryptr done"
 #sudo rm -fr /usr/bin/ben_script && sudo find /usr/bin/ -xtype l -delete

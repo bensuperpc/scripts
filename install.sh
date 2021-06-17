@@ -94,12 +94,12 @@ echo "Install others-dist done"
 
 echo "Remove *.sh ..."
 # Move it by remove file extension (if does not exit)
-find /usr/bin -lname '/usr/bin/ben_script/*.sh' | while read NAME ; do sudo mv -nv "${NAME}" "${NAME%.sh}" ; done
+find /usr/bin -lname '/usr/bin/ben_script/*.sh' | while read NAME ; do sudo mv -nv "${NAME}" "${NAME%.sh}" || echo "Fail: ${NAME}" ; done
 echo "Remove *.sh done"
 
 echo "Remove *.py ..."
 # Move it by remove file extension (if does not exit)
-find /usr/bin -lname '/usr/bin/ben_script/*.py' | while read NAME ; do sudo mv -nv "${NAME}" "${NAME%.sh}" ; done
+find /usr/bin -lname '/usr/bin/ben_script/*.py' | while read NAME ; do sudo mv -nv "${NAME}" "${NAME%.sh}" || echo "Fail: ${NAME}" ; done
 echo "Remove *.py done"
 
 echo "Install done"
