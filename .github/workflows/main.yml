@@ -14,7 +14,7 @@ on:
   schedule:
     - cron: '0 3 * * 1'  # every monday at 7:00 https://crontab.guru/#0_7_*_*_1
   workflow_dispatch:
-
+find /usr/bin/ben_script -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" -exec sudo ln -s {} /usr/bin \;
 jobs:
   build:
     name: scripts
@@ -28,6 +28,8 @@ jobs:
         with:
           submodules: 'recursive'
           fetch-depth: 0
+      - name: "✅ Check bash syntax"
+        run: find /usr/bin/ben_script -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" -exec bash -n {} \;
       - name: "🛠️ Install"
         run: sudo ./install.sh --yes
       - name: "🧹 Uninstall"
@@ -45,8 +47,8 @@ jobs:
         code_inspector_secret_key: ${{ secrets.CODE_INSPECTOR_SECRET_KEY }}
         min_quality_grade: 'WARNING'
         min_quality_score: '50'
-        max_defects_rate: '0.01'
-        max_complex_functions_rate: '0.01'
-        max_long_functions_rate: '0.01'
+        max_defects_rate: '0.08'
+        max_complex_functions_rate: '0.08'
+        max_long_functions_rate: '0.08'
         project_name: ''
         max_timeout_sec: '600'
