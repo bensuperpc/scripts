@@ -19,7 +19,7 @@
 #//////////////////////////////////////////////////////////////
 PROJECT_NAME := scripts
 SHELL := bash
-VERSION := 1.0
+VERSION := 1.0.0
 
 all: check install
 
