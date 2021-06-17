@@ -13,3 +13,6 @@
 [submodule "git/git-updater"]
 	path = git/git-updater
 	url = https://github.com/Bensuperpc/git-updater.git
+[submodule "git-extra-commands"]
+	path = git-extra-commands
+	url = https://github.com/unixorn/git-extra-commands.git

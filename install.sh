@@ -77,5 +77,8 @@ echo "Install git-scripts..."
 find /usr/bin/ben_script/git-scripts -type f -name "git-*" ! -path "*./git/*" -exec sudo ln -s {} /usr/bin \;
 echo "Install git-scripts done"
 
+echo "Install git-extra-commands..."
+find /usr/bin/ben_script/git-extra-commands/bin -type f -name "*" ! -path "*./git/*" -exec sudo ln -s {} /usr/bin \;
+echo "Install git-extra-commands done"
 
 echo "Install done"
