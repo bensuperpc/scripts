@@ -29,7 +29,7 @@ jobs:
           submodules: 'recursive'
           fetch-depth: 0
       - name: "✅ Check bash syntax"
-        run: find . -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" -exec bash -n {} \;
+        run: sudo make check
       - name: "🛠️ Install"
         run: sudo make install
       - name: "🧹 Uninstall"

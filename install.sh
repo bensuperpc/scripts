@@ -61,10 +61,8 @@ echo "copy done"
 
 echo "Install ben's scripts..."
 echo "create symlink..."
-find /usr/bin/ben_script -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" -exec sudo ln -s {} /usr/bin \;
-find /usr/bin/ben_script -type f -name "*.py" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" -exec sudo ln -s {} /usr/bin \;
-# Move it by remove file extension (if does not exit)
-find /usr/bin -lname '/usr/bin/ben_script/*.sh' | while read NAME ; do sudo mv -nv "${NAME}" "${NAME%.sh}" ; done
+find /usr/bin/ben_script -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" ! -path "*/cryptr/*" ! -path "*/others-dist/*" -exec sudo ln -s {} /usr/bin \;
+find /usr/bin/ben_script -type f -name "*.py" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" ! -path "*/cryptr/*" ! -path "*/others-dist/*" -exec sudo ln -s {} /usr/bin \;
 echo "create symlink done"
 echo "Install ben's scripts done"
 
@@ -85,5 +83,23 @@ echo "Install git-scripts done"
 echo "Install git-extra-commands..."
 find /usr/bin/ben_script/git-extra-commands/bin -type f -name "*" ! -path "*./git/*" -exec sudo ln -s {} /usr/bin \;
 echo "Install git-extra-commands done"
+
+echo "Install cryptr..."
+ln -s /usr/bin/ben_script/cryptr/cryptr.bash /usr/bin/cryptr
+echo "Install cryptr done"
+
+echo "Install others-dist..."
+find /usr/bin/ben_script/others-dist/Scripts -type f -name "*.sh" ! -path "*./git/*" -exec sudo ln -s {} /usr/bin \;
+echo "Install others-dist done"
+
+echo "Remove *.sh ..."
+# Move it by remove file extension (if does not exit)
+find /usr/bin -lname '/usr/bin/ben_script/*.sh' | while read NAME ; do sudo mv -nv "${NAME}" "${NAME%.sh}" ; done
+echo "Remove *.sh done"
+
+echo "Remove *.py ..."
+# Move it by remove file extension (if does not exit)
+find /usr/bin -lname '/usr/bin/ben_script/*.py' | while read NAME ; do sudo mv -nv "${NAME}" "${NAME%.sh}" ; done
+echo "Remove *.py done"
 
 echo "Install done"

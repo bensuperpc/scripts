@@ -21,7 +21,7 @@ PROJECT_NAME := scripts
 SHELL := bash
 VERSION := 1.0
 
-all: install
+all: check install
 
 install:
 	@echo "Install libraries..."
@@ -43,6 +43,17 @@ dist: clean sync-submodule
 	7z a $(PROJECT_NAME)-$(VERSION).7z package_build/ -m0=lzma2 -mx=7 -mmt -ms
 	@echo "$(PROJECT_NAME)-$(VERSION).7z done"
 
+dist-full: clean sync-submodule
+	mkdir -p package_build
+	rsync -a --progress . package_build/
+	7z a $(PROJECT_NAME)-full-$(VERSION).7z package_build/ -m0=lzma2 -mx=7 -mmt -ms
+	@echo "$(PROJECT_NAME)-full-$(VERSION).7z done"
+
+check:
+	find . -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" ! -path "*/cryptr/*" ! -path "*/others-dist/*"  -exec $(SHELL) -n {} \;
+
 clean:
 	rm -rf package_build/
 	rm -f $(PROJECT_NAME)-$(VERSION).7z
+	rm -f $(PROJECT_NAME)-full-$(VERSION).7z
+	@echo "Clean OK"

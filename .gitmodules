@@ -16,3 +16,9 @@
 [submodule "git-extra-commands"]
 	path = git-extra-commands
 	url = https://github.com/unixorn/git-extra-commands.git
+[submodule "cryptr"]
+	path = cryptr
+	url = https://github.com/nodesocket/cryptr.git
+[submodule "others-dist"]
+	path = others-dist
+	url = https://github.com/MertcanGokgoz/UsefulBashScripts.git
