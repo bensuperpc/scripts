@@ -23,11 +23,11 @@ cd scripts
 ```
 
 ```sh
-./install.sh
+make install
 ```
 #### Uninstall
 ```sh
-./uninstall.sh
+make uninstall
 ```
 
 ### Todos
