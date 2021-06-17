@@ -127,5 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-package_build/*
-scripts-1.0.7z
+package_build/
+*.7z
+*.sha384

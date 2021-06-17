@@ -13,13 +13,15 @@
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: https://github.com/metal3d/bashsimplecurses     //
+#//			 https://superuser.com/questions/281573/what-are-the-best-options-to-use-when-compressing-files-using-7-zip
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 PROJECT_NAME := scripts
 SHELL := bash
-VERSION := 1.0.0
+VERSION := 1.0.1
+RM := rm
 
 all: check install
 
@@ -39,21 +41,25 @@ sync-submodule:
 
 dist: clean sync-submodule
 	mkdir -p package_build
-	rsync -a --progress --exclude='package_build/' --exclude='*.gitignore' --exclude='*.git/' --exclude='*.circleci/' --exclude='*.github/' . package_build/
-	7z a $(PROJECT_NAME)-$(VERSION).7z package_build/ -m0=lzma2 -mx=7 -mmt -ms
+	rsync -azh --progress --exclude='package_build/' --exclude='*.gitignore' --exclude='*.git/' --exclude='*.circleci/' --exclude='*.github/' --exclude='*.png' . package_build/
+	7z a -t7z $(PROJECT_NAME)-$(VERSION).7z package_build/ -m0=lzma2 -mx=9 -mfb=273 -ms -md=31 -myx=9 -mtm=- -mmt -mmtf -md=1536m -mmf=bt3 -mmc=10000 -mpb=0 -mlc=0
+	sha384sum $(PROJECT_NAME)-$(VERSION).7z > $(PROJECT_NAME)-$(VERSION).sha384
+	sha384sum --check $(PROJECT_NAME)-$(VERSION).sha384
 	@echo "$(PROJECT_NAME)-$(VERSION).7z done"
 
 dist-full: clean sync-submodule
 	mkdir -p package_build
-	rsync -a --progress . package_build/
-	7z a $(PROJECT_NAME)-full-$(VERSION).7z package_build/ -m0=lzma2 -mx=7 -mmt -ms
+	rsync -azh --progress --exclude='package_build/' . package_build/
+	7z a $(PROJECT_NAME)-full-$(VERSION).7z package_build/ -m0=lzma2 -mx=9 -mmt -ms
+	sha384sum $(PROJECT_NAME)-full-$(VERSION).7z > $(PROJECT_NAME)-full-$(VERSION).sha384
+	sha384sum --check $(PROJECT_NAME)-full-$(VERSION).sha384
 	@echo "$(PROJECT_NAME)-full-$(VERSION).7z done"
 
 check:
 	find . -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" ! -path "*/cryptr/*" ! -path "*/others-dist/*"  -exec $(SHELL) -n {} \;
 
 clean:
-	rm -rf package_build/
-	rm -f $(PROJECT_NAME)-$(VERSION).7z
-	rm -f $(PROJECT_NAME)-full-$(VERSION).7z
+	$(RM) -rf package_build/
+	$(RM) -f $(PROJECT_NAME)-$(VERSION).7z
+	$(RM) -f $(PROJECT_NAME)-full-$(VERSION).7z
 	@echo "Clean OK"

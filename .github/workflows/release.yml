@@ -10,7 +10,6 @@ jobs:
   tagged-release:
     name: "Tagged Release"
     runs-on: "ubuntu-latest"
-
     steps:
       - name: "📥 Checkout Code"
         uses: actions/checkout@v2.3.4
@@ -24,7 +23,7 @@ jobs:
       - name: "🧹 Uninstall"
         run: sudo make uninstall
       - name: "🛠️ build package"
-        run: sudo make dist      
+        run: sudo make dist
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
@@ -32,3 +31,4 @@ jobs:
           files: |
             LICENSE
             *.7z
+            *.sha384
