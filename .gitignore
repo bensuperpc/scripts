@@ -130,3 +130,4 @@ dmypy.json
 package_build/
 *.7z
 *.sha384
+*.tar.xz
