@@ -41,13 +41,6 @@ else
     fi
 fi
 
-
-echo "Pull Submodule..."
-git submodule update --init --recursive
-git submodule update --recursive --remote
-echo "Pull Submodule done"
-
-
 echo "Install ben's scripts"
 
 echo "Clean..."

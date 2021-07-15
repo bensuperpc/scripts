@@ -9,7 +9,7 @@
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 17, June, 2021                                 //
-#//  Modified: 17, June, 2021                                //
+#//  Modified: 15, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: https://github.com/metal3d/bashsimplecurses     //
