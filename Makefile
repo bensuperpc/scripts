@@ -39,7 +39,7 @@ sync-submodule:
 	git submodule update --init --recursive
 	git submodule update --recursive --remote
 
-dist: clean sync-submodule
+dist: clean
 	mkdir -p package_build
 	rsync -azh --progress --exclude='package_build/' --exclude='*.gitignore' --exclude='*.git/' --exclude='*.circleci/' --exclude='*.github/' --exclude='*.png' . package_build/
 	#7z a -t7z $(PROJECT_NAME)-$(VERSION).7z package_build/ -m0=lzma2 -mx=9 -mfb=273 -ms -md=31 -myx=9 -mtm=- -mmt -mmtf -md=1536m -mmf=bt3 -mmc=10000 -mpb=0 -mlc=0
@@ -48,7 +48,7 @@ dist: clean sync-submodule
 	sha384sum --check $(PROJECT_NAME)-$(VERSION).sha384
 	@echo "$(PROJECT_NAME)-$(VERSION).tar.xz done"
 
-dist-full: clean sync-submodule
+dist-full: clean
 	mkdir -p package_build
 	rsync -azh --progress --exclude='package_build/' . package_build/
 	#7z a $(PROJECT_NAME)-full-$(VERSION).7z package_build/ -m0=lzma2 -mx=9 -mmt -ms
