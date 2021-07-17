@@ -16,11 +16,12 @@
 You need Linux distribution like Ubuntu or Manjaoro
 
 ```sh
-git clone https://github.com/Bensuperpc/scripts.git
+git clone --recurse-submodules --remote-submodules https://github.com/Bensuperpc/scripts.git
 ```
 ```sh
 cd scripts
 ```
+or Release: https://github.com/bensuperpc/scripts/releases
 
 ```sh
 make install
