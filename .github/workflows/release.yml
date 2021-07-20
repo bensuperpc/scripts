@@ -20,6 +20,8 @@ jobs:
         run: sudo make check
       - name: "🛠️ Install"
         run: sudo make install
+      - name: "🛠️ update (optional)"
+        run: sudo make update
       - name: "🧹 Uninstall"
         run: sudo make uninstall
       - name: "🛠️ build package"
