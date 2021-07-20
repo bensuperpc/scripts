@@ -5,12 +5,12 @@
 
 [![Twitter](https://img.shields.io/twitter/follow/Bensuperpc?style=social)](https://img.shields.io/twitter/follow/Bensuperpc?style=social) [![Youtube](https://img.shields.io/youtube/channel/subscribers/UCJsQFFL7QW4LSX9eskq-9Yg?style=social)](https://img.shields.io/youtube/channel/subscribers/UCJsQFFL7QW4LSX9eskq-9Yg?style=social) 
 
-[![scripts](https://github.com/Bensuperpc/scripts/actions/workflows/main.yml/badge.svg)](https://github.com/Bensuperpc/scripts/actions/workflows/main.yml)
+[![scripts](https://github.com/Bensuperpc/scripts/actions/workflows/main.yml/badge.svg)](https://github.com/Bensuperpc/scripts/actions/workflows/main.yml) [![tagged-release](https://github.com/bensuperpc/scripts/actions/workflows/release.yml/badge.svg)](https://github.com/bensuperpc/scripts/actions/workflows/release.yml)
 
 # New Features !
 
-  - FFMPEG docker scripts
-  - Install and Uninstall scripts
+  - Update LUKS scripts
+  - Add dockcross builder
 
 #### Install
 You need Linux distribution like Ubuntu or Manjaoro
