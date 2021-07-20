@@ -23,7 +23,7 @@ SHELL := bash
 VERSION := 1.0.1
 RM := rm
 
-all: check install
+all: install
 
 install:
 	@echo "Install libraries..."
@@ -34,6 +34,8 @@ uninstall:
 	@echo "Removing libraries"
 	sudo ./uninstall.sh --yes
 	@echo "done"
+
+update: uninstall install
 
 sync-submodule:
 	git submodule update --init --recursive

@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 15, July, 2021                                 //
-#//  Modified: 15, July, 2021                                //
+#//  Modified: 20, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source:                                                 //
@@ -24,7 +24,7 @@ git_directory=$(find . -name .git -type d)
 date_now=$(date +"%Y%m%d%H%M")
 mkdir -p log/
 
-echo "$git_directory" | xargs -n1 -P$(nproc) -I% git --git-dir=% --work-tree=%/.. fetch --jobs=2 --all --recurse-submodules --force --multiple --progress 2>&1 | tee -a log/log-${date_now}.txt
+#echo "$git_directory" | xargs -n1 -P$(nproc) -I% git --git-dir=% --work-tree=%/.. fetch --jobs=2 --all --recurse-submodules --force --multiple --progress 2>&1 | tee -a log/log-${date_now}.txt
 #echo "$git_directory" | xargs -n1 -P$(nproc) -I% git --git-dir=% --work-tree=%/.. reset --hard --recurse-submodules HEAD 2>&1 | tee -a log/log-${date_now}.txt
 echo "$git_directory" | xargs -n1 -P$(nproc) -I% git --git-dir=% --work-tree=%/.. pull --jobs=2 --all --recurse-submodules --force --progress 2>&1 | tee -a log/log-${date_now}.txt
 
