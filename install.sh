@@ -66,8 +66,13 @@ echo "Install Bash-Snippet done"
 
 echo "Install git-extras..."
 cd /usr/bin/ben_script/git-extras
-sudo ./install.sh
+sudo make install
 echo "Install git-extras done"
+
+echo "Install git-quick-stats..."
+cd /usr/bin/ben_script/git-quick-stats
+sudo make install
+echo "Install git-quick-stats done"
 
 echo "Install git-scripts..."
 find /usr/bin/ben_script/git-scripts -type f -name "git-*" ! -path "*./git/*" | xargs -P$(nproc) -I{} sudo ln -s {} /usr/bin || true

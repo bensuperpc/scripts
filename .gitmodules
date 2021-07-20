@@ -22,3 +22,6 @@
 [submodule "others-dist"]
 	path = others-dist
 	url = https://github.com/MertcanGokgoz/UsefulBashScripts.git
+[submodule "git-quick-stats"]
+	path = git-quick-stats
+	url = https://github.com/arzzen/git-quick-stats.git
