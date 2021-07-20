@@ -16,6 +16,7 @@ set -euo pipefail
 #//  -                                                       //
 #//  Source: https://www.quora.com/What-is-the-most-useful-bash-script-that-you-have-ever-written                                                //
 #//          https://wiki.archlinux.org/title/Archiving_and_compression
+#//          https://github.com/xvoland/Extract
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
@@ -27,6 +28,9 @@ extractAllTypeFiles(){
            *.ark)       arc x $1            ;; 
            *.arc)       arc x $1            ;; 
            *.arj)       arj e $1            ;; 
+           *.cbt)       tar xvf $1          ;;
+           *.cso)       ciso 0 ./"$n" ./"$n.iso" && \
+                extract $n.iso && \rm -f $n ;;
            *.tar.bz2)   tar xvjf $1         ;; 
            *.tar.gz)    tar xvzf $1         ;; 
            *.tar.lzma)  tar --lzma -xvf $1  ;; 
@@ -47,7 +51,9 @@ extractAllTypeFiles(){
            *.tgz)       tar xvzf $1         ;; 
            *.lz4)       lz4 -d $1           ;; 
            *.lzh)       lha x $1            ;; 
-           *.zip)       unzip $1            ;; 
+           *.xz)        unxz $1             ;;
+           *.exe)       cabextract $1       ;;
+           *.zip|*.epub|*.cbz)       unzip $1            ;; 
            *.7z|*.z|*.apk|*.deb|*.dmg|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar)        7z x $1             ;; 
            *.zst)       zstd -dc $1         ;; 
            *.zpaq)      zpaq x $1           ;;
@@ -63,6 +69,7 @@ extractAllTypeFiles(){
 
 if [ $# -eq 0 ]; then
     echo "No arguments provided"
+    echo "Usage: "
     exit 1
 fi
 
