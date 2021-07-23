@@ -69,3 +69,5 @@ clean:
 	$(RM) -f $(PROJECT_NAME)-full-$(VERSION).tar.xz
 	$(RM) -f $(PROJECT_NAME)-full-$(VERSION).tar.xz.sha384
 	@echo "Clean OK"
+
+.PHONY: check dist-full clean dist sync-submodule install uninstall update
