@@ -25,3 +25,6 @@
 [submodule "git-quick-stats"]
 	path = git-quick-stats
 	url = https://github.com/arzzen/git-quick-stats.git
+[submodule "bash-scripts"]
+	path = bash-scripts
+	url = https://github.com/jrussellfreelance/bash-scripts.git

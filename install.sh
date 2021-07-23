@@ -54,8 +54,8 @@ echo "copy done"
 
 echo "Install ben's scripts..."
 echo "create symlink..."
-find /usr/bin/ben_script -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" ! -path "*/cryptr/*" ! -path "*/others-dist/*" | xargs -P$(nproc) -I{} sudo ln -s {} /usr/bin || true
-find /usr/bin/ben_script -type f -name "*.py" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" ! -path "*/cryptr/*" ! -path "*/others-dist/*" | xargs -P$(nproc) -I{} sudo ln -s {} /usr/bin || true
+find /usr/bin/ben_script -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" ! -path "*/cryptr/*" ! -path "*/others-dist/*" ! -path "*/bash-scripts/*" | xargs -P$(nproc) -I{} sudo ln -s {} /usr/bin || true
+find /usr/bin/ben_script -type f -name "*.py" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" ! -path "*/cryptr/*" ! -path "*/others-dist/*" ! -path "*/bash-scripts/*" | xargs -P$(nproc) -I{} sudo ln -s {} /usr/bin || true
 echo "create symlink done"
 echo "Install ben's scripts done"
 
@@ -89,6 +89,10 @@ echo "Install cryptr done"
 echo "Install others-dist..."
 find /usr/bin/ben_script/others-dist/Scripts -type f -name "*.sh" ! -path "*./git/*" | xargs -P$(nproc) -I{} sudo ln -s {} /usr/bin || true
 echo "Install others-dist done"
+
+echo "Install bash-scripts..."
+find /usr/bin/ben_script/bash-scripts -type f -name "*.sh" ! -path "*./git/*" | xargs -P$(nproc) -I{} sudo ln -s {} /usr/bin || true
+echo "Install bash-scripts done"
 
 echo "Remove *.sh ..."
 # Move it by remove file extension (if does not exit)
