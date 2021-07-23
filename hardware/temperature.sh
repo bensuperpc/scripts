@@ -9,24 +9,15 @@ set -euo pipefail
 #//                             |_|             |_|          //
 #//////////////////////////////////////////////////////////////
 #//                                                          //
-#//  Script, 2020                                            //
-#//  Created: 20, December, 2020                             //
-#//  Modified: 20, December, 2020                            //
+#//  Script, 2021                                            //
+#//  Created: 23, July, 2021                                 //
+#//  Modified: 23, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
-#//  Source: -                                               //
+#//  Source: https://github.com/dockcross/dockcross                                                //
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
-filename=$1
-fname_input="$filename/*"
-fname_output="$filename-$(date +"%Y-%m-%dT%H-%M-%S").7z"
 
-#7z Options
-algo="-m0=lzma2"
-compresslevel="-mx=9"
-threading="-mmt"
-
-time 7z a $fname_output $fname_input $algo $compresslevel -aoa $threading
-
+paste <(cat /sys/class/thermal/thermal_zone*/type) <(cat /sys/class/thermal/thermal_zone*/temp) | column -s $'\t' -t | sed 's/\(.\)..$/.\1°C/'
