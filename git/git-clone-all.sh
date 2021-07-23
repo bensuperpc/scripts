@@ -10,7 +10,7 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 #//                                                          //
 #//  Script, 2021                                            //
-#//  Created: 21, June, 2021                                 //
+#//  Created: 23, July, 2021                                 //
 #//  Modified: 23, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
@@ -22,7 +22,5 @@ set -euo pipefail
 
 for var in "$@"
 do
-    git apply --stat $var
-    git apply --check $var
-    git am --signoff < $var
+    git clone --recurse-submodules --remote-submodules --progress --jobs=$(nproc) $var
 done
