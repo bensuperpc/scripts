@@ -26,10 +26,10 @@ jobs:
         run: sudo make update
       - name: "🧹 Uninstall"
         run: sudo make uninstall
-      - name: "🛠️ build package"
-        run: sudo make dist
       - name: "🛠️ build full package"
         run: sudo make dist-full
+      - name: "🛠️ build package"
+        run: sudo make dist
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
