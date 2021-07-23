@@ -38,8 +38,8 @@ uninstall:
 update: uninstall install
 
 sync-submodule:
-	git submodule update --init --recursive
-	git submodule update --recursive --remote
+	git submodule update --init --recursive --jobs=2
+	git submodule update --recursive --remote --jobs=2
 
 dist: clean
 	mkdir -p package_build
@@ -61,6 +61,14 @@ dist-full: clean
 
 check:
 	find . -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" ! -path "*/cryptr/*" ! -path "*/others-dist/*" ! -path "*/bash-scripts/*" ! -path "*/fff/*" -exec $(SHELL) -n {} \;
+	
+clean:
+	$(RM) -rf package_build/
+	$(RM) -f $(PROJECT_NAME)-$(VERSION).tar.xz
+	$(RM) -f $(PROJECT_NAME)-$(VERSION).tar.xz.sha384
+	$(RM) -f $(PROJECT_NAME)-full-$(VERSION).tar.xz
+	$(RM) -f $(PROJECT_NAME)-full-$(VERSION).tar.xz.sha384
+	@echo "Clean OK"
 
 check-dep:
 	@echo "Check dependency:"
@@ -83,14 +91,11 @@ check-dep:
 	@cwebp -version > /dev/null 2>&1 && echo "cwebp: OK" || echo "cwebp: Missing"
 	@avifenc --version > /dev/null 2>&1 && echo "avifenc: OK" || echo "avifenc: Missing"
 	@magick -version > /dev/null 2>&1 && echo "magick: OK" || echo "magick: Missing"
-	
+	@pacman --version > /dev/null 2>&1 && echo "pacman: OK" || echo "pacman: Missing (If Archlinux based)"
+	@apt --version > /dev/null 2>&1 && echo "apt: OK" || echo "apt: Missing (If debian based)"
+	@clang-format --version > /dev/null 2>&1 && echo "clang-format: OK" || echo "clang-format: Missing"
+	@cmake --version > /dev/null 2>&1 && echo "cmake: OK" || echo "cmake: Missing"
+	@ninja --version > /dev/null 2>&1 && echo "ninja: OK" || echo "ninja: Missing"
 
-clean:
-	$(RM) -rf package_build/
-	$(RM) -f $(PROJECT_NAME)-$(VERSION).tar.xz
-	$(RM) -f $(PROJECT_NAME)-$(VERSION).tar.xz.sha384
-	$(RM) -f $(PROJECT_NAME)-full-$(VERSION).tar.xz
-	$(RM) -f $(PROJECT_NAME)-full-$(VERSION).tar.xz.sha384
-	@echo "Clean OK"
 
-.PHONY: check dist-full clean dist sync-submodule install uninstall update
+.PHONY: check check-dep dist-full clean dist sync-submodule install uninstall update
