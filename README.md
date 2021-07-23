@@ -23,9 +23,18 @@ cd scripts
 ```
 or Release: https://github.com/bensuperpc/scripts/releases
 
+###### Check dependency:
+
+```sh
+make check-dep
+```
+
+###### And install:
+
 ```sh
 make install
 ```
+
 #### Uninstall
 ```sh
 make uninstall

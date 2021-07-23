@@ -25,7 +25,7 @@ RM := rm
 
 all: install
 
-install:
+install: check-dep
 	@echo "Install libraries..."
 	sudo ./install.sh --yes
 	@echo "done"
@@ -60,7 +60,30 @@ dist-full: clean
 	@echo "$(PROJECT_NAME)-full-$(VERSION).tar.xz done"
 
 check:
-	find . -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" ! -path "*/cryptr/*" ! -path "*/others-dist/*"  -exec $(SHELL) -n {} \;
+	find . -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" ! -path "*/cryptr/*" ! -path "*/others-dist/*" ! -path "*/bash-scripts/*" ! -path "*/fff/*" -exec $(SHELL) -n {} \;
+
+check-dep:
+	@echo "Check dependency:"
+	@echo ""
+	@bash --version > /dev/null 2>&1 && echo "bash: OK" || echo "bash: Missing"
+	@parallel --version > /dev/null 2>&1 && echo "parallel: OK" || echo "parallel: Missing"
+	@find --version > /dev/null 2>&1 && echo "find: OK" || echo "find: Missing"
+	@xargs --version > /dev/null 2>&1 && echo "xargs: OK" || echo "xargs: Missing"
+	@git --version > /dev/null 2>&1 && echo "git: OK" || echo "git: Missing"
+	@docker --version> /dev/null 2>&1 && echo "docker: OK" || echo "docker: Missing"
+	@openssl version > /dev/null 2>&1 && echo "openssl: OK" || echo "openssl: Missing"
+	@cryptsetup --version > /dev/null 2>&1 && echo "cryptsetup: OK" || echo "cryptsetup: Missing"
+	@xz --version > /dev/null 2>&1 && echo "xz: OK" || echo "xz: Missing"
+	@tar --version > /dev/null 2>&1 && echo "tar: OK" || echo "tar: Missing"
+	@mount --version > /dev/null 2>&1 && echo "mount: OK" || echo "mount: Missing"
+	@mkfs.btrfs --version > /dev/null 2>&1 && echo "mkfs.btrfs: OK" || echo "mkfs.btrfs: Missing"
+	@gource --help > /dev/null 2>&1 && echo "gource: OK" || echo "gource: Missing"
+	@youtube-dl --version > /dev/null 2>&1 && echo "youtube-dl: OK" || echo "youtube-dl: Missing"
+	@ffmpeg -version > /dev/null 2>&1 && echo "ffmpeg: OK" || echo "ffmpeg: Missing"
+	@cwebp -version > /dev/null 2>&1 && echo "cwebp: OK" || echo "cwebp: Missing"
+	@avifenc --version > /dev/null 2>&1 && echo "avifenc: OK" || echo "avifenc: Missing"
+	@magick -version > /dev/null 2>&1 && echo "magick: OK" || echo "magick: Missing"
+	
 
 clean:
 	$(RM) -rf package_build/

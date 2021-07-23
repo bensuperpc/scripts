@@ -30,6 +30,8 @@ jobs:
           fetch-depth: 0
       - name: "✅ Check bash syntax"
         run: sudo make check
+      - name: "✅ Check dependency"
+        run: sudo check-dep
       - name: "🛠️ Install"
         run: sudo make install
       - name: "🛠️ update (optional)"

@@ -18,6 +18,8 @@ jobs:
           fetch-depth: 0
       - name: "✅ Check bash syntax"
         run: sudo make check
+      - name: "✅ Check dependency"
+        run: sudo check-dep
       - name: "🛠️ Install"
         run: sudo make install
       - name: "🛠️ update (optional)"
@@ -26,8 +28,8 @@ jobs:
         run: sudo make uninstall
       - name: "🛠️ build package"
         run: sudo make dist
-#      - name: "🛠️ build full package"
-#        run: sudo make dist-full
+      - name: "🛠️ build full package"
+        run: sudo make dist-full
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
