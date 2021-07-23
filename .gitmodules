@@ -28,3 +28,6 @@
 [submodule "bash-scripts"]
 	path = bash-scripts
 	url = https://github.com/jrussellfreelance/bash-scripts.git
+[submodule "fff"]
+	path = fff
+	url = https://github.com/dylanaraps/fff.git

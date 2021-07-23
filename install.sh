@@ -74,6 +74,11 @@ cd /usr/bin/ben_script/git-quick-stats
 sudo make install
 echo "Install git-quick-stats done"
 
+echo "Install fff..."
+cd /usr/bin/ben_script/fff
+sudo make install
+echo "Install fff done"
+
 echo "Install git-scripts..."
 find /usr/bin/ben_script/git-scripts -type f -name "git-*" ! -path "*./git/*" | xargs -P$(nproc) -I{} sudo ln -s {} /usr/bin || true
 echo "Install git-scripts done"

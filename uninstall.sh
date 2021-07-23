@@ -63,6 +63,11 @@ cd /usr/bin/ben_script/git-quick-stats
 sudo make uninstall
 echo "Removing git-quick-stats done"
 
+echo "Removing fff..."
+cd /usr/bin/ben_script/fff
+sudo make uninstall
+echo "Removing fff done"
+
 echo "Removing ben's scripts, git-scripts, git-extra-commands, cryptr, bash-scripts..."
 echo "Remove symlink..."
 sudo find /usr/bin -lname '/usr/bin/ben_script/*' -delete
