@@ -19,7 +19,7 @@ jobs:
       - name: "✅ Check bash syntax"
         run: sudo make check
       - name: "✅ Check dependency"
-        run: sudo check-dep
+        run: sudo make check-dep
       - name: "🛠️ Install"
         run: sudo make install
       - name: "🛠️ update (optional)"
