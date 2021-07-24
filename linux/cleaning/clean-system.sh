@@ -10,8 +10,8 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 #//                                                          //
 #//  Script, 2021                                            //
-#//  Created: 27, May, 2021                                  //
-#//  Modified: 17, June, 2021                                //
+#//  Created: 24, July, 2021                                 //
+#//  Modified: 24, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -19,6 +19,7 @@ set -euo pipefail
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
+
 if [[ "$EUID" = 0 ]]; then
     echo "(1) already root"
 else
@@ -31,5 +32,15 @@ else
     fi
 fi
 
-sudo pacman -Sc
-sudo pacman -Rns $(pacman -Qtdq)
+#journalctl --disk-usage
+sudo journalctl --vacuum-time=3d
+
+#du -h /var/lib/snapd/snaps
+sudo find ~/.cache/ -type f -atime +3 -delete
+
+sudo find ~/Téléchargements/ -type f -atime +15 -delete || true
+sudo find ~/Downloads/ -type f -atime +15 -delete || true
+
+sudo rm -rf ~/.local/share/Trash/*
+
+echo "Clean: OK"

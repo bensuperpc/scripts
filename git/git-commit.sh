@@ -10,26 +10,22 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 #//                                                          //
 #//  Script, 2021                                            //
-#//  Created: 27, May, 2021                                  //
-#//  Modified: 17, June, 2021                                //
+#//  Created: 24, July, 2021                                 //
+#//  Modified: 24, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
-#//  Source: -                                               //
+#//  Source: https://stackoverflow.com/a/2979587/10152334                                               //
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
-if [[ "$EUID" = 0 ]]; then
-    echo "(1) already root"
-else
-    sudo -k # make sure to ask for password on next sudo
-    if sudo true; then
-        echo "(2) correct password"
-    else
-        echo "(3) wrong password"
-        exit 1
-    fi
-fi
 
-sudo pacman -Sc
-sudo pacman -Rns $(pacman -Qtdq)
+if (( $# == 2 )); then
+git commit -s -m $1 -m $2
+elif (( $# == 1 )); then
+git commit -s -m $1 -m $1
+else
+    echo "Usage: ${0##*/} <Title> <Message>"
+    echo "Usage: ${0##*/} <Title>"
+    exit 1
+fi
