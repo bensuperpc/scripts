@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 #//////////////////////////////////////////////////////////////
 #//   ____                                                   //
@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2020                                            //
 #//  Created: 10, November, 2020                             //
-#//  Modified: 20, December, 2020                            //
+#//  Modified: 24, July, 2020                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -19,5 +19,6 @@ set -euo pipefail
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
+
 #cat /dev/urandom | tr -dc 'A-F0-9' | head -c${1:-65536} | hexdump -C -n 65536 
 cat /dev/urandom | tr -dc 'A-F0-9' | head -c${1:-65536}

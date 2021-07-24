@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 #//////////////////////////////////////////////////////////////
 #//   ____                                                   //
@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 23, July, 2021                                 //
-#//  Modified: 23, July, 2021                                //
+#//  Modified: 24, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: https://serverfault.com/a/597626/562645                                               //
