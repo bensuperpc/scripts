@@ -39,7 +39,26 @@ make install
 ```sh
 make uninstall
 ```
+### Info
 
+| Directory     | Infos           | More  |
+| ------------- |:-------------:| -----:|
+| git           | git scripts   | Useful scripts for git |
+| docker-scripts | docker scripts | Useful scripts for docker  |
+| linux | linux scripts | infosystem, hash, uuid, cleaning, grub ect... |
+| partition | partition scripts | LUKS, tmpfs ect... |
+| file | files scripts | rsync, compress ect... |
+| Bash-Snippets | [Bash-Snippets](https://github.com/alexanderepstein/Bash-Snippets) | Useful scripts |
+| git-extras | [git-extras](https://github.com/tj/git-extras) | GIT utilities |
+| shell-scripts | [shell-scripts](https://github.com/Josef-Friedrich/shell-scripts) | A collection of shell scripts. |
+| archive | archive scripts | 7z, xz |
+| development | development scripts | For cmake, ninja, clang-format... |
+| cryptr | [cryptr](https://github.com/nodesocket/cryptr) | To crypt files with AES |
+| video | video scripts | ffmpeg, nvenc, youtube-dl ect... |
+| image | image scripts | ffmpeg, cwebp ect... |
+| debian | debian scripts | apt, cleaning ect... |
+| archlinux | archlinux scripts | pacman, cleaning ect... |
+| bash-scripts | [bash-scripts](https://github.com/jrussellfreelance/bash-scripts) | A collection of bash scripts by [jrussellfreelance](https://github.com/jrussellfreelance) |
 ### Todos
 
  - Write Tests
