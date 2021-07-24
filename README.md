@@ -39,7 +39,7 @@ make install
 ```sh
 make uninstall
 ```
-### Info
+### Documentation
 
 | Directory     | Infos         | More  |
 |:-------------:|:-------------:|:-----:|
