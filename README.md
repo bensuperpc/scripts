@@ -55,6 +55,8 @@ make uninstall
 | file | files scripts | rsync, compress ect... |
 | Bash-Snippets | [Bash-Snippets](https://github.com/alexanderepstein/Bash-Snippets) | Useful scripts |
 | git-extras | [git-extras](https://github.com/tj/git-extras) | GIT utilities |
+| git-extra-commands | [git-extra-commands](https://github.com/unixorn/git-extra-commands) | A collection of git utilities and useful extra git scriptse) |
+| git-scripts | [git-scripts](https://github.com/jwiegley/git-scripts) | A collection of bash scripts by [jwiegley](https://github.com/jwiegley) for git |
 | shell-scripts | [shell-scripts](https://github.com/Josef-Friedrich/shell-scripts) | A collection of shell scripts. |
 | archive | archive scripts | 7z, xz |
 | development | development scripts | For cmake, ninja, clang-format... |
@@ -64,6 +66,7 @@ make uninstall
 | debian | debian scripts | apt, cleaning ect... |
 | archlinux | archlinux scripts | pacman, cleaning ect... |
 | bash-scripts | [bash-scripts](https://github.com/jrussellfreelance/bash-scripts) | A collection of bash scripts by [jrussellfreelance](https://github.com/jrussellfreelance) |
+
 ### Todos
 
  - Write Tests
