@@ -31,3 +31,6 @@
 [submodule "fff"]
 	path = fff
 	url = https://github.com/dylanaraps/fff.git
+[submodule "shell-scripts"]
+	path = shell-scripts
+	url = https://github.com/Josef-Friedrich/shell-scripts.git

@@ -9,9 +9,9 @@ set -euo pipefail
 #//                             |_|             |_|          //
 #//////////////////////////////////////////////////////////////
 #//                                                          //
-#//  Script, 2020                                            //
-#//  Created: 21, November, 2020                             //
-#//  Modified: 20, December, 2020                            //
+#//  Script, 2021                                            //
+#//  Created: 24, July, 2021                                 //
+#//  Modified: 24, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -19,4 +19,5 @@ set -euo pipefail
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
-for i in *.mp4; do ffmpeg -strict 2 -hwaccel auto -i "$i" -c:v hevc_nvenc -preset slow -rc vbr_hq -cq 18 -qmin 16 -qmax 20 -profile:v main10 -b:v 0K -c:a copy -map 0 "$(basename "$i" .mp4)".mkv  ; done
+
+history | sed -e 's/ *[0-9][0-9]* *//' | sort | uniq -c | sort -rn | head -25
