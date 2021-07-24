@@ -76,6 +76,7 @@ gather meminfo cat /proc/meminfo
 gather lspci lspci -v
 gather lsusb lsusb -v
 gather lsscsi lsscsi -s
+gather grubline cat /proc/cmdline
 
 gather lsmod lsmod
 gather lshw lshw
