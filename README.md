@@ -15,7 +15,8 @@
 # New Features !
 
   - Update LUKS scripts
-  - Add dockcross builder
+  - Update git scripts
+  - Add docker scripts
 
 #### Install
 You need Linux distribution like Ubuntu or Manjaoro
