@@ -41,8 +41,8 @@ make uninstall
 ```
 ### Info
 
-| Directory     | Infos           | More  |
-| ------------- |:-------------:| -----:|
+| Directory     | Infos         | More  |
+|:-------------:|:-------------:|:-----:|
 | git           | git scripts   | Useful scripts for git |
 | docker-scripts | docker scripts | Useful scripts for docker  |
 | linux | linux scripts | infosystem, hash, uuid, cleaning, grub ect... |
