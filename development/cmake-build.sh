@@ -18,4 +18,4 @@ mkdir -p build
 
 cmake -S . -B build -G Ninja $@
 
-ninja -C build
+cmake --build build

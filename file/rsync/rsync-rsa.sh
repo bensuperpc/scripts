@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 27, May, 2021                                  //
-#//  Modified: 17, July, 2021                                //
+#//  Modified: 24, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -19,6 +19,10 @@ set -euo pipefail
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
+
 if (( $# == 4 )); then
     rsync --progress --compress --stats --archive --partial --delete-during --verbose --human-readable -e "ssh -p $1 -i $2" --log-file=log_rsync_$(date +%Y-%m-%d_%H_%M_%S).log "$3" "$4"
+else
+    echo "Usage: ${0##*/} <port> <key-file> <source> <destination>"
+    exit 1
 fi

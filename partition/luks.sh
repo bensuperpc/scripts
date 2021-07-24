@@ -38,7 +38,7 @@ if (( $# == 2 )); then
     sudo umount $1 || true
     sudo cryptsetup -v --type luks --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 1000 --use-urandom --verify-passphrase luksFormat --label=$2 $1
     sudo cryptsetup -v luksOpen $1 ${UUID}
-    sudo mkfs.btrfs --force --checksum crc32c --label $2 /dev/mapper/${UUID}
+    sudo mkfs.btrfs --force --checksum blake2 --label $2 /dev/mapper/${UUID}
     
     sudo cryptsetup -v luksClose ${UUID}
     echo "Partition: OK"

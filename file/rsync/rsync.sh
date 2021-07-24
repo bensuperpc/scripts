@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2020                                            //
 #//  Created: 21, November, 2020                             //
-#//  Modified: 16, Jully, 2021                               //
+#//  Modified: 24, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -19,6 +19,10 @@ set -euo pipefail
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
+
 if (( $# == 2 )); then
     rsync --progress --stats --archive --partial --delete-during --verbose --human-readable --log-file=log_rsync_$(date +%Y-%m-%d_%H_%M_%S).log "$1" "$2"
+else
+    echo "Usage: ${0##*/} <source> <destination>"
+    exit 1
 fi

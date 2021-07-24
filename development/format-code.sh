@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2020                                            //
 #//  Created: 6, October, 2020                               //
-#//  Modified: 21, November, 2020                            //
+#//  Modified: 24, July, 2021                               //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -19,7 +19,9 @@ set -euo pipefail
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
-time find . -regex '.*\.\(cpp\|hpp\|c\|h\)' | parallel clang-format -style=file -i {} \;
-#time find . -iname *.hpp -o -iname *.h -o -iname *.c | xargs clang-format -style=file -i
 
-#clang-format --verbose -i -style=file *.c
+if (( $# == 1 )); then
+    time find . -regex '.*\.\(cpp\|cxx\|hpp\|c\|cc\|h\|hh\|tpp\)' -print0  | xargs -P$(nproc) -0 -I{} clang-format -style=$1 -i {}
+else
+    time find . -regex '.*\.\(cpp\|cxx\|hpp\|c\|cc\|h\|hh\|tpp\)' -print0  | xargs -P$(nproc) -0 -I{} clang-format -style=LLVM -i {}
+fi
