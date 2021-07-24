@@ -21,9 +21,10 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 
 if (( $# == 2 )); then
-git commit -s -m $1 -m $2
+git commit -s -m "$1" -m "$2"
 elif (( $# == 1 )); then
-git commit -s -m $1 -m $1
+echo $1
+git commit -s -m "$1" -m "$1"
 else
     echo "Usage: ${0##*/} <Title> <Message>"
     echo "Usage: ${0##*/} <Title>"
