@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 21, June, 2021                                 //
-#//  Modified: 24, July, 2021                                //
+#//  Modified: 25, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source:                                                 //
@@ -20,5 +20,15 @@ set -euo pipefail
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-git format-patch -n HEAD^
-#git format-patch cc1dde0dd^..6de6d4b06 --stdout > foo.patch
+if (( $# == 0 )); then
+    git format-patch -n HEAD^
+elif (( $# == 1 )); then
+    git format-patch HEAD~$1..HEAD --stdout > last-$1-commit.patch
+elif (( $# == 2 )); then
+    git diff "$1" "$2" -- > $1-$2.patch
+else
+    echo "Usage: ${0##*/} (patch HEAD)"
+    echo "Usage: ${0##*/} <nbr from HEAD>"
+    echo "Usage: ${0##*/} <tag or hash 1> <tag or hash 2>"
+    exit 1
+fi

@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 24, July, 2021                                 //
-#//  Modified: 24, July, 2021                                //
+#//  Modified: 25, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: https://stackoverflow.com/a/2979587/10152334                                               //
@@ -21,10 +21,10 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 
 if (( $# == 2 )); then
-git commit -s -m "$1" -m "$2"
+    git commit -s -m "$1" -m "$2"
 elif (( $# == 1 )); then
 echo $1
-git commit -s -m "$1" -m "$1"
+    git commit -s -m "$1" -m "$1"
 else
     echo "Usage: ${0##*/} <Title> <Message>"
     echo "Usage: ${0##*/} <Title>"

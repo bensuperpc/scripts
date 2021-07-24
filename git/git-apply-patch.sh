@@ -19,10 +19,14 @@ set -euo pipefail
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
-
-for var in "$@"
-do
-    git apply --stat $var
-    git apply --check $var
-    git am --signoff < $var
-done
+if (( $# >= 1 )); then
+    for var in "$@"
+    do
+        git apply --stat $var
+        git apply --check $var
+        git am --signoff < $var
+    done
+else
+    echo "Usage: ${0##*/} <patch 1> <patch 2>..."
+    exit 1
+fi

@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 23, July, 2021                                 //
-#//  Modified: 24, July, 2021                                //
+#//  Modified: 25, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source:                                                 //
@@ -20,7 +20,12 @@ set -euo pipefail
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-for var in "$@"
-do
-    git clone --recurse-submodules --remote-submodules --progress --jobs=$(nproc) $var
-done
+if (( $# >= 1 )); then
+    for var in "$@"
+    do
+        git clone --recurse-submodules --remote-submodules --progress --jobs=$(nproc) $var
+    done
+else
+    echo "Usage: ${0##*/} <repo URL 1> <repo URL 2>..."
+    exit 1
+fi
