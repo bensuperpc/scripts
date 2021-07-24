@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 #//////////////////////////////////////////////////////////////
 #//   ____                                                   //
@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2020                                            //
 #//  Created: 20, December, 2020                             //
-#//  Modified: 20, December, 2020                            //
+#//  Modified: 24, july, 2020                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -19,14 +19,20 @@ set -euo pipefail
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
-filename=$1
-fname_input="$filename/*"
-fname_output="$filename-$(date +"%Y-%m-%dT%H-%M-%S").7z"
 
-#7z Options
-algo="-m0=lzma2"
-compresslevel="-mx=9"
-threading="-mmt"
-issolid="-ms"
+if (( $# == 1 )); then
+    filename=$1
+    fname_input="$filename/*"
+    fname_output="$filename-$(date +"%Y-%m-%dT%H-%M-%S").7z"
 
-time 7z a $fname_output $fname_input $algo $compresslevel -aoa $threading $issolid
+    #7z Options
+    algo="-m0=lzma2"
+    compresslevel="-mx=9"
+    threading="-mmt"
+    issolid="-ms"
+
+    time 7z a $fname_output $fname_input $algo $compresslevel -aoa $threading $issolid
+else
+    echo "Usage: ${0##*/} <file>"
+    exit 1
+fi
