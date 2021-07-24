@@ -26,7 +26,7 @@ git clone --recurse-submodules --remote-submodules https://github.com/Bensuperpc
 ```sh
 cd scripts
 ```
-or Release: https://github.com/bensuperpc/scripts/releases
+Or [Released version](https://github.com/bensuperpc/scripts/releases)
 
 ###### Check dependency:
 
