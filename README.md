@@ -7,6 +7,11 @@
 
 [![scripts](https://github.com/Bensuperpc/scripts/actions/workflows/main.yml/badge.svg)](https://github.com/Bensuperpc/scripts/actions/workflows/main.yml) [![tagged-release](https://github.com/bensuperpc/scripts/actions/workflows/release.yml/badge.svg)](https://github.com/bensuperpc/scripts/actions/workflows/release.yml)
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/bensuperpc/scripts) ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/bensuperpc/scripts) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/bensuperpc/scripts)
+
+![GitHub](https://img.shields.io/github/license/bensuperpc/scripts) ![GitHub top language](https://img.shields.io/github/languages/top/bensuperpc/scripts) ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/bensuperpc/scripts) ![GitHub search hit counter](https://img.shields.io/github/search/bensuperpc/scripts/script)
+
+
 # New Features !
 
   - Update LUKS scripts
@@ -50,6 +55,8 @@ make uninstall
 | file | files scripts | rsync, compress ect... |
 | Bash-Snippets | [Bash-Snippets](https://github.com/alexanderepstein/Bash-Snippets) | Useful scripts |
 | git-extras | [git-extras](https://github.com/tj/git-extras) | GIT utilities |
+| git-extra-commands | [git-extra-commands](https://github.com/unixorn/git-extra-commands) | A collection of git utilities and useful extra git scriptse) |
+| git-scripts | [git-scripts](https://github.com/jwiegley/git-scripts) | A collection of bash scripts by [jwiegley](https://github.com/jwiegley) for git |
 | shell-scripts | [shell-scripts](https://github.com/Josef-Friedrich/shell-scripts) | A collection of shell scripts. |
 | archive | archive scripts | 7z, xz |
 | development | development scripts | For cmake, ninja, clang-format... |
@@ -59,6 +66,7 @@ make uninstall
 | debian | debian scripts | apt, cleaning ect... |
 | archlinux | archlinux scripts | pacman, cleaning ect... |
 | bash-scripts | [bash-scripts](https://github.com/jrussellfreelance/bash-scripts) | A collection of bash scripts by [jrussellfreelance](https://github.com/jrussellfreelance) |
+
 ### Todos
 
  - Write Tests
