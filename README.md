@@ -7,6 +7,11 @@
 
 [![scripts](https://github.com/Bensuperpc/scripts/actions/workflows/main.yml/badge.svg)](https://github.com/Bensuperpc/scripts/actions/workflows/main.yml) [![tagged-release](https://github.com/bensuperpc/scripts/actions/workflows/release.yml/badge.svg)](https://github.com/bensuperpc/scripts/actions/workflows/release.yml)
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/bensuperpc/scripts) ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/bensuperpc/scripts) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/bensuperpc/scripts)
+
+![GitHub](https://img.shields.io/github/license/bensuperpc/scripts) ![GitHub top language](https://img.shields.io/github/languages/top/bensuperpc/scripts) ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/bensuperpc/scripts) ![GitHub search hit counter](https://img.shields.io/github/search/bensuperpc/scripts/script)
+
+
 # New Features !
 
   - Update LUKS scripts
