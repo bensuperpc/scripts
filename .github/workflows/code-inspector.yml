@@ -29,4 +29,4 @@ jobs:
           max_complex_functions_rate: '0.0001'
           max_long_functions_rate: '0.0001'
           project_name: ''
-          max_timeout_sec: '600' 
+          max_timeout_sec: '600'

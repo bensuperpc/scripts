@@ -58,7 +58,7 @@ find /usr/bin/ben_script -type f \( -name "*.sh" -o -name "*.py" \) ! -path "*./
     ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" \
     ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" \
     ! -path "*/cryptr/*" ! -path "*/others-dist/*" ! -path "*/bash-scripts/*" ! -path "*/fff/*" \
-    ! -path "*/shell-scripts/*" -print0 | xargs -0 -P$(nproc) -I{} sudo ln -s {} /usr/bin || true
+    ! -path "*/shell-scripts/*" -print0 | xargs -0 -P$(nproc) -I{} sudo ln -s "{}" /usr/bin || true
 echo "create symlink done"
 echo "Install ben's scripts done"
 
@@ -84,12 +84,12 @@ echo "Install fff done"
 
 echo "Install git-scripts..."
 find /usr/bin/ben_script/git-scripts -type f -name "git-*" \
-    ! -path "*./git/*" -print0 | xargs -0 -P$(nproc) -I{} sudo ln -s {} /usr/bin || true
+    ! -path "*./git/*" -print0 | xargs -0 -P$(nproc) -I{} sudo ln -s "{}" /usr/bin || true
 echo "Install git-scripts done"
 
 echo "Install git-extra-commands..."
 find /usr/bin/ben_script/git-extra-commands/bin -type f -name "*" \
-    ! -path "*./git/*" -print0 | xargs -0 -P$(nproc) -I{} sudo ln -s {} /usr/bin || true
+    ! -path "*./git/*" -print0 | xargs -0 -P$(nproc) -I{} sudo ln -s "{}" /usr/bin || true
 echo "Install git-extra-commands done"
 
 echo "Install cryptr..."
@@ -98,17 +98,17 @@ echo "Install cryptr done"
 
 echo "Install others-dist..."
 find /usr/bin/ben_script/others-dist/Scripts -type f -name "*.sh" \
-    ! -path "*./git/*" -print0 | xargs -0 -P$(nproc) -I{} sudo ln -s {} /usr/bin || true
+    ! -path "*./git/*" -print0 | xargs -0 -P$(nproc) -I{} sudo ln -s "{}" /usr/bin || true
 echo "Install others-dist done"
 
 echo "Install shell-scripts..."
 find /usr/bin/ben_script/shell-scripts -type f -name "*.sh" \
-    ! -path "*./git/*" -print0 | xargs -0 -P$(nproc) -I{} sudo ln -s {} /usr/bin || true
+    ! -path "*./git/*" -print0 | xargs -0 -P$(nproc) -I{} sudo ln -s "{}" /usr/bin || true
 echo "Install shell-scripts done"
 
 echo "Install bash-scripts..."
 find /usr/bin/ben_script/bash-scripts -type f -name "*.sh" \
-    ! -path "*./git/*" -print0 | xargs -P$(nproc) -0 -I{} sudo ln -s {} /usr/bin || true
+    ! -path "*./git/*" -print0 | xargs -P$(nproc) -0 -I{} sudo ln -s "{}" /usr/bin || true
 echo "Install bash-scripts done"
 
 echo "Remove *.sh ..."

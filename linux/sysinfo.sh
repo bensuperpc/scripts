@@ -40,7 +40,6 @@ mkdir "$tmpdir" || exit $?
 gather() {
 	file=$1
 	shift
-	cmd=$1
 	bash -c "$*" >> "$tmpdir"/"$file".txt 2>&1 || true
 }
 
@@ -101,7 +100,7 @@ gather brew brew list
 
 echo "Done"
 
-find -type f -empty -delete
+find . -type f -empty -delete
 
 XZ_OPT=-e9 tar cJf "${tmpdir}.tar.xz" "$tmpdir"
 rm -rf "$tmpdir"

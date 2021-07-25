@@ -34,5 +34,5 @@ fi
 
 TYPE=sha3-512
 find "$1" -type f -name "*" ! -name "checksums.*" | parallel -j $(nproc) rhash --"${TYPE}" > checksums."${TYPE}"
-cat checksums.${TYPE} | parallel --pipe -N100 -j $(nproc) rhash --"${TYPE}" -c -
+less -f checksums."${TYPE}" | parallel --pipe -N100 -j $(nproc) rhash --"${TYPE}" -c -
 echo "OK"

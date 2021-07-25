@@ -30,5 +30,5 @@ fi
 #cat checksums.${TYPE} | parallel --pipe -N100 -j $(nproc) ${TYPE}sum --quiet -c -
 
 TYPE=sha3-512
-cat checksums."${TYPE}" | parallel --pipe -N100 -j $(nproc) rhash --"${TYPE}" -c -
+less -f checksums."${TYPE}" | parallel --pipe -N100 -j $(nproc) rhash --"${TYPE}" -c -
 echo "OK"

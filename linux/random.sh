@@ -20,5 +20,5 @@ set -euo pipefail
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-#cat /dev/urandom | tr -dc 'A-F0-9' | head -c${1:-65536} | hexdump -C -n 65536 
-cat /dev/urandom | tr -dc 'A-F0-9' | head -c${1:-65536}
+#less -f /dev/urandom | tr -dc 'A-F0-9' | head -c${1:-65536} | hexdump -C -n 65536 
+less -f /dev/urandom | tr -dc 'A-F0-9' | head -c"${1:-65536}"
