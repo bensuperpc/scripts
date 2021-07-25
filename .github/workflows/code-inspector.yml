@@ -16,12 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        codeinspector: [codeinspectorio/github-action@master, bensuperpc/code-inspector@v1.0.2]
+        codeinspector: ["codeinspectorio/github-action@master", "bensuperpc/code-inspector@v1.0.2"]
     name: A job to check my code quality
     steps:
       - name: Check code meets quality standards
         id: code-inspector
-        uses: ${{ matrix.codeinspector }}
+        uses: "${{ matrix.codeinspector }}"
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           code_inspector_access_key: ${{ secrets.CODE_INSPECTOR_ACCESS_KEY }}
