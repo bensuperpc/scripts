@@ -23,12 +23,13 @@ set -euo pipefail
 if [ $# -eq 0 ]
 then
     echo "No arguments supplied"
+    echo "Usage: ${0##*/} <file to check>"
     exit 1
 fi
 
 #TYPE=sha512
-#less -f checksums.${TYPE} | parallel --pipe -N100 -j $(nproc) ${TYPE}sum --quiet -c -
+#less -f checksums.${TYPE} | parallel --pipe -N100 -j "$(nproc)" ${TYPE}sum --quiet -c -
 
 TYPE=sha3-512
-less -f checksums."${TYPE}" | parallel --pipe -N100 -j $(nproc) rhash --"${TYPE}" -c -
+less -f checksums."${TYPE}" | parallel --pipe -N100 -j "$(nproc)" rhash --"${TYPE}" -c -
 echo "OK"

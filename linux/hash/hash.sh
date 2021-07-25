@@ -23,6 +23,7 @@ set -euo pipefail
 if [ $# -eq 0 ]
 then
     echo "No arguments supplied"
+    echo "Usage: ${0##*/} <file>"
     exit 1
 fi
 
