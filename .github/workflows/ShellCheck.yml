@@ -17,7 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        shell_type: [bash, ksh] # Disable dash and sh
+# Disable dash and sh
+        shell_type: [bash, ksh]
     steps:
       - name: "📥 Checkout Code"
         uses: actions/checkout@v2
