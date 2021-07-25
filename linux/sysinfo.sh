@@ -33,8 +33,8 @@ else
 fi
 
 tmpdir="sysinfo-$(date +'%Y%m%d-%H%M%S-%Z')"
-mkdir $tmpdir || exit $?
-cd $tmpdir
+mkdir "$tmpdir" || exit $?
+cd "$tmpdir"
 
 #PATH=/usr/sbin:/usr/bin:/sbin:/bin
 
@@ -105,8 +105,8 @@ echo "Done"
 find -type f -empty -delete
 
 cd ..
-XZ_OPT=-e9 tar cJf "${tmpdir}.tar.xz" $tmpdir
-rm -rf $tmpdir
+XZ_OPT=-e9 tar cJf "${tmpdir}.tar.xz" "$tmpdir"
+rm -rf "$tmpdir"
 
 echo
 echo "System information archive has been created:"
