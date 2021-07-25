@@ -91,6 +91,7 @@ check-dep:
 	@git --version > /dev/null 2>&1 && echo "git: OK" || echo "git: Missing"
 	@docker --version> /dev/null 2>&1 && echo "docker: OK" || echo "docker: Missing"
 	@openssl version > /dev/null 2>&1 && echo "openssl: OK" || echo "openssl: Missing"
+	@rhash --version > /dev/null 2>&1 && echo "rhash: OK" || echo "rhash: Missing"
 	@cryptsetup --version > /dev/null 2>&1 && echo "cryptsetup: OK" || echo "cryptsetup: Missing"
 	@xz --version > /dev/null 2>&1 && echo "xz: OK" || echo "xz: Missing"
 	@tar --version > /dev/null 2>&1 && echo "tar: OK" || echo "tar: Missing"
