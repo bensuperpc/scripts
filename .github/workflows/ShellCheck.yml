@@ -17,14 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-# Disable dash and sh
         shell_type: [bash, ksh]
     steps:
       - name: "📥 Checkout Code"
         uses: actions/checkout@v2
-#        with:
-#          submodules: 'recursive'
-#          fetch-depth: 0
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
         with:
