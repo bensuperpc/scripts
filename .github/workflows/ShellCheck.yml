@@ -1,0 +1,30 @@
+name: shellcheck
+
+on:
+  push:
+    branches:
+      - '*'
+    paths-ignore:
+      - '**/README.md'
+  pull_request:
+    branches:
+      - '*'
+  workflow_dispatch:
+
+jobs:
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        shell_type: [bash, ksh]
+    steps:
+      - name: "📥 Checkout Code"
+        uses: actions/checkout@v2
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          ignore: archlinux
+          severity: warning
+        env:
+          SHELLCHECK_OPTS: -s ${{ matrix.shell_type }}
