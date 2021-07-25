@@ -34,7 +34,6 @@ fi
 
 tmpdir="sysinfo-$(date +'%Y%m%d-%H%M%S-%Z')"
 mkdir "$tmpdir" || exit $?
-cd "$tmpdir"
 
 #PATH=/usr/sbin:/usr/bin:/sbin:/bin
 
@@ -42,7 +41,7 @@ gather() {
 	file=$1
 	shift
 	cmd=$1
-	which $cmd >/dev/null 2>&1 && "$@" >> $file.txt 2>&1 || true
+	bash -c "$*" >> "$tmpdir"/"$file".txt 2>&1 || true
 }
 
 echo
@@ -104,7 +103,6 @@ echo "Done"
 
 find -type f -empty -delete
 
-cd ..
 XZ_OPT=-e9 tar cJf "${tmpdir}.tar.xz" "$tmpdir"
 rm -rf "$tmpdir"
 

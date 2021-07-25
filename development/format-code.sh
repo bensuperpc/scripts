@@ -21,7 +21,7 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 
 if (( $# == 1 )); then
-    time find . -regex '.*\.\(cpp\|cxx\|hpp\|c\|cc\|h\|hh\|tpp\)' -print0  | xargs -P$(nproc) -0 -I{} clang-format -style=$1 -i {}
+    time find . -regex '.*\.\(cpp\|cxx\|hpp\|c\|cc\|h\|hh\|tpp\)' -print0  | xargs -P$(nproc) -0 -I{} clang-format -style="$1" -i {}
 else
     time find . -regex '.*\.\(cpp\|cxx\|hpp\|c\|cc\|h\|hh\|tpp\)' -print0  | xargs -P$(nproc) -0 -I{} clang-format -style=LLVM -i {}
 fi

@@ -33,7 +33,7 @@ else
 fi
 
 if (( $# == 2 )); then
-    sudo mount -t tmpfs -o size=$2M tmpfs $1
+    sudo mount -t tmpfs -o size="$"2M tmpfs "$1"
 else
     echo "Usage: ${0##*/} <path> <size>" 
 fi

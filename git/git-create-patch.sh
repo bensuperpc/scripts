@@ -23,9 +23,9 @@ set -euo pipefail
 if (( $# == 0 )); then
     git format-patch -n HEAD^
 elif (( $# == 1 )); then
-    git format-patch HEAD~$1..HEAD --stdout > last-$1-commit.patch
+    git format-patch HEAD~"$1"..HEAD --stdout > last-"$1"-commit.patch
 elif (( $# == 2 )); then
-    git diff "$1" "$2" -- > $1-$2.patch
+    git diff "$1" "$2" -- > "$1"-"$2".patch
 else
     echo "Usage: ${0##*/} (patch HEAD)"
     echo "Usage: ${0##*/} <nbr from HEAD>"

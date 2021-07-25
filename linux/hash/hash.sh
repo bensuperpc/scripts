@@ -33,6 +33,6 @@ fi
 #cat checksums.${TYPE} | parallel --pipe -N100 -j $(nproc) ${TYPE}sum --quiet -c -
 
 TYPE=sha3-512
-find $1 -type f -name "*" ! -name "checksums.*" | parallel -j $(nproc) rhash --${TYPE} > checksums.${TYPE}
+find "$1" -type f -name "*" ! -name "checksums.*" | parallel -j $(nproc) rhash --${TYPE} > checksums.${TYPE}
 cat checksums.${TYPE} | parallel --pipe -N100 -j $(nproc) rhash --${TYPE} -c -
 echo "OK"

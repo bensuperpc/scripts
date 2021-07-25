@@ -19,21 +19,21 @@ set -euo pipefail
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
-if (( $# == 2 )); then
+if (( $# >= 1 )); then
     image=$1
     build_file=build-${image%:*}
     shift 1
-    cmake_arg=$@
+    cmake_arg=$*
     echo "cmake arg: $cmake_arg"
 
     echo "Pulling dockcross/$image"
-    docker pull dockcross/$image
+    docker pull dockcross/"$image"
     echo "Make script dockcross-$image"
-    docker run --rm dockcross/$image > ./dockcross-$image
-    chmod +x ./dockcross-$image
+    docker run --rm dockcross/"$image" > ./dockcross-"$image"
+    chmod +x ./dockcross-"$image"
     echo "Build $build_file"
-    ./dockcross-$image cmake -B$build_file -H. -GNinja $cmake_arg
-    ./dockcross-$image ninja -C$build_file
+    ./dockcross-"$image" cmake -B"$build_file" -H. -GNinja "$cmake_arg"
+    ./dockcross-"$image" ninja -C"$build_file"
 else
     echo "Usage: ${0##*/} <docker imag (ex: linux-x64/linux-arm64...)> <cmake arg.>"
     exit 1
