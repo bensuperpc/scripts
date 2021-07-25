@@ -9,13 +9,14 @@
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bensuperpc/scripts) ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/bensuperpc/scripts) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/bensuperpc/scripts)
 
-![GitHub](https://img.shields.io/github/license/bensuperpc/scripts) ![GitHub top language](https://img.shields.io/github/languages/top/bensuperpc/scripts) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/bensuperpc/scripts) ![GitHub search hit counter](https://img.shields.io/github/search/bensuperpc/scripts/script)
+![GitHub](https://img.shields.io/github/license/bensuperpc/scripts) ![GitHub top language](https://img.shields.io/github/languages/top/bensuperpc/scripts) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/bensuperpc/scripts)
 
 
 # New Features !
 
   - Update LUKS scripts
-  - Add dockcross builder
+  - Update git scripts
+  - Add docker scripts
 
 #### Install
 You need Linux distribution like Ubuntu or Manjaoro
@@ -26,7 +27,7 @@ git clone --recurse-submodules --remote-submodules https://github.com/Bensuperpc
 ```sh
 cd scripts
 ```
-or Release: https://github.com/bensuperpc/scripts/releases
+Or [Released version](https://github.com/bensuperpc/scripts/releases)
 
 ###### Check dependency:
 
