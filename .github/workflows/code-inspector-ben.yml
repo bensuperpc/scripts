@@ -1,4 +1,4 @@
-name: code-inspector
+name: code-inspector-ben
 
 on:
   push:
@@ -17,8 +17,8 @@ jobs:
     name: A job to check my code quality
     steps:
       - name: Check code meets quality standards
-        id: code-inspector
-        uses: codeinspectorio/github-action@master
+        id: code-inspector-ben
+        uses: bensuperpc/code-inspector@v1.0.2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           code_inspector_access_key: ${{ secrets.CODE_INSPECTOR_ACCESS_KEY }}
