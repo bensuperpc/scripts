@@ -26,5 +26,7 @@ jobs:
 #          fetch-depth: 0
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@master
+        with:
+          ignore: archlinux
         env:
           SHELLCHECK_OPTS: -s ${{ matrix.shell_type }}
