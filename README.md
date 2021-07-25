@@ -62,6 +62,7 @@ make uninstall
 | archive | archive scripts | 7z, xz |
 | development | development scripts | For cmake, ninja, clang-format... |
 | cryptr | [cryptr](https://github.com/nodesocket/cryptr) | To crypt files with AES |
+| gpg-encrypt | gpg-encrypt script | Crypt files with GPG |
 | video | video scripts | ffmpeg, nvenc, youtube-dl ect... |
 | image | image scripts | ffmpeg, cwebp ect... |
 | debian | debian scripts | apt, cleaning ect... |

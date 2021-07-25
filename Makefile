@@ -96,6 +96,7 @@ check-dep:
 	@clang-format --version > /dev/null 2>&1 && echo "clang-format: OK" || echo "clang-format: Missing"
 	@cmake --version > /dev/null 2>&1 && echo "cmake: OK" || echo "cmake: Missing"
 	@ninja --version > /dev/null 2>&1 && echo "ninja: OK" || echo "ninja: Missing"
+	@gpg --version > /dev/null 2>&1 && echo "gpg: OK" || echo "gpg: Missing"
 
 
 .PHONY: check check-dep dist-full clean dist sync-submodule install uninstall update
