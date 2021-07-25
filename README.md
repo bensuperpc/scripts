@@ -9,6 +9,8 @@
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bensuperpc/scripts) ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/bensuperpc/scripts) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/bensuperpc/scripts)
 
+[![Code Grade](https://www.code-inspector.com/project/25674/status/svg)](https://www.code-inspector.com) [![Code Grade](https://www.code-inspector.com/project/25674/score/svg)](https://www.code-inspector.com)
+
 ![GitHub](https://img.shields.io/github/license/bensuperpc/scripts) ![GitHub top language](https://img.shields.io/github/languages/top/bensuperpc/scripts) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/bensuperpc/scripts)
 
 
