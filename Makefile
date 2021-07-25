@@ -62,8 +62,14 @@ dist-full: clean
 	@echo "$(PROJECT_NAME)-full-$(VERSION).tar.xz done"
 
 check:
-	find . -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" ! -path "*/cryptr/*" ! -path "*/others-dist/*" ! -path "*/bash-scripts/*" ! -path "*/fff/*" -exec $(SHELL) -n {} \;
-	
+	@find . -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" \
+		! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" \
+		! -path "*/git-extra-commands/*" ! -path "*/cryptr/*" ! -path "*/others-dist/*" \
+		! -path "*/bash-scripts/*" ! -path "*/fff/*" -print0 | xargs -0 -P"$(shell nproc)"  -I{} $(SHELL) -n "{}"
+	@echo "Bash syntax check: done"
+
+test: check
+
 clean:
 	$(RM) -rf package_build/
 	$(RM) -f $(PROJECT_NAME)-$(VERSION).tar.xz
@@ -103,6 +109,7 @@ check-dep:
 	@ninja --version > /dev/null 2>&1 && echo "ninja: OK" || echo "ninja: Missing"
 	@gpg --version > /dev/null 2>&1 && echo "gpg: OK" || echo "gpg: Missing"
 	@ruby --version > /dev/null 2>&1 && echo "ruby: OK" || echo "ruby: Missing"
+	@python --version > /dev/null 2>&1 && echo "python: OK" || echo "python: Missing"
 
 
-.PHONY: check check-dep dist dist-full clean purge install uninstall reinstall update
+.PHONY: check check-dep dist dist-full clean purge install uninstall reinstall update test
