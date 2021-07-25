@@ -9,8 +9,6 @@ on:
   pull_request:
     branches:
       - '*'
-  schedule:
-    - cron: '0 22 */7 * *'  # every 7 days https://crontab.guru/#0_7_*_*_1
   workflow_dispatch:
 
 jobs:
