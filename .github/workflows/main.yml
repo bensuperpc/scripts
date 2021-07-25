@@ -3,9 +3,7 @@ name: scripts
 on:
   push:
     branches:
-    - 'main'
-    - 'master'
-    - 'dev'
+    - '*'
     paths-ignore:
       - '**/README.md'
   pull_request:
