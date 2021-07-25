@@ -22,7 +22,7 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 
 if [ $# -eq 0 ]; then
-    read -p "Uninstall Software ? [Y/n]: " answ
+    read -r -p "Uninstall Software ? [Y/n]: " answ
     if [ "$answ" == 'n' ]; then
         exit 1
     fi

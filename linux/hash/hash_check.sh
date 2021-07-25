@@ -27,7 +27,7 @@ then
 fi
 
 #TYPE=sha512
-#cat checksums.${TYPE} | parallel --pipe -N100 -j $(nproc) ${TYPE}sum --quiet -c -
+#less -f checksums.${TYPE} | parallel --pipe -N100 -j $(nproc) ${TYPE}sum --quiet -c -
 
 TYPE=sha3-512
 less -f checksums."${TYPE}" | parallel --pipe -N100 -j $(nproc) rhash --"${TYPE}" -c -
