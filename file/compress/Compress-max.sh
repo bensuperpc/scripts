@@ -31,7 +31,7 @@ if (( $# == 1 )); then
     threading="-mmt"
     issolid="-ms"
 
-    time 7z a $fname_output $fname_input $algo $compresslevel -aoa $threading $issolid
+    time 7z a "$fname_output" "$fname_input" "$algo" "$compresslevel" -aoa "$threading" "$issolid"
 else
     echo "Usage: ${0##*/} <file>"
     exit 1

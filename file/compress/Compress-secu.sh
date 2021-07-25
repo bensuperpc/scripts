@@ -30,7 +30,7 @@ if (( $# == 1 )); then
     compresslevel="-mx=9"
     threading="-mmt"
 
-    time 7z a $fname_output $fname_input $algo $compresslevel -aoa $threading
+    time 7z a "$fname_output" "$fname_input" "$algo" "$compresslevel" -aoa "$threading"
 else
     echo "Usage: ${0##*/} <file>"
     exit 1

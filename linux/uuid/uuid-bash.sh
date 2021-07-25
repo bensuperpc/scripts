@@ -26,7 +26,7 @@ uuid()
 
     for (( N=0; N < 16; ++N ))
     do
-        B=$(( $RANDOM%255 ))
+        B=$(( RANDOM%255 ))
 
         if (( N == 6 ))
         then
@@ -34,7 +34,7 @@ uuid()
         elif (( N == 8 ))
         then
             local C='89ab'
-            printf '%c%x' ${C:$(( $RANDOM%${#C} )):1} $(( B%15 ))
+            printf '%c%x' ${C:$(( RANDOM%${#C} )):1} $(( B%15 ))
         else
             printf '%02x' $B
         fi

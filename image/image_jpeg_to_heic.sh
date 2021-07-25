@@ -20,10 +20,10 @@ set -euo pipefail
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 #Convert jpeg to Webp
-find . -name "*.jpeg" | parallel -eta magick {} -quality 95 {.}.heic
-find . -name "*.jpg" | parallel -eta magick {} -quality 95 {.}.heic
+find . -name "*.jpeg" | parallel -eta magick "{}" -quality 95 "{.}.heic"
+find . -name "*.jpg" | parallel -eta magick "{}" -quality 95 "{.}.heic"
 #Copy atime and mtime
-find . -name "*.jpeg" -exec sh -c 'touch -r "${0%.*}.jpeg" "${0%.*}.heic"' {} ';'
-find . -name "*.jpg" -exec sh -c 'touch -r "${0%.*}.jpeg" "${0%.*}.heic"' {} ';'
+find . -name "*.jpeg" -exec sh -c 'touch -r "${0%.*}.jpeg" "${0%.*}.heic"' "{}" ';'
+find . -name "*.jpg" -exec sh -c 'touch -r "${0%.*}.jpeg" "${0%.*}.heic"' "{}" ';'
 
 #find ./png -type f -name "*.heic" -exec mv {} ./heic_loss_80 \;

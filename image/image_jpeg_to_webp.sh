@@ -20,9 +20,9 @@ set -euo pipefail
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 #Convert jpeg to Webp
-find . -name "*.jpeg" | parallel -eta cwebp -metadata all -mt -q 95 -m 6 -af {} -o {.}.webp
-find . -name "*.jpg" | parallel -eta cwebp -metadata all -mt -q 95 -m 6 -af {} -o {.}.webp
+find . -name "*.jpeg" | parallel -eta cwebp -metadata all -mt -q 95 -m 6 -af "{}" -o "{.}.webp"
+find . -name "*.jpg" | parallel -eta cwebp -metadata all -mt -q 95 -m 6 -af "{}" -o "{.}.webp"
 #Copy atime and mtime
-find . -name "*.jpeg" -exec sh -c 'touch -r "${0%.*}.jpeg" "${0%.*}.webp"' {} ';'
-find . -name "*.jpg" -exec sh -c 'touch -r "${0%.*}.jpeg" "${0%.*}.webp"' {} ';'
+find . -name "*.jpeg" -exec sh -c 'touch -r "${0%.*}.jpeg" "${0%.*}.webp"' "{}" ';'
+find . -name "*.jpg" -exec sh -c 'touch -r "${0%.*}.jpeg" "${0%.*}.webp"' "{}" ';'
 

@@ -20,7 +20,7 @@ set -euo pipefail
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 #Convert png to Webp
-find . -name "*.png" | parallel -eta cwebp -metadata all -mt -lossless -exact -z 8 {} -o {.}.webp
+find . -name "*.png" | parallel -eta cwebp -metadata all -mt -lossless -exact -z 8 "{}" -o "{.}.webp"
 #Copy atime and mtime
-find . -name "*.png" -exec sh -c 'touch -r "${0%.*}.png" "${0%.*}.webp"' {} ';'
+find . -name "*.png" -exec sh -c 'touch -r "${0%.*}.png" "${0%.*}.webp"' "{}" ';'
 

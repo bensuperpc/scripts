@@ -23,8 +23,8 @@ set -euo pipefail
 # Generates changelog day by day
 echo "CHANGELOG"
 echo ----------------------
-git log --no-merges --format="%cd" --date=short | sort -u -r | while read DATE ; do
+git log --no-merges --format="%cd" --date=short | sort -u -r | while read -r DATE ; do
     echo
     echo [$DATE]
-    GIT_PAGER=cat git log --no-merges --format=" * %s" --since="$DATE 00:00" --until="$DATE 23:59"
+    git log --no-merges --format=" * %s" --since="$DATE 00:00" --until="$DATE 23:59"
 done

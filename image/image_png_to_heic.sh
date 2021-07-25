@@ -20,8 +20,8 @@ set -euo pipefail
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 #Convert png to Webp
-find . -name "*.png" | parallel -eta magick {} -compress lossless {.}.heic
+find . -name "*.png" | parallel -eta magick "{}" -compress lossless "{.}.heic"
 #Copy atime and mtime
-find . -name "*.png" -exec sh -c 'touch -r "${0%.*}.png" "${0%.*}.heic"' {} ';'
+find . -name "*.png" -exec sh -c 'touch -r "${0%.*}.png" "${0%.*}.heic"' "{}" ';'
 
 #find ./png -type f -name "*.heic" -exec mv {} ./heic_loss_80 \;

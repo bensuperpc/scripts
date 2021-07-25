@@ -23,7 +23,7 @@ set -euo pipefail
 if (( $# >= 1 )); then
     for var in "$@"
     do
-        git clone --recurse-submodules --remote-submodules --progress --jobs=$(nproc) "$var"
+        git clone --recurse-submodules --remote-submodules --progress --jobs="$(nproc)" "$var"
     done
 else
     echo "Usage: ${0##*/} <repo URL 1> <repo URL 2>..."

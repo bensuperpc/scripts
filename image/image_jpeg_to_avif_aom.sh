@@ -20,9 +20,9 @@ set -euo pipefail
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 #Convert jpeg to Webp
-find . -name "*.jpeg" | parallel -eta avifenc -c aom -l -s 8 {} -o {.}.avif
-find . -name "*.jpg" | parallel -eta avifenc -c aom -l -s 8 {} -o {.}.avif
+find . -name "*.jpeg" | parallel -eta avifenc -c aom -l -s 8 "{}" -o "{.}.avif"
+find . -name "*.jpg" | parallel -eta avifenc -c aom -l -s 8 "{}" -o "{.}.avif"
 #Copy atime and mtime
-find . -name "*.jpeg" -exec sh -c 'touch -r "${0%.*}.jpeg" "${0%.*}.avif"' {} ';'
-find . -name "*.jpg" -exec sh -c 'touch -r "${0%.*}.jpeg" "${0%.*}.avif"' {} ';'
+find . -name "*.jpeg" -exec sh -c 'touch -r "${0%.*}.jpeg" "${0%.*}.avif"' "{}" ';'
+find . -name "*.jpg" -exec sh -c 'touch -r "${0%.*}.jpeg" "${0%.*}.avif"' "{}" ';'
 
