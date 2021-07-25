@@ -3,8 +3,6 @@
 ### _Collection of useful scripts for Linux_
  [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/powered-by-jeffs-keyboard.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/contains-cat-gifs.svg)](https://forthebadge.com)
 
-[![Twitter](https://img.shields.io/twitter/follow/Bensuperpc?style=social)](https://img.shields.io/twitter/follow/Bensuperpc?style=social) [![Youtube](https://img.shields.io/youtube/channel/subscribers/UCJsQFFL7QW4LSX9eskq-9Yg?style=social)](https://img.shields.io/youtube/channel/subscribers/UCJsQFFL7QW4LSX9eskq-9Yg?style=social) 
-
 [![scripts](https://github.com/Bensuperpc/scripts/actions/workflows/main.yml/badge.svg)](https://github.com/Bensuperpc/scripts/actions/workflows/main.yml) [![tagged-release](https://github.com/bensuperpc/scripts/actions/workflows/release.yml/badge.svg)](https://github.com/bensuperpc/scripts/actions/workflows/release.yml)
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bensuperpc/scripts) ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/bensuperpc/scripts) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/bensuperpc/scripts)
@@ -12,6 +10,8 @@
 [![Code Grade](https://www.code-inspector.com/project/25674/status/svg)](https://www.code-inspector.com) [![Code Grade](https://www.code-inspector.com/project/25674/score/svg)](https://www.code-inspector.com) [![code-inspector](https://github.com/bensuperpc/scripts/actions/workflows/code-inspector.yml/badge.svg?branch=main)](https://github.com/bensuperpc/scripts/actions/workflows/code-inspector.yml)
 
 ![GitHub](https://img.shields.io/github/license/bensuperpc/scripts) ![GitHub top language](https://img.shields.io/github/languages/top/bensuperpc/scripts) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/bensuperpc/scripts)
+
+[![Twitter](https://img.shields.io/twitter/follow/Bensuperpc?style=social)](https://img.shields.io/twitter/follow/Bensuperpc?style=social) [![Youtube](https://img.shields.io/youtube/channel/subscribers/UCJsQFFL7QW4LSX9eskq-9Yg?style=social)](https://img.shields.io/youtube/channel/subscribers/UCJsQFFL7QW4LSX9eskq-9Yg?style=social) 
 
 
 # New Features !
