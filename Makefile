@@ -25,21 +25,23 @@ RM := rm
 
 all: install
 
-install: check-dep
+install:
 	@echo "Install libraries..."
 	sudo ./install.sh --yes
-	@echo "done"
+	@echo "Install: done"
 
 uninstall:
 	@echo "Removing libraries"
 	sudo ./uninstall.sh --yes
-	@echo "done"
+	@echo "Uninstall: done"
 
-update: uninstall install
+reinstall: uninstall install
 
-sync-submodule:
+update:
+	@echo "Update submodule..."
 	git submodule update --init --recursive --jobs=2
 	git submodule update --recursive --remote --jobs=2
+	@echo "Update: done"
 
 dist: clean
 	mkdir -p package_build
@@ -70,6 +72,9 @@ clean:
 	$(RM) -f $(PROJECT_NAME)-full-$(VERSION).tar.xz.sha384
 	@echo "Clean OK"
 
+purge: clean uninstall
+	@echo "Purge OK"
+
 check-dep:
 	@echo "Check dependency:"
 	@echo ""
@@ -97,6 +102,7 @@ check-dep:
 	@cmake --version > /dev/null 2>&1 && echo "cmake: OK" || echo "cmake: Missing"
 	@ninja --version > /dev/null 2>&1 && echo "ninja: OK" || echo "ninja: Missing"
 	@gpg --version > /dev/null 2>&1 && echo "gpg: OK" || echo "gpg: Missing"
+	@ruby --version > /dev/null 2>&1 && echo "ruby: OK" || echo "ruby: Missing"
 
 
-.PHONY: check check-dep dist-full clean dist sync-submodule install uninstall update
+.PHONY: check check-dep dist dist-full clean purge install uninstall reinstall update

@@ -34,7 +34,9 @@ jobs:
         run: sudo make check-dep
       - name: "🛠️ Install"
         run: sudo make install
-      - name: "🛠️ update (optional)"
+      - name: "🛠️ reinstall (optional)"
+        run: sudo make reinstall
+      - name: "🛠️ update (test)"
         run: sudo make update
       - name: "🧹 Uninstall"
         run: sudo make uninstall
