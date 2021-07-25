@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        shell_type: [bash, sh, ksh] # Disable dash
+        shell_type: [bash, ksh] # Disable dash and sh
     steps:
       - name: "📥 Checkout Code"
         uses: actions/checkout@v2
@@ -28,6 +28,6 @@ jobs:
         uses: ludeeus/action-shellcheck@master
         with:
           ignore: archlinux
-          severity: error
+          severity: warning
         env:
           SHELLCHECK_OPTS: -s ${{ matrix.shell_type }}
