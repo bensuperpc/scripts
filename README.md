@@ -19,7 +19,7 @@
   - Add docker scripts
 
 #### Install
-You need Linux distribution like Ubuntu or Manjaoro
+You need Linux distribution like Ubuntu, Manjaro or Debian
 
 ```sh
 git clone --recurse-submodules --remote-submodules https://github.com/Bensuperpc/scripts.git
@@ -29,7 +29,7 @@ cd scripts
 ```
 Or [Released version](https://github.com/bensuperpc/scripts/releases)
 
-###### Check dependency:
+###### Check dependency (optional):
 
 ```sh
 make check-dep
