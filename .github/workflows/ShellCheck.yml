@@ -15,7 +15,16 @@ jobs:
   shellcheck:
     name: Shellcheck
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        shell_type: [bash, sh, dash, ksh]
     steps:
-    - uses: actions/checkout@v2
-    - name: Run ShellCheck
-      uses: ludeeus/action-shellcheck@master 
+      - name: "📥 Checkout Code"
+        uses: actions/checkout@v2
+#        with:
+#          submodules: 'recursive'
+#          fetch-depth: 0
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        env:
+          SHELLCHECK_OPTS: -s ${{ matrix.shell_type }}
