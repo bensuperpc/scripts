@@ -7,7 +7,7 @@
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bensuperpc/scripts) ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/bensuperpc/scripts) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/bensuperpc/scripts)
 
-[![Code Grade](https://www.code-inspector.com/project/25674/status/svg)](https://www.code-inspector.com) [![Code Grade](https://www.code-inspector.com/project/25674/score/svg)](https://www.code-inspector.com) [![code-inspector](https://github.com/bensuperpc/scripts/actions/workflows/code-inspector.yml/badge.svg?branch=main)](https://github.com/bensuperpc/scripts/actions/workflows/code-inspector.yml)
+[![Code Grade](https://www.code-inspector.com/project/25674/status/svg)](https://frontend.code-inspector.com/public/project/25674/github-action/dashboard) [![Code Grade](https://www.code-inspector.com/project/25674/score/svg)](https://frontend.code-inspector.com/public/project/25674/github-action/dashboard) [![code-inspector](https://github.com/bensuperpc/scripts/actions/workflows/code-inspector.yml/badge.svg?branch=main)](https://github.com/bensuperpc/scripts/actions/workflows/code-inspector.yml)
 
 ![GitHub](https://img.shields.io/github/license/bensuperpc/scripts) ![GitHub top language](https://img.shields.io/github/languages/top/bensuperpc/scripts) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/bensuperpc/scripts)
 
