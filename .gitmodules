@@ -34,3 +34,6 @@
 [submodule "shell-scripts"]
 	path = shell-scripts
 	url = https://github.com/Josef-Friedrich/shell-scripts.git
+[submodule "gpg-encrypt"]
+	path = gpg-encrypt
+	url = https://github.com/bensuperpc/gpg-encrypt.git
