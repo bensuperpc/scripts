@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 27, May, 2021                                  //
-#//  Modified: 24, July, 2021                                //
+#//  Modified: 28, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -32,5 +32,5 @@ else
     fi
 fi
 
-sudo apt-get update
-sudo apt-get dist-upgrade
+sudo apt-get update -y
+sudo apt-get dist-upgrade -y
