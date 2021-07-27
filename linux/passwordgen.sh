@@ -9,9 +9,9 @@ set -euo pipefail
 #//                             |_|             |_|          //
 #//////////////////////////////////////////////////////////////
 #//                                                          //
-#//  Script, 2020                                            //
-#//  Created: 10, November, 2020                             //
-#//  Modified: 24, July, 2021                                //
+#//  Script, 2021                                            //
+#//  Created: 28, July, 2021                                 //
+#//  Modified: 28, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -20,5 +20,8 @@ set -euo pipefail
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-#less -f /dev/urandom | tr -dc 'A-F0-9' | head -c${1:-65536} | hexdump -C -n 65536 
-less -f /dev/urandom | tr -dc 'A-F0-9' | head -c"${1:-65536}"
+if (( $# == 1 )); then
+    echo "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9-_!@#$%^&*()_+{}|:<>?=' | head -c"${1:-$1}")"
+else
+    echo "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9-_!@#$%^&*()_+{}|:<>?=' | head -c"${1:-48}")"
+fi
