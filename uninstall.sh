@@ -68,7 +68,7 @@ cd /usr/bin/ben_script/fff
 sudo make uninstall
 echo "Removing fff done"
 
-echo "Removing ben's scripts, git-scripts, git-extra-commands, cryptr, bash-scripts, shell-scripts..."
+echo "Removing ben's scripts, git-scripts, git-extra-commands, cryptr, bash-scripts, shell-scripts, docker-scripts and gpg-encrypt..."
 echo "Remove symlink..."
 sudo find /usr/bin -lname '/usr/bin/ben_script/*' -delete
 echo "Remove symlink done"
