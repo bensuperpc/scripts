@@ -63,7 +63,7 @@ make uninstall
 | shell-scripts | [shell-scripts](https://github.com/Josef-Friedrich/shell-scripts) | A collection of shell scripts. |
 | archive | archive scripts | 7z, xz |
 | development | development scripts | For cmake, ninja, clang-format... |
-| cryptr | [cryptr](https://github.com/nodesocket/cryptr) | To crypt files with AES |
+| cryptography/cryptr | [cryptr](https://github.com/nodesocket/cryptr) | To crypt files with AES |
 | gpg-encrypt | gpg-encrypt script | Crypt files with GPG |
 | video | video scripts | ffmpeg, nvenc, youtube-dl ect... |
 | image | image scripts | ffmpeg, cwebp ect... |

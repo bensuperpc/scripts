@@ -93,7 +93,7 @@ find /usr/bin/ben_script/git-extra-commands/bin -type f -name "*" \
 echo "Install git-extra-commands done"
 
 echo "Install cryptr..."
-ln -s /usr/bin/ben_script/cryptr/cryptr.bash /usr/bin/cryptr
+ln -s /usr/bin/ben_script/cryptography/cryptr/cryptr.bash /usr/bin/cryptr
 echo "Install cryptr done"
 
 echo "Install others-dist..."
