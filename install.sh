@@ -68,12 +68,12 @@ sudo ./install.sh all
 echo "Install Bash-Snippet done"
 
 echo "Install git-extras..."
-cd /usr/bin/ben_script/git-extras
+cd /usr/bin/ben_script/git/git-extras
 sudo make install
 echo "Install git-extras done"
 
 echo "Install git-quick-stats..."
-cd /usr/bin/ben_script/git-quick-stats
+cd /usr/bin/ben_script/git/git-quick-stats
 sudo make install
 echo "Install git-quick-stats done"
 
@@ -83,12 +83,12 @@ sudo make install
 echo "Install fff done"
 
 echo "Install git-scripts..."
-find /usr/bin/ben_script/git-scripts -type f -name "git-*" \
+find /usr/bin/ben_script/git/git-scripts -type f -name "git-*" \
     ! -path "*./git/*" -print0 | xargs -0 -P"$(nproc)" -I{} sudo ln -s "{}" /usr/bin || true
 echo "Install git-scripts done"
 
 echo "Install git-extra-commands..."
-find /usr/bin/ben_script/git-extra-commands/bin -type f -name "*" \
+find /usr/bin/ben_script/git/git-extra-commands/bin -type f -name "*" \
     ! -path "*./git/*" -print0 | xargs -0 -P"$(nproc)" -I{} sudo ln -s "{}" /usr/bin || true
 echo "Install git-extra-commands done"
 

@@ -2,10 +2,10 @@
 	path = Bash-Snippet
 	url = https://github.com/alexanderepstein/Bash-Snippets.git
 [submodule "git-extras"]
-	path = git-extras
+	path = git/git-extras
 	url = https://github.com/tj/git-extras.git
 [submodule "git-scripts"]
-	path = git-scripts
+	path = git/git-scripts
 	url = https://github.com/jwiegley/git-scripts.git
 [submodule "docker-scripts"]
 	path = docker-scripts
@@ -14,7 +14,7 @@
 	path = git/git-updater
 	url = https://github.com/Bensuperpc/git-updater.git
 [submodule "git-extra-commands"]
-	path = git-extra-commands
+	path = git/git-extra-commands
 	url = https://github.com/unixorn/git-extra-commands.git
 [submodule "cryptr"]
 	path = cryptography/cryptr
@@ -23,7 +23,7 @@
 	path = others-dist
 	url = https://github.com/MertcanGokgoz/UsefulBashScripts.git
 [submodule "git-quick-stats"]
-	path = git-quick-stats
+	path = git/git-quick-stats
 	url = https://github.com/arzzen/git-quick-stats.git
 [submodule "bash-scripts"]
 	path = bash-scripts

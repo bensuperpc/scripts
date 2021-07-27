@@ -54,12 +54,12 @@ sudo ./uninstall.sh all
 echo "Removing Bash-Snippet done"
 
 echo "Removing git-extras..."
-cd /usr/bin/ben_script/git-extras
+cd /usr/bin/ben_script/git/git-extras
 sudo make uninstall
 echo "Removing git-extras done"
 
 echo "Removing git-quick-stats..."
-cd /usr/bin/ben_script/git-quick-stats
+cd /usr/bin/ben_script/git/git-quick-stats
 sudo make uninstall
 echo "Removing git-quick-stats done"
 
