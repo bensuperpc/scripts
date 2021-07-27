@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Check code meets quality standards
         id: code-inspector-ben
-        uses: bensuperpc/code-inspector@v1.0.2
+        uses: bensuperpc/code-inspector@v1.0.3
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           code_inspector_access_key: ${{ secrets.CODE_INSPECTOR_ACCESS_KEY }}
