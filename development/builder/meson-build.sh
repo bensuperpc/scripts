@@ -10,31 +10,16 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 #//                                                          //
 #//  Script, 2021                                            //
-#//  Created: 15, July, 2021                                 //
-#//  Modified: 24, July, 2021                                //
+#//  Created: 27, July, 2021                                 //
+#//  Modified: 27, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
-#//  Source: https://github.com/dockcross/dockcross                                                //
+#//  Source: https://mesonbuild.com/Tutorial.html                                                //
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
-if (( $# >= 1 )); then
-    image=$1
-    build_file=build-${image%:*}
-    shift 1
-    cmake_arg=$*
-    echo "cmake arg: $cmake_arg"
 
-    echo "Pulling dockcross/$image"
-    docker pull dockcross/"$image"
-    echo "Make script dockcross-$image"
-    docker run --rm dockcross/"$image" > ./dockcross-"$image"
-    chmod +x ./dockcross-"$image"
-    echo "Build $build_file"
-    ./dockcross-"$image" cmake -B"$build_file" -H. -GNinja "$cmake_arg"
-    ./dockcross-"$image" ninja -C"$build_file"
-else
-    echo "Usage: ${0##*/} <docker imag (ex: linux-x64/linux-arm64...)> <cmake arg.>"
-    exit 1
-fi
+meson build
+cd build
+meson compile

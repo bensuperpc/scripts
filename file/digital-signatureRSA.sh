@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 25, July, 2021                                 //
-#//  Modified: 26, July, 2021                                //
+#//  Modified: 27, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source:  https://medium.com/@bn121rajesh/rsa-sign-and-verify-using-openssl-behind-the-scene-bf3cac0aade2                                               //
@@ -39,7 +39,7 @@ if (( $# == 2 )); then
 
     openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:4096 -pkeyopt rsa_keygen_pubexp:3 -out "$PRIVATE_KEY" -aes-256-cbc -pass pass:"$PASSWORD"
     echo "Private key: OK"
-    # Ed25519 Not supported now (In 3.0)
+    # Ed25519 Not supported now (In 1.1.1k)
     # See https://github.com/openssl/openssl/issues/11677
 
     openssl pkey -in "$PRIVATE_KEY" -passin pass:"$PASSWORD" -pubout > "$PUBLIC_KEY"
