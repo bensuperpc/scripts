@@ -21,7 +21,7 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 
 if (( $# == 2 )); then
-    rsync --progress --stats --archive --partial --checksum --delete-during --verbose --human-readable --log-file=log_rsync_"$(date +%Y-%m-%d_%H_%M_%S)".log "$1" "$2"
+    rsync --progress --stats --archive --xattrs --acls --partial --checksum --delete-during --verbose --human-readable --log-file=log_rsync_"$(date +%Y-%m-%d_%H_%M_%S)".log "$1" "$2"
 else
     echo "Usage: ${0##*/} <source> <destination>"
     exit 1

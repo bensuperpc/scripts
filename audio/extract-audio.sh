@@ -9,9 +9,9 @@ set -euo pipefail
 #//                             |_|             |_|          //
 #//////////////////////////////////////////////////////////////
 #//                                                          //
-#//  Script, 2020                                            //
-#//  Created: 21, November, 2020                             //
-#//  Modified: 24, July, 2021                                //
+#//  Script, 2021                                            //
+#//  Created: 28, July, 2021                                 //
+#//  Modified: 28, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -20,9 +20,12 @@ set -euo pipefail
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
+
+type ffmpeg >/dev/null 2>&1 || { echo "ffmpeg could not be found" >&2; exit 1; }
+
 if (( $# == 2 )); then
-    rsync --progress --stats --archive --xattrs --acls --partial --delete-during --verbose --human-readable --log-file=log_rsync_"$(date +%Y-%m-%d_%H_%M_%S)".log "$1" "$2"
+    ffmpeg -i "$1" -map 0:a -c copy "$2"
 else
-    echo "Usage: ${0##*/} <source> <destination>"
+    echo "Usage: ${0##*/} <input file> <output file (Audio)>"
     exit 1
 fi

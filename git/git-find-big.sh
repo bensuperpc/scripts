@@ -9,20 +9,20 @@ set -euo pipefail
 #//                             |_|             |_|          //
 #//////////////////////////////////////////////////////////////
 #//                                                          //
-#//  Script, 2020                                            //
-#//  Created: 21, November, 2020                             //
-#//  Modified: 24, July, 2021                                //
+#//  Script, 2021                                            //
+#//  Created: 28, July, 2021                                 //
+#//  Modified: 28, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
-#//  Source: -                                               //
+#//  Source: https://stackoverflow.com/a/42544963/10152334                                               //
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-if (( $# == 2 )); then
-    rsync --progress --stats --archive --xattrs --acls --partial --delete-during --verbose --human-readable --log-file=log_rsync_"$(date +%Y-%m-%d_%H_%M_%S)".log "$1" "$2"
-else
-    echo "Usage: ${0##*/} <source> <destination>"
-    exit 1
-fi
+git rev-list --objects --all |
+  git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' |
+  sed -n 's/^blob //p' |
+  sort --numeric-sort --key=2 |
+  cut -c 1-12,41- |
+  "$(command -v gnumfmt || echo numfmt)" --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest

@@ -21,7 +21,7 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 
 if (( $# == 4 )); then
-    rsync --progress --compress --stats --archive --partial --delete-during --verbose --human-readable -e "ssh -p $1 -i $2" --log-file=log_rsync_"$(date +%Y-%m-%d_%H_%M_%S)".log "$3" "$4"
+    rsync --progress --compress --stats --archive --xattrs --acls --partial --delete-during --verbose --human-readable -e "ssh -p $1 -i $2" --log-file=log_rsync_"$(date +%Y-%m-%d_%H_%M_%S)".log "$3" "$4"
 else
     echo "Usage: ${0##*/} <port> <key-file> <source> <destination>"
     exit 1
