@@ -33,12 +33,24 @@ else
 fi
 
 if (( $# == 2 )); then
+    PARTITION=$1
+    LABEL=$2
+    shift 2
+
+    if [ $# -eq 0 ]; then
+        read -r -p "you are going to format a partition/device with LUKS and BTRFS.
+    All data on the partition/devices will be erased ! Do you want to continue ? [Y/n]: " answ
+        if [ "$answ" == 'n' ]; then
+            exit 1
+        fi
+    fi
+
     UUID=$(uuidgen)
     echo "UUID: ${UUID}"
-    sudo umount "$1" || true
-    sudo cryptsetup -v --type luks --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 1000 --use-urandom --verify-passphrase luksFormat --label="$2" "$1"
-    sudo cryptsetup -v luksOpen "$1" "${UUID}"
-    sudo mkfs.btrfs --force --checksum crc32c --label "$2" /dev/mapper/"${UUID}"
+    sudo umount "$PARTITION" || true
+    sudo cryptsetup -v --type luks --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 1000 --use-urandom --verify-passphrase luksFormat --label="$LABEL" "$PARTITION"
+    sudo cryptsetup -v luksOpen "$PARTITION" "${UUID}"
+    sudo mkfs.btrfs --force --checksum crc32c --label "$LABEL" /dev/mapper/"${UUID}"
     
     sudo cryptsetup -v luksClose "${UUID}"
     echo "Partition: OK"
