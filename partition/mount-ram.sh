@@ -35,5 +35,5 @@ fi
 if (( $# == 2 )); then
     sudo mount -t tmpfs -o size="$2"M tmpfs "$1"
 else
-    echo "Usage: ${0##*/} <path> <size>"
+    echo "Usage: ${0##*/} <path to mount> <size (in MB/Mo)>"
 fi
