@@ -21,7 +21,7 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 
 if (( $# == 1 )); then
-    echo "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9-_!@#$%^&*()_+{}|:<>?=' | head -c"${1:-$1}")"
+    less -f /dev/urandom | tr -dc 'a-zA-Z0-9-_!@#$%^&*()_+{}|:<>?=' | head -c"${1:-$1}"
 else
-    echo "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9-_!@#$%^&*()_+{}|:<>?=' | head -c"${1:-48}")"
+    less -f /dev/urandom | tr -dc 'a-zA-Z0-9-_!@#$%^&*()_+{}|:<>?=' | head -c"${1:-48}"
 fi
