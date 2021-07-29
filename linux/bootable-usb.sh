@@ -1,1 +1,0 @@
-make-bootable-usb.sh
