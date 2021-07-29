@@ -9,7 +9,7 @@
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 17, June, 2021                                 //
-#//  Modified: 28, July, 2021                                //
+#//  Modified: 29, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: https://github.com/metal3d/bashsimplecurses     //
@@ -20,7 +20,7 @@
 #//////////////////////////////////////////////////////////////
 PROJECT_NAME := scripts
 SHELL := bash
-VERSION := 1.1.7
+VERSION := 1.1.11
 RM := rm
 
 all: install
@@ -45,7 +45,8 @@ update:
 
 dist: clean
 	mkdir -p package_build
-	rsync -azh --progress --exclude='package_build/' --exclude='*.gitignore' --exclude='*.git/' --exclude='*.circleci/' --exclude='*.github/' --exclude='*.png' --exclude='*.jpeg' . package_build/
+	rsync -azh --progress --exclude='package_build/' --exclude='*.gitignore' --exclude='*.git/' \
+		--exclude='*.circleci/' --exclude='*.github/' --exclude='*.png' --exclude='*.jpeg' --exclude='*.gif' . package_build/
 	#7z a -t7z $(PROJECT_NAME)-$(VERSION).7z package_build/ -m0=lzma2 -mx=9 -mfb=273 -ms -md=31 -myx=9 -mtm=- -mmt -mmtf -md=1536m -mmf=bt3 -mmc=10000 -mpb=0 -mlc=0
 	XZ_OPT=-e9 tar cJf $(PROJECT_NAME)-$(VERSION).tar.xz package_build/
 	sha384sum $(PROJECT_NAME)-$(VERSION).tar.xz > $(PROJECT_NAME)-$(VERSION).tar.xz.sha384
