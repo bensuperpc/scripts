@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 27, May, 2021                                  //
-#//  Modified: 24, July, 2021                                //
+#//  Modified: 29, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: https://unix.stackexchange.com/a/39341/359833                                               //
@@ -23,7 +23,7 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 
 if [ $# -eq 0 ]; then
-    read -r -p "Uninstall Software ? [Y/n]: " answ
+    read -r -p "Install Software ? [Y/n]: " answ
     if [ "$answ" == 'n' ]; then
         exit 1
     fi
