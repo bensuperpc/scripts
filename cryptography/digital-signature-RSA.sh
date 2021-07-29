@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 25, July, 2021                                 //
-#//  Modified: 27, July, 2021                                //
+#//  Modified: 29, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source:  https://medium.com/@bn121rajesh/rsa-sign-and-verify-using-openssl-behind-the-scene-bf3cac0aade2                                               //
@@ -102,6 +102,7 @@ DS_sign() {
     if (( $# == 2 )); then
         FILE=$1
         PASSWORD=$2
+        DS_check_software
 
         openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:"$RSA_KEY_SIZE" -pkeyopt rsa_keygen_pubexp:3 -out "$PRIVATE_KEY" -"$OPENSSL_CIPHER_TYPE" -pass pass:"$PASSWORD"
         echo "Private key: OK"
