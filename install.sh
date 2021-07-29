@@ -96,6 +96,10 @@ echo "Install cryptr..."
 ln -s /usr/bin/ben_script/cryptography/cryptr/cryptr.bash /usr/bin/cryptr
 echo "Install cryptr done"
 
+echo "Install spoofpoint..."
+ln -s /usr/bin/ben_script/internet/spoofpoint/spoofpoint /usr/bin/spoofpoint
+echo "Install spoofpoint done"
+
 echo "Install others-dist..."
 find /usr/bin/ben_script/others-dist/Scripts -type f -name "*.sh" \
     ! -path "*./git/*" -print0 | xargs -0 -P"$(nproc)" -I{} sudo ln -s "{}" /usr/bin || true

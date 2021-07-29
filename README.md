@@ -65,6 +65,7 @@ make uninstall
 | development | development scripts | For cmake, ninja, clang-format... |
 | cryptography/cryptr | [cryptr](https://github.com/nodesocket/cryptr) | To crypt files with AES |
 | cryptography/gpg-encrypt | gpg-encrypt script | Crypt files with GPG |
+| internet/spoofpoint | [spoofpoint](https://github.com/grahamhelton/spoofpoint) | Spoofpoint is a domain monitoring tool that allows you to check a single domain or a list of domains to see if they exist. |
 | video | video scripts | ffmpeg, nvenc, youtube-dl ect... |
 | image | image scripts | ffmpeg, cwebp ect... |
 | debian | debian scripts | apt, cleaning ect... |
