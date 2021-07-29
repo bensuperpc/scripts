@@ -62,10 +62,21 @@ dist-full: clean
 	@echo "$(PROJECT_NAME)-full-$(VERSION).tar.xz done"
 
 check:
-	@find . -type f -name "*.sh" ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" \
-		! -path "*/Bash-Snippet/*" ! -path "*/git-scripts/*" ! -path "*/git-extras/*" \
-		! -path "*/git-extra-commands/*" ! -path "*/cryptr/*" ! -path "*/others-dist/*" \
-		! -path "*/bash-scripts/*" ! -path "*/fff/*" -print0 | xargs -0 -P"$(shell nproc)"  -I{} $(SHELL) -n "{}"
+	@find . -type f \( -name "*.sh" -o -name "*.bash" \) ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" \
+		! -path "*/Bash-Snippet/*" ! -path "*/git/git-scripts/*" ! -path "*/git/git-extras/*" \
+		! -path "*/git/git-extra-commands/*" ! -path "*/cryptography/cryptr/*" ! -path "*/others-dist/*" \
+		! -path "*/bash-scripts/*" ! -path "*/fff/*" ! -path "*/shell-scripts/*" -print0 | xargs -0 -P"$(shell nproc)"  -I{} $(SHELL) -n "{}"
+	@find . -type f \( -name "*.sh" -o -name "*.bash" \) ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" \
+		! -path "*/Bash-Snippet/*" ! -path "*/git/git-scripts/*" ! -path "*/git/git-extras/*" \
+		! -path "*/git/git-extra-commands/*" ! -path "*/cryptography/cryptr/*" ! -path "*/others-dist/*" \
+		! -path "*/bash-scripts/*" ! -path "*/fff/*" ! -path "*/shell-scripts/*" -print0 | xargs -0 -P"$(shell nproc)"  -I{} \
+		shellcheck --check-sourced --color=auto --format=gcc --severity=warning --shell=bash --enable=all "{}"
+	@echo "Bash syntax check: done"
+
+check-all:
+	@find . -type f \( -name "*.sh" -o -name "*.bash" \) -print0 | xargs -0 -P"$(shell nproc)"  -I{} $(SHELL) -n "{}"
+	@find . -type f \( -name "*.sh" -o -name "*.bash" \) -print0 | xargs -0 -P"$(shell nproc)"  -I{} \
+		shellcheck --check-sourced --color=auto --format=gcc --severity=warning --shell=bash --enable=all "{}"
 	@echo "Bash syntax check: done"
 
 test: check
@@ -111,6 +122,7 @@ check-dep:
 	@gpg --version > /dev/null 2>&1 && echo "gpg: OK" || echo "gpg: Missing"
 	@ruby --version > /dev/null 2>&1 && echo "ruby: OK" || echo "ruby: Missing"
 	@python --version > /dev/null 2>&1 && echo "python: OK" || echo "python: Missing"
+	@shellcheck --version > /dev/null 2>&1 && echo "shellcheck: OK" || echo "shellcheck: Missing"
 
 
 .PHONY: check check-dep dist dist-full clean purge install uninstall reinstall update test

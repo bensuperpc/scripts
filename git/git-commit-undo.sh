@@ -10,23 +10,14 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 #//                                                          //
 #//  Script, 2021                                            //
-#//  Created: 24, July, 2021                                 //
-#//  Modified: 25, July, 2021                                //
+#//  Created: 29, July, 2021                                 //
+#//  Modified: 29, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
-#//  Source: https://stackoverflow.com/a/2979587/10152334                                               //
+#//  Source: https://stackoverflow.com/a/58249511/10152334                                               //
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-if (( $# == 2 )); then
-    git commit -s -m "$1" -m "$2"
-elif (( $# == 1 )); then
-    git commit -s -m "$1" -m "$1"
-else
-    echo "Usage: ${0##*/} <Title> <Message>"
-    echo "Usage: ${0##*/} <Title>"
-    exit 1
-fi
-
+git reset --soft HEAD~

@@ -10,23 +10,22 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 #//                                                          //
 #//  Script, 2021                                            //
-#//  Created: 24, July, 2021                                 //
-#//  Modified: 25, July, 2021                                //
+#//  Created: 29, July, 2021                                 //
+#//  Modified: 29, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
-#//  Source: https://stackoverflow.com/a/2979587/10152334                                               //
+#//  Source: -                                               //
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
 if (( $# == 2 )); then
-    git commit -s -m "$1" -m "$2"
-elif (( $# == 1 )); then
-    git commit -s -m "$1" -m "$1"
+    Var1="$1"
+    Var2="$2"
+
+    find . -type f \( -name "*.sh" -o -name "*.bash" \) -print0 | xargs -0 -P"$(nproc)" -I{} sed -i "s|$Var1|$Var2|g" "{}"
 else
-    echo "Usage: ${0##*/} <Title> <Message>"
-    echo "Usage: ${0##*/} <Title>"
+    echo "Usage: ${0##*/} <STR1> <STR2>"
     exit 1
 fi
-
