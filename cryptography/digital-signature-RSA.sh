@@ -126,6 +126,8 @@ DS_sign() {
     fi
 }
 
-if [[ "$0" == "$BASH_SOURCE" ]]; then
-  DS_main "$@"
+if (( $# >= 0 )); then
+    if [[ "$0" == "$BASH_SOURCE" ]]; then
+        DS_main "$@"
+    fi
 fi
