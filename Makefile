@@ -64,11 +64,11 @@ dist-full: clean
 check:
 	@find . -type f \( -name "*.sh" -o -name "*.bash" \) ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" \
 		! -path "*/Bash-Snippet/*" ! -path "*/git/git-scripts/*" ! -path "*/git/git-extras/*" \
-		! -path "*/git/git-extra-commands/*" ! -path "*/cryptography/cryptr/*" ! -path "*/others-dist/*" \
+		! -path "*/git/git-extra-commands/*" ! -path "*/cryptography/cryptr/*" \
 		! -path "*/bash-scripts/*" ! -path "*/fff/*" ! -path "*/shell-scripts/*" -print0 | xargs -0 -P"$(shell nproc)"  -I{} $(SHELL) -n "{}"
 	@find . -type f \( -name "*.sh" -o -name "*.bash" \) ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" \
 		! -path "*/Bash-Snippet/*" ! -path "*/git/git-scripts/*" ! -path "*/git/git-extras/*" \
-		! -path "*/git/git-extra-commands/*" ! -path "*/cryptography/cryptr/*" ! -path "*/others-dist/*" \
+		! -path "*/git/git-extra-commands/*" ! -path "*/cryptography/cryptr/*" \
 		! -path "*/bash-scripts/*" ! -path "*/fff/*" ! -path "*/shell-scripts/*" -print0 | xargs -0 -P"$(shell nproc)"  -I{} \
 		shellcheck --check-sourced --color=auto --format=gcc --severity=warning --shell=bash --enable=all "{}"
 	@echo "Bash syntax check: done"

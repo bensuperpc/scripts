@@ -57,7 +57,7 @@ echo "create symlink..."
 find /usr/bin/ben_script -type f \( -name "*.sh" -o -name "*.py" \) ! -path "*./git/*" \
     ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" \
     ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" \
-    ! -path "*/cryptr/*" ! -path "*/others-dist/*" ! -path "*/bash-scripts/*" ! -path "*/fff/*" \
+    ! -path "*/cryptr/*" ! -path "*/bash-scripts/*" ! -path "*/fff/*" \
     ! -path "*/shell-scripts/*" -print0 | xargs -0 -P"$(nproc)" -I{} sudo ln -s "{}" /usr/bin || true
 echo "create symlink done"
 echo "Install ben's scripts done"
@@ -99,11 +99,6 @@ echo "Install cryptr done"
 echo "Install spoofpoint..."
 ln -s /usr/bin/ben_script/internet/spoofpoint/spoofpoint /usr/bin/spoofpoint
 echo "Install spoofpoint done"
-
-echo "Install others-dist..."
-find /usr/bin/ben_script/others-dist/Scripts -type f -name "*.sh" \
-    ! -path "*./git/*" -print0 | xargs -0 -P"$(nproc)" -I{} sudo ln -s "{}" /usr/bin || true
-echo "Install others-dist done"
 
 echo "Install shell-scripts..."
 find /usr/bin/ben_script/shell-scripts -type f -name "*.sh" \
