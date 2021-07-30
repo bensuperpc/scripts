@@ -26,6 +26,7 @@ import sys
 if len(sys.argv) <= 3:
     print('Need more arguments: <user> <API key> <Message (in quotes)>')
     print('ex: sms-free 01234567 aBcDE012345fgH "Hello world!"')
+    print('More info(Need to be connected): https://mobile.free.fr/account/mes-options/notifications-sms')
     sys.exit(1)
 
 user = sys.argv[1]
