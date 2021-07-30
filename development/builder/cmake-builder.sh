@@ -1,18 +1,24 @@
 #!/usr/bin/env bash
 set -euo pipefail
-#
-# make.sh - Make ben libs
-#
-# Created by Bensuperpc at 6, October of 2020
-# Modified by Bensuperpc at 24, July of 2021
-#
-# Released into the Public domain with MIT licence
-# https://opensource.org/licenses/MIT
-#
-# Written with VisualStudio code 1.49.1
-# Script compatibility : Linux and Windows
-#
-# ==============================================================================
+#//////////////////////////////////////////////////////////////
+#//   ____                                                   //
+#//  | __ )  ___ _ __  ___ _   _ _ __   ___ _ __ _ __   ___  //
+#//  |  _ \ / _ \ '_ \/ __| | | | '_ \ / _ \ '__| '_ \ / __| //
+#//  | |_) |  __/ | | \__ \ |_| | |_) |  __/ |  | |_) | (__  //
+#//  |____/ \___|_| |_|___/\__,_| .__/ \___|_|  | .__/ \___| //
+#//                             |_|             |_|          //
+#//////////////////////////////////////////////////////////////
+#//                                                          //
+#//  Script, 2020                                            //
+#//  Created: 06, October, 2020                              //
+#//  Modified: 30, July, 2021                                //
+#//  file: -                                                 //
+#//  -                                                       //
+#//  Source:                                                 //
+#//  OS: ALL                                                 //
+#//  CPU: ALL                                                //
+#//                                                          //
+#//////////////////////////////////////////////////////////////
 
 mkdir -p build
 
