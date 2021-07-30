@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 15, July, 2021                                 //
-#//  Modified: 27, July, 2021                                //
+#//  Modified: 30, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: https://github.com/dockcross/dockcross                                                //
@@ -19,10 +19,12 @@ set -euo pipefail
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
+
 if (( $# >= 1 )); then
     image=$1
     build_file=build-${image%:*}
     shift 1
+
     cmake_arg=$*
     echo "cmake arg: $cmake_arg"
 
@@ -34,8 +36,8 @@ if (( $# >= 1 )); then
     chmod +x ./dockcross-"$image"
 
     echo "Build $build_file"
-    ./dockcross-"$image" cmake -B"$build_file" -H. -GNinja "$cmake_arg"
-    ./dockcross-"$image" ninja -C"$build_file"
+    ./dockcross-"$image" cmake -B "$build_file" -S . -G Ninja "$cmake_arg"
+    ./dockcross-"$image" ninja -C "$build_file"
 else
     echo "Usage: ${0##*/} <docker imag (ex: linux-x64/linux-x64-clang/linux-arm64/windows-shared-x64/windows-static-x64...)> <cmake arg.>"
     exit 1
