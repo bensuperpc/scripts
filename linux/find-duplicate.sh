@@ -10,15 +10,15 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 #//                                                          //
 #//  Script, 2021                                            //
-#//  Created: 29, May, 2021                                  //
-#//  Modified: 24, July, 2021                                //
+#//  Created: 30, July, 2021                                 //
+#//  Modified: 30, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
-#//  Source:                                                 //
+#//  Source: -                                               //
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-git submodule update --init --recursive
-git submodule update --recursive --remote
+time find . ! -empty -type f -print0 | xargs -0 -P"$(nproc)" -I{} sha256sum "{}" | sort | uniq -w64 -dD
+#time find . ! -empty -type f -exec sha256sum {} + | sort | uniq -w32 -dD
