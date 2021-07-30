@@ -31,19 +31,11 @@ user = sys.argv[1]
 key = sys.argv[2]
 msg = sys.argv[3]
 
-payload = { 'user' : user, 'pass' : key, 'msg' : msg}
+payload = {'user':user, 'pass':key, 'msg':msg}
 URL = "https://smsapi.free-mobile.fr/sendmsg?"
 
 FULL_URL = URL + urllib.parse.urlencode(payload)
 
-try:
-    if URL.lower().startswith('https'):
-        req = urllib.request.Request(URL)
-    else:
-        raise ValueError from None
-    response = urllib.request.urlopen(FULL_URL)
-    code = response.getcode()
-    print('Return code:', code)
-
-except Exception as error:
-    print(f'Error:  {FULL_URL} : {str(error)}')
+response = urllib.request.urlopen(FULL_URL)
+code = response.getcode()
+print('Return code:', code)
