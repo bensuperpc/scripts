@@ -63,6 +63,11 @@ dist-full: clean
 	@echo "$(PROJECT_NAME)-full-$(VERSION).tar.xz done"
 
 check:
+	@find . -type f \( -name "*.py" -o -name "*.py" \) ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" \
+		! -path "*/Bash-Snippet/*" ! -path "*/git/git-scripts/*" ! -path "*/git/git-extras/*" \
+		! -path "*/git/git-extra-commands/*" ! -path "*/cryptography/cryptr/*" \
+		! -path "*/bash-scripts/*" ! -path "*/fff/*" ! -path "*/shell-scripts/*" -print0 | xargs -0 -P"$(shell nproc)" -I{} python -m compileall -q "{}"
+	@echo "Python syntax check: done"
 	@find . -type f \( -name "*.sh" -o -name "*.bash" \) ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" \
 		! -path "*/Bash-Snippet/*" ! -path "*/git/git-scripts/*" ! -path "*/git/git-extras/*" \
 		! -path "*/git/git-extra-commands/*" ! -path "*/cryptography/cryptr/*" \
@@ -75,8 +80,10 @@ check:
 	@echo "Bash syntax check: done"
 
 check-all:
-	@find . -type f \( -name "*.sh" -o -name "*.bash" \) -print0 | xargs -0 -P"$(shell nproc)"  -I{} $(SHELL) -n "{}"
-	@find . -type f \( -name "*.sh" -o -name "*.bash" \) -print0 | xargs -0 -P"$(shell nproc)"  -I{} \
+	@find . -type f \( -name "*.py" -o -name "*.py" \) -print0 | xargs -0 -P"$(shell nproc)" -I{} python -m compileall -q "{}"
+	@echo "Python syntax check: done"
+	@find . -type f \( -name "*.sh" -o -name "*.bash" \) -print0 | xargs -0 -P"$(shell nproc)" -I{} $(SHELL) -n "{}"
+	@find . -type f \( -name "*.sh" -o -name "*.bash" \) -print0 | xargs -0 -P"$(shell nproc)" -I{} \
 		shellcheck --check-sourced --color=auto --format=gcc --severity=warning --shell=bash --enable=all "{}"
 	@echo "Bash syntax check: done"
 
