@@ -38,6 +38,10 @@ PIXEL=${PIXEL:-yuv444p}
 PROFILE=${PROFILE:-high444}
 LEVEL=${LEVEL:-5.1}
 
+PROFILE=${PROFILE:-high444}
+
+FFMPEG_ARG=${FFMPEG_ARG:-}
+
 TESTS=${TESTS:-none}
 COPY=${COPY:-true}
 
@@ -57,6 +61,7 @@ DS_help() {
     --pixel yuv444p, yuv420p...
     --profile baseline, main, high, high10, high422, high444 (main, main10, high444p... for nvenc)
     --level auto, 0, 1, 1.0 ... 5.0, 5.1
+    --ffmpeg_arg=\"\" ffmpeg arguments
     -h or --help
     -v or --version"
     exit 0
@@ -73,13 +78,12 @@ DS_main() {
     while [[ $# -gt 0 ]] && ([[ "$1" == "--"* ]] || [[ "$1" == "-"* ]]) ;
     do
         opt="$1";
-        echo "opt: $opt"
         shift; 
         case "$opt" in
             "--lib" )
             ENCODING_LIB="$1"; shift;;
-            "--test="* )     # alternate format: --first=date
-            TESTS="${opt#*=}";;
+            "--ffmpeg_arg="* )     # alternate format: --first=date
+            FFMPEG_ARG="${opt#*=}";;
             "--screen" )
             SCREEN="$1"; shift;;
             "--framerate" )
@@ -112,10 +116,17 @@ DS_main() {
 }
 
 DS_exec() {
-    ffmpeg -f x11grab -video_size "$RESOLUTION" -framerate "$FRAMERATE" -i "$SCREEN" \
-    -vcodec "$ENCODING_LIB" -preset "$PRESET" -qp "$QUALITY" -pix_fmt "$PIXEL" \
-    -profile:v "$PROFILE" -level "$LEVEL" \
-    "$OUTPUT"
+    if [[ -z "$FFMPEG_ARG" ]]; then
+        ffmpeg -f x11grab -video_size "$RESOLUTION" -framerate "$FRAMERATE" -i "$SCREEN" \
+        -vcodec "$ENCODING_LIB" -preset "$PRESET" -qp "$QUALITY" -pix_fmt "$PIXEL" \
+        -profile:v "$PROFILE" -level "$LEVEL" \
+        "$OUTPUT"
+    else
+        ffmpeg "$FFMPEG_ARG" -f x11grab -video_size "$RESOLUTION" -framerate "$FRAMERATE" -i "$SCREEN" \
+        -vcodec "$ENCODING_LIB" -preset "$PRESET" -qp "$QUALITY" -pix_fmt "$PIXEL" \
+        -profile:v "$PROFILE" -level "$LEVEL" \
+        "$OUTPUT"
+    fi
     
 }
 
