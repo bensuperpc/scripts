@@ -36,6 +36,7 @@ PRESET=${PRESET:-fast}
 OUTPUT=${OUTPUT:-screen_capture.mkv}
 PIXEL=${PIXEL:-yuv444p}
 PROFILE=${PROFILE:-high444}
+LEVEL=${LEVEL:-5.1}
 
 TESTS=${TESTS:-none}
 COPY=${COPY:-true}
@@ -55,6 +56,7 @@ DS_help() {
     --preset ultrafast, fast, medium, slow... (fast, medium, slow on nvenc)
     --pixel yuv444p, yuv420p...
     --profile baseline, main, high, high10, high422, high444 (main, main10, high444p... for nvenc)
+    --level auto, 0, 1, 1.0 ... 5.0, 5.1
     -h or --help
     -v or --version"
     exit 0
@@ -92,6 +94,8 @@ DS_main() {
             RESOLUTION="$1"; shift;;
             "--profile" )
             PROFILE="$1"; shift;;
+            "--level" )
+            LEVEL="$1"; shift;;
             "--output" )
             OUTPUT="$1"; shift;;
             "--help" | "-h" )
@@ -110,7 +114,7 @@ DS_main() {
 DS_exec() {
     ffmpeg -f x11grab -video_size "$RESOLUTION" -framerate "$FRAMERATE" -i "$SCREEN" \
     -vcodec "$ENCODING_LIB" -preset "$PRESET" -qp "$QUALITY" -pix_fmt "$PIXEL" \
-    -profile:v "$PROFILE" \
+    -profile:v "$PROFILE" -level "$LEVEL" \
     "$OUTPUT"
     
 }
