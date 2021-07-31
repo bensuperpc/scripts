@@ -39,8 +39,8 @@ reinstall: uninstall install
 
 update:
 	@echo "Update submodule..."
-	git submodule update --init --recursive --jobs=2
-	git submodule update --recursive --remote --jobs=2
+	git submodule update --init --recursive
+	git submodule update --recursive --remote
 	@echo "Update: done"
 
 dist: clean

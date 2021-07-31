@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 21, June, 2021                                 //
-#//  Modified: 25, July, 2021                                //
+#//  Modified: 31, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source:                                                 //
@@ -27,8 +27,8 @@ elif (( $# == 1 )); then
 elif (( $# == 2 )); then
     git diff "$1" "$2" -- > "$1"-"$2".patch
 else
-    echo "Usage: ${0##*/} (patch HEAD)"
-    echo "Usage: ${0##*/} <nbr from HEAD>"
-    echo "Usage: ${0##*/} <tag or hash 1> <tag or hash 2>"
+    echo "Usage: ${0##*/} (create patch from HEAD)"
+    echo "Usage: ${0##*/} <nbr commit from HEAD>"
+    echo "Usage: ${0##*/} <tag1 or hash 1> <tag2 or hash 2>"
     exit 1
 fi

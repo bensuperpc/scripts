@@ -10,19 +10,22 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 #//                                                          //
 #//  Script, 2021                                            //
-#//  Created: 28, July, 2021                                 //
+#//  Created: 31, July, 2021                                 //
 #//  Modified: 31, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
-#//  Source: https://stackoverflow.com/a/42544963/10152334                                               //
+#//  Source: -                                               //
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-git rev-list --objects --all |
-  git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' |
-  sed -n 's/^blob //p' |
-  sort --numeric-sort --key=2 |
-  cut -c 1-12,41- |
-  "$(command -v gnumfmt || echo numfmt)" --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest
+
+type ffmpeg >/dev/null 2>&1 || { echo "ffmpeg could not be found" >&2; exit 1; }
+
+if (( $# == 4 )); then
+    ffmpeg -ss "$3" -i "$1" -to "$4" -c copy -copyts "$2"
+else
+    echo "Usage: ${0##*/} <input file> <output file> <start time (ex: 00:09:23 or 383)> <end time (Ex: 00:25:33 or 1533)>"
+    exit 1
+fi
