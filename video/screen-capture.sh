@@ -20,15 +20,96 @@ set -euo pipefail
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
+readonly VERSION="1.0.0"
 
-type ffmpeg >/dev/null 2>&1 || { echo "ffmpeg could not be found" >&2; exit 1; }
+DS_version() {
+    echo "screen-capture $VERSION"
+}
 
-if (( $# == 1 )); then
-    ffmpeg -f x11grab -video_size 1920x1080 -framerate 60 -i :0 \
-        -vcodec libx264 -preset ultrafast -qp 0 -pix_fmt yuv444p \
-        "$1"
-else
-    echo "Usage: ${0##*/} <output file>"
-    exit 1
+# Values can by override
+ENCODING_LIB=${ENCODING_LIB:-libx264}
+RESOLUTION=${RESOLUTION:-1920x1080}
+FRAMERATE=${FRAMERATE:-60}
+SCREEN=${SCREEN:-:0}
+QUALITY=${QUALITY:-0}
+PRESET=${PRESET:-ultrafast}
+OUTPUT=${OUTPUT:-screen_capture.mkv}
+PIXEL=${PIXEL:-yuv444p}
+
+TESTS=${TESTS:-none}
+COPY=${COPY:-true}
+
+DS_check() {
+    type ffmpeg >/dev/null 2>&1 || { echo "ffmpeg could not be found" >&2; exit 1; }
+}
+
+DS_help() {
+    echo "Usage: ${0##*/} --output <output file>"
+    echo "Others option:
+    --lib libx264 or libx265
+    --resolution 1920x1080
+    --framerate 60
+    --quality 0
+    --screen :0
+    --preset ultrafast, fast, slow...
+    --pixel yuv444p
+    -h or --help
+    -v or --version"
+    exit 0
+}
+
+
+DS_main() {
+    if [[ -z $* ]]; then
+        DS_version
+        DS_help
+        exit 0
+    fi
+  
+    while [[ $# -gt 0 ]] && ([[ "$1" == "--"* ]] || [[ "$1" == "-"* ]]) ;
+    do
+        opt="$1";
+        echo "opt: $opt"
+        shift; 
+        case "$opt" in
+            "--lib" )
+            ENCODING_LIB="$1"; shift;;
+            "--test="* )     # alternate format: --first=date
+            TESTS="${opt#*=}";;
+            "--screen" )
+            SCREEN="$1"; shift;;
+            "--framerate" )
+            FRAMERATE="$1"; shift;;
+            "--quality" )
+            QUALITY="$1"; shift;;
+            "--preset" )
+            PRESET="$1"; shift;;
+            "--pixel" )
+            PIXEL="$1"; shift;;
+            "--resolution" )
+            RESOLUTION="$1"; shift;;
+            "--output" )
+            OUTPUT="$1"; shift;;
+            "--help" | "-h" )
+            DS_help;;
+            "--version" | "-v" )
+            DS_version;;
+            "--copy" )
+            COPY=true;;
+            *) echo >&2 "Invalid option: $*"; exit 1;;
+    esac
+    done
+    DS_check
+    DS_exec
+}
+
+DS_exec() {
+    ffmpeg -f x11grab -video_size "$RESOLUTION" -framerate "$FRAMERATE" -i "$SCREEN" \
+    -vcodec "$ENCODING_LIB" -preset "$PRESET" -qp "$QUALITY" -pix_fmt "$PIXEL" \
+    "$OUTPUT"
+    
+}
+
+if [[ "$0" == "${BASH_SOURCE[0]}" ]]; then
+  DS_main "$@"
 fi
-
