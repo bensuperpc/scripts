@@ -20,7 +20,7 @@ set -euo pipefail
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-readonly VERSION="1.0.0"
+readonly VERSION="1.1.0"
 
 DS_version() {
     echo "screen-capture $VERSION"
@@ -32,9 +32,10 @@ RESOLUTION=${RESOLUTION:-1920x1080}
 FRAMERATE=${FRAMERATE:-60}
 SCREEN=${SCREEN:-:0}
 QUALITY=${QUALITY:-0}
-PRESET=${PRESET:-ultrafast}
+PRESET=${PRESET:-fast}
 OUTPUT=${OUTPUT:-screen_capture.mkv}
 PIXEL=${PIXEL:-yuv444p}
+PROFILE=${PROFILE:-high444}
 
 TESTS=${TESTS:-none}
 COPY=${COPY:-true}
@@ -46,13 +47,14 @@ DS_check() {
 DS_help() {
     echo "Usage: ${0##*/} --output <output file>"
     echo "Others option:
-    --lib libx264 or libx265
+    --lib libx264, libx265, h263p, hevc_nvenc, nvenc_h264, hevc_qsv, h264_qsv, h264_amf
     --resolution 1920x1080
-    --framerate 60
+    --framerate 60, 30...
     --quality 0
     --screen :0
-    --preset ultrafast, fast, slow...
-    --pixel yuv444p
+    --preset ultrafast, fast, medium, slow... (fast, medium, slow on nvenc)
+    --pixel yuv444p, yuv420p...
+    --profile baseline, main, high, high10, high422, high444 (main, main10, high444p... for nvenc)
     -h or --help
     -v or --version"
     exit 0
@@ -88,6 +90,8 @@ DS_main() {
             PIXEL="$1"; shift;;
             "--resolution" )
             RESOLUTION="$1"; shift;;
+            "--profile" )
+            PROFILE="$1"; shift;;
             "--output" )
             OUTPUT="$1"; shift;;
             "--help" | "-h" )
@@ -106,6 +110,7 @@ DS_main() {
 DS_exec() {
     ffmpeg -f x11grab -video_size "$RESOLUTION" -framerate "$FRAMERATE" -i "$SCREEN" \
     -vcodec "$ENCODING_LIB" -preset "$PRESET" -qp "$QUALITY" -pix_fmt "$PIXEL" \
+    -profile:v "$PROFILE" \
     "$OUTPUT"
     
 }
