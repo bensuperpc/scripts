@@ -20,10 +20,10 @@ set -euo pipefail
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-readonly VERSION="1.1.0"
+readonly VERSION="1.2.0"
 
 DS_version() {
-    echo "screen-capture $VERSION"
+    echo "screen-capture: $VERSION"
 }
 
 # Values can by override
@@ -46,22 +46,22 @@ TESTS=${TESTS:-none}
 COPY=${COPY:-true}
 
 DS_check() {
-    type ffmpeg >/dev/null 2>&1 || { echo "ffmpeg could not be found" >&2; exit 1; }
+    type ffmpeg >/dev/null 2>&1 || { echo "ffmpeg could not be found!" >&2; exit 1; }
 }
 
 DS_help() {
     echo "Usage: ${0##*/} --output <output file>"
     echo "Others option:
-    --lib libx264, libx265, h263p, hevc_nvenc, nvenc_h264, hevc_qsv, h264_qsv, h264_amf
+    --lib libx264, libx265, huffyuv, h263p, hevc_nvenc, nvenc_h264, hevc_qsv, h264_qsv, h264_amf
     --resolution 1920x1080
     --framerate 60, 30...
-    --quality 0
+    --quality 0 (lossless) to X
     --screen :0
     --preset ultrafast, fast, medium, slow... (fast, medium, slow on nvenc)
     --pixel yuv444p, yuv420p...
     --profile baseline, main, high, high10, high422, high444 (main, main10, high444p... for nvenc)
     --level auto, 0, 1, 1.0 ... 5.0, 5.1
-    --ffmpeg_arg=\"\" ffmpeg arguments
+    --ffmpeg_arg=\"<arg 1> <arg2> ...\" additional ffmpeg arguments
     -h or --help
     -v or --version"
     exit 0
