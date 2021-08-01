@@ -38,6 +38,12 @@
  - [`compress-secu`](#compress-secu)
  - [`disable-baloo`](#disable-baloo)
 
+## game
+
+ - [`save-mindustry-linux`](#save-mindustry-linux)
+ - [`save-satisfactory-linux`](#save-satisfactory-linux)
+ - [`save-terraria-linux`](#save-terraria-linux)
+
 ## git
 
  - [`git-apply-patch`](#git-apply-patch)
@@ -217,6 +223,30 @@ Disable baloo extractor (with KDE plasma)
 
 ```bash
 $ sudo disable-baloo
+```
+
+### save-mindustry-linux
+
+Create archive from save files in mindustry in Linux
+
+```bash
+$ save-mindustry-linux
+```
+
+### save-satisfactory-linux
+
+Create archive from save files in satisfactory in Linux
+
+```bash
+$ save-satisfactory-linux
+```
+
+### save-terraria-linux
+
+Create archive from save files in terraria in Linux
+
+```bash
+$ save-terraria-linux
 ```
 
 ### git-apply-patch
