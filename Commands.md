@@ -21,6 +21,14 @@
  - [`clean-debian`](#clean-debian)
  - [`update-debian`](#update-debian)
 
+## development
+
+ - [`format-code`](#format-code)
+ - [`cmake-builder`](#cmake-builder)
+ - [`ninja-builder`](#ninja-builder)
+ - [`dockcross-builder`](#dockcross-builder)
+ - [`meson-builder`](#meson-builder)
+
 ## git
 
  - [`git-apply-patch`](#git-apply-patch)
@@ -96,6 +104,62 @@ Update debian (and ubuntu), by apt update and dist-upgrade
 
 ```bash
 $ sudo update-debian
+```
+
+### format-code
+
+Format all code recursively with clang-format (C/C++...)
+
+```bash
+$ format-code # With LLVM style (By default)
+$ format-code webkit # Withwebkit
+$ format-code my-style.txt # With custom style
+```
+
+### cmake-builder
+
+Build cmake project (and create build folder)
+Can accept cmake arguments
+
+```bash
+$ cmake-builder # Without argument
+$ cmake-builder -DCMAKE_BUILD_TYPE=Release # With argument
+```
+
+### ninja-builder
+
+Build cmake project with ninja build (and create build folder)
+Can accept cmake arguments
+
+```bash
+$ ninja-builder # Without argument
+$ ninja-builder -DCMAKE_BUILD_TYPE=Release # With argument
+```
+
+### meson-builder
+
+Build meson project (and create build folder)
+Can accept meson arguments
+
+```bash
+$ meson-builder # Without argument
+```
+
+### dockcross-builder
+
+Build cmake project with ninja (and create build folder) in docker (cross platform
+Can accept CMake arguments.
+
+Dockcross images list:
+android-arm android-arm64 web-wasm
+linux-x86 linux-x64 linux-mips linux-x64-clang 
+manylinux1-x64 manylinux1-x86 manylinux2010-x64 manylinux2010-x86 manylinux2014-x64 manylinux2014-x86 manylinux2014-aarch64 
+windows-static-x86 windows-static-x64 windows-static-x64-posix windows-shared-x86 windows-shared-x64 windows-shared-x64-posix 
+linux-arm64 linux-arm64-musl linux-armv7 linux-armv7a linux-armv7l-musl linux-armv6 linux-armv6-musl linux-armv5 linux-armv5-musl 
+linux-ppc64le linux-riscv64 linux-riscv32 linux-m68k-uclibc linux-s390x
+
+```bash
+$ dockcross-builder <dockcross image> <CMake arguments>
 ```
 
 ### git-apply-patch
