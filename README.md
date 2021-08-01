@@ -16,11 +16,9 @@
 
 # New Features !
 
-  - Update LUKS scripts
-  - Update git scripts
-  - Add docker scripts
+  - Add [Documentation](Commands.md)
 
-#### Install
+## Install
 You need Linux distribution like Ubuntu, Manjaro or Debian
 
 ```sh
@@ -31,23 +29,35 @@ cd scripts
 ```
 Or [Released version](https://github.com/bensuperpc/scripts/releases)
 
-###### Check dependency (optional):
+#### Check dependency (optional):
 
 ```sh
 make check-dep
 ```
 
-###### And install:
+#### And install:
 
 ```sh
 make install
 ```
 
-#### Uninstall
+### Uninstall
 ```sh
 make uninstall
 ```
-### Documentation
+## Documentation
+
+Links:
+
+ - Scripts [Documentation](Commands.md)
+ - git-extras [Documentation](git/git-extras/Commands.md)
+ - git-quick-stats [Documentation](git/git-quick-stats/README.md)
+ - cryptr [Documentation](cryptography/cryptr/README.md)
+ - gpg-encrypt [Documentation](cryptography/gpg-encrypt/README.md)
+ - Bash-Snippet [Documentation](Bash-Snippet/README.md)
+
+### Directory
+
 
 | Directory     | Infos         | More  |
 |:-------------:|:-------------:|:-----:|
@@ -72,7 +82,7 @@ make uninstall
 | archlinux | archlinux scripts | pacman, cleaning ect... |
 | bash-scripts | [bash-scripts](https://github.com/jrussellfreelance/bash-scripts) | A collection of bash scripts by [jrussellfreelance](https://github.com/jrussellfreelance) |
 
-### Todos
+## Todos
 
  - Write Tests
  - Continue dev. :D

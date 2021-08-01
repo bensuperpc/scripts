@@ -1,5 +1,6 @@
 
-# git
+
+## git
 
  - [`git-apply-patch`](#git-apply-patch)
  - [`git-changelog`](#git-changelog)
@@ -11,7 +12,7 @@
  - [`git-sync-submodule`](#git-sync-submodule)
  - [`git-update-recursive`](#git-update-recursive) 
 
-## git-apply-patch
+### git-apply-patch
 
 Apply a git patch(s)
 
@@ -19,7 +20,7 @@ Apply a git patch(s)
 $ git-apply-patch fix1.patch fix2.patch fix3.patch...
 ```
 
-## git-changelog
+### git-changelog
 
 Generate git changelog
 
@@ -27,7 +28,7 @@ Generate git changelog
 $ git-changelog
 ```
 
-## git-clone-all
+### git-clone-all
 
 Clone git repository with all tags, submodules...
 
@@ -35,7 +36,7 @@ Clone git repository with all tags, submodules...
 $ git-clone-all https://github.com/bensuperpc/scripts.git https://github.com/bensuperpc/scripts.git ...
 ```
 
-## git-commit-undo
+### git-commit-undo
 
 Undo last commit (not push)
 
@@ -43,7 +44,7 @@ Undo last commit (not push)
 $ git-commit-undo
 ```
 
-## git-commit
+### git-commit
 
 Create commit with signature
 
@@ -52,7 +53,7 @@ $ git-commit "title and comment"
 $ git-commit "title" "comment"
 ```
 
-## git-create-patch
+### git-create-patch
 
 Create git patch
 
@@ -74,7 +75,7 @@ Create patch from hash1 or tag1 to hash2 or tag2:
 $ git-create-patch v1.0.0 v1.1.0
 ```
 
-## git-find-big
+### git-find-big
 
 Display biggest files in git repository
 
@@ -82,7 +83,7 @@ Display biggest files in git repository
 $ git-find-big
 ```
 
-## git-sync-submodule
+### git-sync-submodule
 
 Update submodule to latest commit
 
@@ -90,7 +91,7 @@ Update submodule to latest commit
 $ git-sync-submodule
 ```
 
-## git-update-recursive
+### git-update-recursive
 
 Update repository to latest version in remote (with submodule)
 
