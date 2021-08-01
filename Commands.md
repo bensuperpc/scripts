@@ -57,6 +57,19 @@
  - [`git-sync-submodule`](#git-sync-submodule)
  - [`git-update-recursive`](#git-update-recursive) 
 
+## hardware
+
+ - [`temperature`](#temperature) 
+
+## image
+
+ - [`image_jpeg_to_avif_aom`](#image_jpeg_to_avif_aom)
+ - [`image_jpeg_to_avif_rav1e`](#image_jpeg_to_avif_rav1e)
+ - [`image_jpeg_to_heic`](#image_jpeg_to_heic)
+ - [`image_jpeg_to_webp`](#image_jpeg_to_webp)
+ - [`image_png_to_heic`](#image_png_to_heic)
+ - [`image_png_to_webp`](#image_png_to_webp)
+
 ### clean-arch
 
 Clean ArchLinux and Manjaro (Remove old packages...)
@@ -343,4 +356,60 @@ Update repository to latest version in remote (with submodule)
 
 ```bash
 $ git-update-recursive
+```
+
+### temperature
+
+Get temperature from CPU, HDD ect...
+
+```bash
+$ temperature
+```
+
+### image_jpeg_to_avif_aom
+
+Convert all jpeg to images avif with AOM
+
+```bash
+$ image_jpeg_to_avif_aom
+```
+
+### image_jpeg_to_avif_rav1e
+
+Convert all jpeg to images avif with rav1e
+
+```bash
+$ image_jpeg_to_avif_rav1e
+```
+
+### image_jpeg_to_heic
+
+Convert all jpeg images to heic
+
+```bash
+$ image_jpeg_to_heic
+```
+
+### image_jpeg_to_webp
+
+Convert all jpeg images to webp with cwebp
+
+```bash
+$ image_jpeg_to_webp
+```
+
+### image_png_to_heic
+
+Convert all png images to heic
+
+```bash
+$ image_png_to_heic
+```
+
+### image_png_to_webp
+
+Convert all png images to webp with cwebp
+
+```bash
+$ image_png_to_webp
 ```
