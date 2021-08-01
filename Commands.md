@@ -7,6 +7,9 @@
  - [`git-commit-undo`](#git-commit-undo)
  - [`git-commit`](#git-commit)
  - [`git-create-patch`](#git-commit)
+ - [`git-find-big`](#git-find-big)
+ - [`git-sync-submodule`](#git-sync-submodule)
+ - [`git-update-recursive`](#git-update-recursive) 
 
 ## git-apply-patch
 
@@ -68,5 +71,29 @@ $ git-create-patch 5 # HEAD to 5 last commit
 Create patch from hash1 or tag1 to hash2 or tag2:
 
 ```bash
-$ git-create-patch 5 # HEAD to 5 last commit
+$ git-create-patch v1.0.0 v1.1.0
+```
+
+## git-find-big
+
+Display biggest files in git repository
+
+```bash
+$ git-find-big
+```
+
+## git-sync-submodule
+
+Update submodule to latest commit
+
+```bash
+$ git-sync-submodule
+```
+
+## git-update-recursive
+
+Update repository to latest version in remote (with submodule)
+
+```bash
+$ git-update-recursive
 ```
