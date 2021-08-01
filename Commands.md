@@ -11,7 +11,16 @@
 ## audio
 
  - [`extract-audio`](#extract-audio)
- 
+
+## cryptography
+ - [`digital-signature-check-RSA`](#digital-signature-check-RSA)
+ - [`digital-signature-RSA`](#digital-signature-RSA)
+
+## debian
+
+ - [`clean-debian`](#clean-debian)
+ - [`update-debian`](#update-debian)
+
 ## git
 
  - [`git-apply-patch`](#git-apply-patch)
@@ -54,6 +63,39 @@ Extract audio from video files, with ffmpeg (without re-encoding)
 
 ```bash
 $ extract-audio myvideo.mkv myextractedsound.mp3
+```
+
+### digital-signature-check-RSA
+
+Check document signature with public key and certificate
+
+```bash
+$ PUBLIC_KEY=mypublic.pem digital-signature-check-RSA <file>
+```
+
+### digital-signature-RSA
+
+Generate (and check) certificate with RSA key (and generate hash by rhash)
+
+```bash
+$ digital-signature-RSA sign <file> <password>
+$ PUBLIC_KEY=mypublic.pem digital-signature-RSA check <file>
+```
+
+### clean-debian
+
+Clean debian (and ubuntu), remove old packages...
+
+```bash
+$ sudo clean-debian
+```
+
+### update-debian
+
+Update debian (and ubuntu), by apt update and dist-upgrade
+
+```bash
+$ sudo update-debian
 ```
 
 ### git-apply-patch
