@@ -87,9 +87,6 @@
  - [`sysinfo`](#sysinfo)
  - [`update-grub`](#update-grub)
 
- 
- 
-
 ## hash
 
  - [`hash_check`](#hash_check)
@@ -100,6 +97,20 @@
 
  - [`uuid`](#uuid)
  - [`uuid-bash`](#uuid-bash)
+
+## partition
+
+ - [`luks`](#luks)
+ - [`mount-ram`](#mount-ram)
+
+## video
+
+ - [`screen-capture`](#screen-capture)
+ - [`screen-capture-webcam`](#screen-capture-webcam)
+ - [`gource-nvenc`](#gource-nvenc)
+ - [`gource-h265`](#gource-h265)
+ - [`h265-nvenc`](#h265-nvenc)
+ - (WIP)
 
 ### clean-arch
 
@@ -572,4 +583,67 @@ Generate uuid in bash
 
 ```bash
 $ uuid-bash
+```
+
+### luks
+
+Make luks (encrypted) partition with password
+
+```bash
+$ sudo luks <Device> <Label>
+```
+
+### mount-ram
+
+Mount directory in RAM
+
+```bash
+$ mount-ram <path to mount> <size (in MB/Mo)>
+```
+
+### screen-capture
+
+Screen capture (Video only) with ffmpeg and x11grab
+
+```bash
+$ screen-capture --output <output file> --preset fast --resolution 1920x1080
+$ screen-capture --output <output file> --screen :0 --framerate 60 --lib libx265
+```
+
+More info :
+
+```bash
+$ screen-capture --help
+```
+
+### screen-capture-webcam
+
+Screen capture (Video only) with ffmpeg, x11grab, and webcam
+
+```bash
+$ screen-capture-webcam <output file>
+```
+
+### gource-nvenc
+
+Generate video with all commit and repository evolution (with nvenc)
+
+```bash
+$ gource-nvenc <output file>
+```
+
+### gource-h265
+
+Generate video with all commit and repository evolution (with H265)
+
+```bash
+$ gource-h265 <output file>
+```
+
+### h265-nvenc
+
+Convert video to h265 (with nvenc)
+
+```bash
+$ h265-nvenc <input file> <output file>
 ```
