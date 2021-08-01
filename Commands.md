@@ -29,6 +29,15 @@
  - [`dockcross-builder`](#dockcross-builder)
  - [`meson-builder`](#meson-builder)
 
+## file
+
+ - [`rsync-archive`](#rsync-archive)
+ - [`rsync-check`](#rsync-check)
+ - [`rsync-rsa`](#rsync-rsa)
+ - [`compress-max`](#compress-max)
+ - [`compress-secu`](#compress-secu)
+ - [`disable-baloo`](#disable-baloo)
+
 ## git
 
  - [`git-apply-patch`](#git-apply-patch)
@@ -151,15 +160,63 @@ Build cmake project with ninja (and create build folder) in docker (cross platfo
 Can accept CMake arguments.
 
 Dockcross images list:
-android-arm android-arm64 web-wasm
-linux-x86 linux-x64 linux-mips linux-x64-clang 
-manylinux1-x64 manylinux1-x86 manylinux2010-x64 manylinux2010-x86 manylinux2014-x64 manylinux2014-x86 manylinux2014-aarch64 
-windows-static-x86 windows-static-x64 windows-static-x64-posix windows-shared-x86 windows-shared-x64 windows-shared-x64-posix 
-linux-arm64 linux-arm64-musl linux-armv7 linux-armv7a linux-armv7l-musl linux-armv6 linux-armv6-musl linux-armv5 linux-armv5-musl 
-linux-ppc64le linux-riscv64 linux-riscv32 linux-m68k-uclibc linux-s390x
+*android-arm android-arm64 web-wasm*
+*linux-x86 linux-x64 linux-mips linux-x64-clang*
+*manylinux1-x64 manylinux1-x86 manylinux2010-x64 manylinux2010-x86 manylinux2014-x64 manylinux2014-x86 manylinux2014-aarch64* 
+*windows-static-x86 windows-static-x64 windows-static-x64-posix windows-shared-x86 windows-shared-x64 windows-shared-x64-posix*
+*linux-arm64 linux-arm64-musl linux-armv7 linux-armv7a linux-armv7l-musl linux-armv6 linux-armv6-musl linux-armv5 linux-armv5-musl*
+*linux-ppc64le linux-riscv64 linux-riscv32 linux-m68k-uclibc linux-s390x*
 
 ```bash
 $ dockcross-builder <dockcross image> <CMake arguments>
+```
+
+### rsync-archive
+
+Make perfect copy (backup) directory with rsync
+
+```bash
+$ rsync-archive <source directory> <destination directory>
+```
+
+### rsync-check
+
+Make perfect copy (backup) directory with rsync and checksum (Can take many hours with big files)
+
+```bash
+$ rsync-check <source directory> <destination directory>
+```
+
+### rsync-rsa
+
+Make copy directory with rsync and SSH
+
+```bash
+$ rsync-archive <port> <key-file> <source directory> <destination directory>
+```
+
+### compress-max
+
+Compress directory with 7z with maximum settings
+
+```bash
+$ compress-max <directory>
+```
+
+### compress-secu
+
+Compress directory with 7z with maximum settings (but without solid archive, more solid against corruption
+
+```bash
+$ compress-secu <directory>
+```
+
+### disable-baloo
+
+Disable baloo extractor (with KDE plasma)
+
+```bash
+$ sudo disable-baloo
 ```
 
 ### git-apply-patch
