@@ -43,6 +43,7 @@
  - [`save-mindustry-linux`](#save-mindustry-linux)
  - [`save-satisfactory-linux`](#save-satisfactory-linux)
  - [`save-terraria-linux`](#save-terraria-linux)
+ - [`save-7DaysToDie-linux`](#save-7DaysToDie-linux)
 
 ## git
 
@@ -247,6 +248,14 @@ Create archive from save files in terraria in Linux
 
 ```bash
 $ save-terraria-linux
+```
+
+### save-7DaysToDie-linux
+
+Create archive from save files in 7DaysToDie in Linux
+
+```bash
+$ save-7DaysToDie-linux
 ```
 
 ### git-apply-patch
