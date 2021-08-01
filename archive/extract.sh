@@ -69,7 +69,7 @@ extractAllTypeFiles(){
 
 if [ $# -eq 0 ]; then
     echo "No arguments provided"
-    echo "Usage: "
+    echo "Usage: extract <file1> <file2>"
     exit 1
 fi
 

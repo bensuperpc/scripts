@@ -1,5 +1,17 @@
 
+## archlinux
 
+ - [`clean-arch`](#clean-arch)
+ - [`update-arch`](#update-arch)
+
+## archive
+
+ - [`extract`](#extract)
+
+## audio
+
+ - [`extract-audio`](#extract-audio)
+ 
 ## git
 
  - [`git-apply-patch`](#git-apply-patch)
@@ -11,6 +23,38 @@
  - [`git-find-big`](#git-find-big)
  - [`git-sync-submodule`](#git-sync-submodule)
  - [`git-update-recursive`](#git-update-recursive) 
+
+### clean-arch
+
+Clean ArchLinux and Manjaro (Remove old packages...)
+
+```bash
+$ sudo clean-arch
+```
+
+### update-arch
+
+Update ArchLinux and Manjaro
+
+```bash
+$ sudo clean-arch
+```
+
+### extract
+
+Script to extract many type of archive (7z, rar, zip, iso...)
+
+```bash
+$ extract archive1.zip archive2.7z archive3.rar
+```
+
+### extract-audio
+
+Extract audio from video files, with ffmpeg (without re-encoding)
+
+```bash
+$ extract-audio myvideo.mkv myextractedsound.mp3
+```
 
 ### git-apply-patch
 
