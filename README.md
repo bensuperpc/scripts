@@ -87,6 +87,10 @@ Links:
  - Write Tests
  - Continue dev. :D
 
+## More info
+
+ - [Documentation](Commands.md)
+
 License
 ----
 
