@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 29, July, 2021                                 //
-#//  Modified: 29, July, 2021                                //
+#//  Modified: 01, August, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -20,12 +20,12 @@ set -euo pipefail
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-if (( $# == 2 )); then
+if (( $# == 3 )); then
     Var1="$1"
     Var2="$2"
-
-    find . -type f \( -name "*.sh" -o -name "*.bash" \) -print0 | xargs -0 -P"$(nproc)" -I{} sed -i "s|$Var1|$Var2|g" "{}"
+    Var3="$3"
+    find . -type f \( -name "*.$Var3" -o -name "*.$Var3" \) -print0 | xargs -0 -P"$(nproc)" -I{} sed -i "s|$Var1|$Var2|g" "{}"
 else
-    echo "Usage: ${0##*/} <STR1> <STR2>"
+    echo "Usage: ${0##*/} <STR1> <STR2> <Extension (wihout point)>"
     exit 1
 fi

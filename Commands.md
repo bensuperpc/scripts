@@ -77,6 +77,18 @@
 ## linux
 
  - [`clean-system`](#clean-system)
+ - [`find-broken-link`](#find-broken-link)
+ - [`find-duplicate`](#find-duplicate)
+ - [`find-empty`](#find-empty)
+ - [`history-count`](#history-count)
+ - [`make-bootable-usb`](#make-bootable-usb)
+ - [`passwordgen`](#passwordgen)
+ - [`replace-recursive`](#replace-recursive)
+ - [`sysinfo`](#sysinfo)
+ - [`update-grub`](#update-grub)
+
+ 
+ 
 
 ## hash
 
@@ -84,6 +96,10 @@
  - [`hash_gen`](#hash_gen)
  - [`hash`](#hash)
 
+## uuid
+
+ - [`uuid`](#uuid)
+ - [`uuid-bash`](#uuid-bash)
 
 ### clean-arch
 
@@ -445,6 +461,79 @@ Clean linux system (Tested with ArchLinux and Manjaro)
 $ sudo clean-system
 ```
 
+### find-broken-link
+
+Find all broken symbole links
+
+```bash
+$ find-broken-link
+```
+
+### find-duplicate
+
+Find all duplicate files (Calc with sha256)
+
+```bash
+$ find-duplicate
+```
+
+### find-empty
+
+Find all empty files
+
+```bash
+$ find-empty
+```
+
+### history-count
+
+Calculate the number of identical commands in the bash history
+
+```bash
+$ history-count
+```
+
+### make-bootable-usb
+
+Create bootable USB with ISO
+
+```bash
+$ make-bootable-usb <iso path> <device path (USB ...)>
+```
+
+### passwordgen
+
+Generate strong password
+
+```bash
+$ passwordgen # With 48 chars
+$ passwordgen X # With X chars
+```
+
+### replace-recursive
+
+Replace string in files recursively
+
+```bash
+$ replace-recursive <STR1> <STR2> <Extension (wihout point)>
+```
+
+### sysinfo
+
+Generate archive with all system info
+
+```bash
+$ sudo sysinfo
+```
+
+### update-grub
+
+Update Grub
+
+```bash
+$ sudo update-grub
+```
+
 ### hash_check
 
 Check hash file(s)
@@ -467,4 +556,20 @@ Generate hash of directory
 
 ```bash
 $ hash <directory>
+```
+
+### uuid
+
+Generate uuid
+
+```bash
+$ uuid
+```
+
+### uuid-bash
+
+Generate uuid in bash
+
+```bash
+$ uuid-bash
 ```
