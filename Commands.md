@@ -70,6 +70,21 @@
  - [`image_png_to_heic`](#image_png_to_heic)
  - [`image_png_to_webp`](#image_png_to_webp)
 
+## internet
+
+ - [`sms-free`](#sms-free)
+
+## linux
+
+ - [`clean-system`](#clean-system)
+
+## hash
+
+ - [`hash_check`](#hash_check)
+ - [`hash_gen`](#hash_gen)
+ - [`hash`](#hash)
+
+
 ### clean-arch
 
 Clean ArchLinux and Manjaro (Remove old packages...)
@@ -412,4 +427,44 @@ Convert all png images to webp with cwebp
 
 ```bash
 $ image_png_to_webp
+```
+
+### sms-free
+
+Send SMS with Free Mobile API (From script to smartphone)
+
+```bash
+$ sms-free <user> <API key> <Message (in quotes)>
+```
+
+### clean-system
+
+Clean linux system (Tested with ArchLinux and Manjaro)
+
+```bash
+$ sudo clean-system
+```
+
+### hash_check
+
+Check hash file(s)
+
+```bash
+$ hash_check <checksums file>
+```
+
+### hash_gen
+
+Generate hash of directory
+
+```bash
+$ hash_gen <directory>
+```
+
+### hash
+
+Generate hash of directory
+
+```bash
+$ hash <directory>
 ```
