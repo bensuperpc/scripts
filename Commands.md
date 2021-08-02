@@ -1,6 +1,8 @@
 
 ## archlinux
 
+Scripts for Archlinux and Manjaro
+
  - [`clean-arch`](#clean-arch)
  - [`update-arch`](#update-arch)
 
@@ -10,18 +12,28 @@
 
 ## audio
 
+Scripts for audio (FFMPEG ...)
+
  - [`extract-audio`](#extract-audio)
 
 ## cryptography
+
+For cryptography and security
+
  - [`digital-signature-check-RSA`](#digital-signature-check-RSA)
  - [`digital-signature-RSA`](#digital-signature-RSA)
+ - [`cryptr`](#cryptr)
 
 ## debian
+
+Scripts for Debian and Ubuntu
 
  - [`clean-debian`](#clean-debian)
  - [`update-debian`](#update-debian)
 
 ## development
+
+Scripts for C/C++ development and cross platform
 
  - [`format-code`](#format-code)
  - [`cmake-builder`](#cmake-builder)
@@ -31,6 +43,8 @@
 
 ## file
 
+For file management or backup
+
  - [`rsync-archive`](#rsync-archive)
  - [`rsync-check`](#rsync-check)
  - [`rsync-rsa`](#rsync-rsa)
@@ -39,6 +53,8 @@
  - [`disable-baloo`](#disable-baloo)
 
 ## game
+
+To create archives of game saves
 
  - [`save-mindustry-linux`](#save-mindustry-linux)
  - [`save-satisfactory-linux`](#save-satisfactory-linux)
@@ -100,10 +116,14 @@
 
 ## partition
 
+For creating partitions (encrypted or in RAM for example)
+
  - [`luks`](#luks)
  - [`mount-ram`](#mount-ram)
 
 ## video
+
+For encoding, creating, recording or downloading videos
 
  - [`screen-capture`](#screen-capture)
  - [`screen-capture-webcam`](#screen-capture-webcam)
@@ -160,6 +180,15 @@ Generate (and check) certificate with RSA key (and generate hash by rhash)
 ```bash
 $ digital-signature-RSA sign <file> <password>
 $ PUBLIC_KEY=mypublic.pem digital-signature-RSA check <file>
+```
+
+### cryptr
+
+A simple shell utility for encrypting and decrypting files using OpenSSL.
+
+```bash
+$ cryptr encrypt <file>
+$ cryptr decrypt <file.aes>
 ```
 
 ### clean-debian
