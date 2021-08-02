@@ -11,7 +11,7 @@
 
 ![GitHub](https://img.shields.io/github/license/bensuperpc/scripts) ![GitHub top language](https://img.shields.io/github/languages/top/bensuperpc/scripts) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/bensuperpc/scripts)
 
-[![Twitter](https://img.shields.io/twitter/follow/Bensuperpc?style=social)](https://img.shields.io/twitter/follow/Bensuperpc?style=social) [![Youtube](https://img.shields.io/youtube/channel/subscribers/UCJsQFFL7QW4LSX9eskq-9Yg?style=social)](https://img.shields.io/youtube/channel/subscribers/UCJsQFFL7QW4LSX9eskq-9Yg?style=social)
+[![Twitter](https://img.shields.io/twitter/follow/Bensuperpc?style=social)](https://twitter.com/Bensuperpc) [![Youtube](https://img.shields.io/youtube/channel/subscribers/UCJsQFFL7QW4LSX9eskq-9Yg?style=social)](https://www.youtube.com/channel/UCJsQFFL7QW4LSX9eskq-9Yg)
 
 
 # New Features !
