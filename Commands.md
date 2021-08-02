@@ -147,6 +147,7 @@ For encoding, creating, recording or downloading videos
  - [`h265-nvenc`](#h265-nvenc)
  - [`youtube-dl-playlist-full`](#youtube-dl-playlist-full)
  - [`youtube-dl-playlist-audio`](#youtube-dl-playlist-audio)
+ - [`add-watermark`](#add-watermark)
  - (WIP)
 ### clean-arch
 
@@ -729,6 +730,14 @@ Mount directory in RAM
 
 ```bash
 $ mount-ram <path to mount> <size (in MB/Mo)>
+```
+
+### add-watermark
+
+Add watermark in video
+
+```bash
+$ add-watermark  <input video> <logo> <overlay X (from from the top-left)> <overlay Y (from from the top-left)> <output>
 ```
 
 ### screen-capture
