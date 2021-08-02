@@ -110,8 +110,9 @@
  - [`gource-nvenc`](#gource-nvenc)
  - [`gource-h265`](#gource-h265)
  - [`h265-nvenc`](#h265-nvenc)
+ - [`youtube-dl-playlist-full`](#youtube-dl-playlist-full)
+ - [`youtube-dl-playlist-audio`](#youtube-dl-playlist-audio)
  - (WIP)
-
 ### clean-arch
 
 Clean ArchLinux and Manjaro (Remove old packages...)
@@ -646,4 +647,20 @@ Convert video to h265 (with nvenc)
 
 ```bash
 $ h265-nvenc <input file> <output file>
+```
+
+### youtube-dl-playlist-full
+
+Download playlist video with best quality
+
+```bash
+$ youtube-dl-playlist-full <URL>
+```
+
+### youtube-dl-playlist-audio
+
+Download playlist audio only with best quality
+
+```bash
+$ youtube-dl-playlist-audio <URL>
 ```

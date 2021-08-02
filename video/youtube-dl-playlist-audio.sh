@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 27, May, 2021                                  //
-#//  Modified: 24, July, 2021                                //
+#//  Modified: 02, August, 2021                              //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -25,5 +25,5 @@ then
     echo "No arguments supplied"
     exit 1
 fi
-
-youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best' --merge-output-format mp4 -o '%(title)s-%(id)s-%(format_id)s.%(ext)s' "$1"
+# --write-description
+youtube-dl --get-id "$1" | xargs -I '{}' -P 4 youtube-dl --write-auto-sub --continue --embed-thumbnail --ignore-errors -f bestaudio --audio-format best --extract-audio --add-metadata -o "%(title)s-%(id)s.%(ext)s" 'https://youtube.com/watch?v={}'
