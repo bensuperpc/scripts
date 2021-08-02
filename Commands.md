@@ -1,3 +1,5 @@
+**The commands here only concern my git repositories, there are over 200 scripts in the whole git repository**
+
 
 ## archlinux
 
@@ -40,6 +42,19 @@ Scripts for C/C++ development and cross platform
  - [`ninja-builder`](#ninja-builder)
  - [`dockcross-builder`](#dockcross-builder)
  - [`meson-builder`](#meson-builder)
+
+## docker
+
+ - [`container-diff`](#container-diff)
+ - [`docker-clean-all`](#docker-clean-all)
+ - [`docker-clean`](#docker-clean)
+ - [`docker-export`](#docker-export)
+ - [`docker-import`](#docker-import)
+ - [`docker-load`](#docker-load)
+ - [`docker-pull`](#docker-pull)
+ - [`docker-save`](#docker-save)
+ - [`docker-volume-backup`](#docker-volume-backup)
+ - [`docker-volume-restore`](#docker-volume-restore)
 
 ## file
 
@@ -261,6 +276,91 @@ Dockcross images list:
 
 ```bash
 $ dockcross-builder <dockcross image> <CMake arguments>
+```
+
+### container-diff
+
+Display and analyse the differences between one or two containers:
+
+ - History
+ - Files
+ - apt & pip
+
+```bash
+$ container-diff <img1> <img2>
+$ container-diff <img>
+```
+
+### docker-clean-all
+
+Clean ALL images and data in docker
+
+```bash
+$ docker-clean-all
+```
+
+### docker-clean
+
+Clean old docker images (and without tags)
+
+```bash
+$ docker-clean
+```
+
+### docker-export
+
+Export docker image (**without base image**)
+
+```bash
+$ docker-export <image1> <image2> ...
+```
+
+### docker-import
+
+Import docker image (**without base image**)
+
+```bash
+$ docker-import <image1> <image2> ...
+```
+
+### docker-load
+
+Load docker image (**with base image**)
+
+```bash
+$ docker-load <image1> <image2> ...
+```
+
+### docker-save
+
+Export docker image (**with base image**)
+
+```bash
+$ docker-save <image1> <image2> ...
+```
+
+### docker-volume-backup
+
+Export volume in tar archive
+
+```bash
+$ docker-volume-backup <volume name>
+```
+
+### docker-volume-restore
+
+Import volume from tar archive
+
+```bash
+$ docker-volume-restore <volume name>
+```
+
+### docker-pull
+
+Pull/Download docker image (alpine, ubuntu...)
+
+```bash
+$ docker-pull
 ```
 
 ### rsync-archive
