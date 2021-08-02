@@ -1,6 +1,6 @@
 # Scripts
 
-### _Collection of useful scripts for Linux_
+### _Collection of useful scripts for Linux (Over 200 scripts)_
  [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/powered-by-jeffs-keyboard.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/contains-cat-gifs.svg)](https://forthebadge.com)
 
 [![scripts](https://github.com/Bensuperpc/scripts/actions/workflows/main.yml/badge.svg)](https://github.com/Bensuperpc/scripts/actions/workflows/main.yml) [![tagged-release](https://github.com/bensuperpc/scripts/actions/workflows/release.yml/badge.svg)](https://github.com/bensuperpc/scripts/actions/workflows/release.yml) [![code-inspector](https://github.com/bensuperpc/scripts/actions/workflows/code-inspector.yml/badge.svg?branch=main)](https://github.com/bensuperpc/scripts/actions/workflows/code-inspector.yml) [![shellcheck](https://github.com/bensuperpc/scripts/actions/workflows/ShellCheck.yml/badge.svg)](https://github.com/bensuperpc/scripts/actions/workflows/ShellCheck.yml) [![submodule-update](https://github.com/bensuperpc/scripts/actions/workflows/submodule-update.yml/badge.svg)](https://github.com/bensuperpc/scripts/actions/workflows/submodule-update.yml)
