@@ -24,7 +24,8 @@ set -euo pipefail
 type ffmpeg >/dev/null 2>&1 || { echo "ffmpeg could not be found" >&2; exit 1; }
 
 if (( $# == 5 )); then
-    ffmpeg -i "$1" -i "$2" -filter_complex "overlay='$3':'$4'" "$5" -c:v libx264 -crf 18 -bf 2 -profile:v high -c:a copy 
+    ffmpeg -i "$1" -i "$2" -filter_complex "overlay='$3':'$4'" "$5" \
+        -c:v libx264 -crf 18 -bf 2 -profile:v high -c:a copy 
 else
     echo "Usage: ${0##*/} <input video> <logo> <overlay X (from from the top-left)> <overlay Y (from from the top-left)> <output>"
     exit 1

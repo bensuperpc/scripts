@@ -24,7 +24,10 @@ set -euo pipefail
 type ffmpeg >/dev/null 2>&1 || { echo "ffmpeg could not be found" >&2; exit 1; }
 
 if (( $# == 3 )); then
-    ffmpeg -i "$1" -vf "drawtext=text='$2':fontcolor=white@1.0:fontsize=26:box=1:boxcolor=black@0.5:boxborderw=5:x=(w-text_w)/1.0625:y=(h-text_h)/1.0625" -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p -bf 2 -profile:v high -c:a copy "$3"
+    ffmpeg -i "$1" -vf "drawtext=text='$2':fontcolor=white@1.0:fontsize=26: \
+        box=1:boxcolor=black@0.5:boxborderw=5:x=(w-text_w)/1.0625:y=(h-text_h)/1.0625" \
+        -c:v libx264 -crf 18 -preset slow -pix_fmt yuv420p \
+        -bf 2 -profile:v high -c:a copy "$3"
 else
     echo "Usage: ${0##*/} <input video> <text> <output>"
     exit 1
