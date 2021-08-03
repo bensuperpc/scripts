@@ -1,0 +1,6 @@
+FROM bensuperpc/base-scripts:latest
+
+COPY . test/
+WORKDIR /test
+RUN make test
+RUN sudo make install

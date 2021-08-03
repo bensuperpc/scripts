@@ -66,7 +66,7 @@ check:
 	@find . -type f \( -name "*.py" -o -name "*.py" \) ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" \
 		! -path "*/Bash-Snippet/*" ! -path "*/git/git-scripts/*" ! -path "*/git/git-extras/*" \
 		! -path "*/git/git-extra-commands/*" ! -path "*/cryptography/cryptr/*" \
-		! -path "*/bash-scripts/*" ! -path "*/fff/*" ! -path "*/shell-scripts/*" -print0 | xargs -0 -P"$(shell nproc)" -I{} python -m compileall -q "{}"
+		! -path "*/bash-scripts/*" ! -path "*/fff/*" ! -path "*/shell-scripts/*" -print0 | xargs -0 -P"$(shell nproc)" -I{} python3 -m compileall -q "{}"
 	@echo "Python syntax check: done"
 	@find . -type f \( -name "*.sh" -o -name "*.bash" \) ! -path "*./git/*" ! -path "*/install.sh" ! -path "*/uninstall.sh" \
 		! -path "*/Bash-Snippet/*" ! -path "*/git/git-scripts/*" ! -path "*/git/git-extras/*" \
@@ -87,7 +87,10 @@ check-all:
 		shellcheck --check-sourced --color=auto --format=gcc --severity=warning --shell=bash --enable=all "{}"
 	@echo "Bash syntax check: done"
 
-test: check
+test: check check-dep
+
+docker:
+	docker build -f test/Dockerfile.base.alpine -t bensuperpc/base-scripts:latest .
 
 clean:
 	$(RM) -rf package_build/
@@ -129,8 +132,8 @@ check-dep:
 	@ninja --version > /dev/null 2>&1 && echo "ninja: OK" || echo "ninja: Missing"
 	@gpg --version > /dev/null 2>&1 && echo "gpg: OK" || echo "gpg: Missing"
 	@ruby --version > /dev/null 2>&1 && echo "ruby: OK" || echo "ruby: Missing"
-	@python --version > /dev/null 2>&1 && echo "python: OK" || echo "python: Missing"
+	@python3 --version > /dev/null 2>&1 && echo "python: OK" || echo "python: Missing"
 	@shellcheck --version > /dev/null 2>&1 && echo "shellcheck: OK" || echo "shellcheck: Missing"
 
 
-.PHONY: check check-dep dist dist-full clean purge install uninstall reinstall update test
+.PHONY: check check-dep dist dist-full clean purge install uninstall reinstall update test docker

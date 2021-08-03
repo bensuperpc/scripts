@@ -1,0 +1,11 @@
+FROM alpine:latest
+RUN apk add --no-cache bash git openssh rsync ffmpeg openssl make \
+    rsync cmake python3 tar gource findutils libwebp-tools \
+    parallel clang-extra-tools shellcheck youtube-dl xz cryptsetup \
+    rhash ruby gnupg imagemagick libavif-apps sudo man-db cmake-doc
+
+RUN apk add util-linux-misc --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main
+RUN apk add --no-cache ninja
+
+# Fix error with Bash-Snippet
+RUN mkdir -p /usr/local/share/man/man1
