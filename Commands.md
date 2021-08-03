@@ -45,7 +45,7 @@ Scripts for C/C++ development and cross platform
 
 ## docker
 
- - [`container-diff`](#container-diff)
+ - [`docker-container-diff`](#docker-container-diff)
  - [`docker-clean-all`](#docker-clean-all)
  - [`docker-clean`](#docker-clean)
  - [`docker-export`](#docker-export)
@@ -280,7 +280,7 @@ Dockcross images list:
 $ dockcross-builder <dockcross image> <CMake arguments>
 ```
 
-### container-diff
+### docker-container-diff
 
 Display and analyse the differences between one or two containers:
 
@@ -288,9 +288,12 @@ Display and analyse the differences between one or two containers:
  - Files
  - apt & pip
 
+For local image add: **daemon://<img>**
+For remote image add: **remote://<img>**
+
 ```bash
-$ container-diff <img1> <img2>
-$ container-diff <img>
+$ docker-container-diff <img1> <img2>
+$ docker-container-diff <img>
 ```
 
 ### docker-clean-all
