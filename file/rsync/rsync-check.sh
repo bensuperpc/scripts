@@ -11,7 +11,7 @@ set -euo pipefail
 #//                                                          //
 #//  Script, 2020                                            //
 #//  Created: 21, November, 2020                             //
-#//  Modified: 24, July, 2021                               //
+#//  Modified: 03, August, 2021                              //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -21,7 +21,25 @@ set -euo pipefail
 #//////////////////////////////////////////////////////////////
 
 if (( $# == 2 )); then
-    rsync --progress --stats --archive --xattrs --acls --partial --checksum --delete-during --verbose --human-readable --log-file=log_rsync_"$(date +%Y-%m-%d_%H_%M_%S)".log "$1" "$2"
+    LOG_DATE=$(date +%Y-%m-%d_%H_%M_%S)
+
+    rsync --progress --stats --archive --xattrs --acls --dry-run \
+        --delete-during --human-readable --partial --checksum "$1" "$2"
+
+    echo
+    echo "Warning! In '$2' some files will be deleted."
+    read -p "Are you sure ? [Y/n]" -n 1 -r
+    echo
+
+    if [[ $REPLY =~ ^[Y]$ ]]; then
+        echo "Sync in 5 seconds..."
+        sleep 5
+        rsync --progress --stats --archive --xattrs --acls --partial \
+            --delete-during --human-readable --checksum \
+            --log-file=log_rsync_"$LOG_DATE".log "$1" "$2"
+    else
+        echo "No sync"
+    fi
 else
     echo "Usage: ${0##*/} <source> <destination>"
     exit 1
