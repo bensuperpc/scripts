@@ -115,6 +115,7 @@ To create archives of game saves
  - [`make-bootable-usb`](#make-bootable-usb)
  - [`passwordgen`](#passwordgen)
  - [`replace-recursive`](#replace-recursive)
+ - [`remove-recursive`](#remove-recursive)
  - [`sysinfo`](#sysinfo)
  - [`update-grub`](#update-grub)
 
@@ -662,6 +663,14 @@ Replace string in files recursively
 
 ```bash
 $ replace-recursive <STR1> <STR2> <Extension (wihout point)>
+```
+
+### remove-recursive
+
+Replace string in files recursively
+
+```bash
+$ remove-recursive <Text to remove (Remove line)>
 ```
 
 ### sysinfo
