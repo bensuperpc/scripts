@@ -62,22 +62,22 @@ echo "create symlink done"
 echo "Install ben's scripts done"
 
 echo "Install Bash-Snippet..."
-cd /usr/bin/ben_script/Bash-Snippet
+cd /usr/bin/ben_script/Bash-Snippet || { echo "Failure"; exit 1; }
 sudo ./install.sh all
 echo "Install Bash-Snippet done"
 
 echo "Install git-extras..."
-cd /usr/bin/ben_script/git/git-extras
+cd /usr/bin/ben_script/git/git-extras || { echo "Failure"; exit 1; }
 sudo make install
 echo "Install git-extras done"
 
 echo "Install git-quick-stats..."
-cd /usr/bin/ben_script/git/git-quick-stats
+cd /usr/bin/ben_script/git/git-quick-stats || { echo "Failure"; exit 1; }
 sudo make install
 echo "Install git-quick-stats done"
 
 echo "Install fff..."
-cd /usr/bin/ben_script/fff
+cd /usr/bin/ben_script/fff || { echo "Failure"; exit 1; }
 sudo make install
 echo "Install fff done"
 

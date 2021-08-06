@@ -48,22 +48,22 @@ if [ ! -d "$DIR" ]; then
 fi
 
 echo "Removing Bash-Snippet..."
-cd /usr/bin/ben_script/Bash-Snippet
+cd /usr/bin/ben_script/Bash-Snippet || { echo "Failure"; exit 1; }
 sudo ./uninstall.sh all
 echo "Removing Bash-Snippet done"
 
 echo "Removing git-extras..."
-cd /usr/bin/ben_script/git/git-extras
+cd /usr/bin/ben_script/git/git-extras || { echo "Failure"; exit 1; }
 sudo make uninstall
 echo "Removing git-extras done"
 
 echo "Removing git-quick-stats..."
-cd /usr/bin/ben_script/git/git-quick-stats
+cd /usr/bin/ben_script/git/git-quick-stats || { echo "Failure"; exit 1; }
 sudo make uninstall
 echo "Removing git-quick-stats done"
 
 echo "Removing fff..."
-cd /usr/bin/ben_script/fff
+cd /usr/bin/ben_script/fff || { echo "Failure"; exit 1; }
 sudo make uninstall
 echo "Removing fff done"
 
