@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -euo pipefail
 #//////////////////////////////////////////////////////////////
 #//   ____                                                   //
 #//  | __ )  ___ _ __  ___ _   _ _ __   ___ _ __ _ __   ___  //
@@ -24,7 +23,7 @@ if (( $# == 3 )); then
     Var1="$1"
     Var2="$2"
     Var3="$3"
-    find . -type f \( -name "*.$Var3" -o -name "*.$Var3" \) -print0 | xargs -0 -P"$(nproc)" -I{} sed -i "s|$Var1|$Var2|g" "{}"
+    find . -type f \( -name "*.$Var3" -o -name "*.$Var3" \) -print0 | xargs -0 -P"$(nproc)" -I{} sed -i "s/$Var1/$Var2/g" "{}"
 else
     echo "Usage: ${0##*/} <STR1> <STR2> <Extension (wihout point)>"
     exit 1
