@@ -150,6 +150,7 @@ For encoding, creating, recording or downloading videos
  - [`youtube-dl-playlist-audio`](#youtube-dl-playlist-audio)
  - [`add-video-watermark`](#add-video-watermark)
  - [`add-video-logo`](#add-video-logo)
+ - [`split-video`](#split-video)
  - (WIP)
 ### clean-arch
 
@@ -759,6 +760,14 @@ Add logo (ex: .png) in video
 
 ```bash
 $ add-video-logo <input video> <logo> <overlay X (from from the top-left)> <overlay Y (from from the top-left)> <output>
+```
+
+### split-video
+
+Split video in part of x time
+
+```bash
+$ split-video <input video> <time (00:20:00 for parts of 20 minutes)>
 ```
 
 ### screen-capture
