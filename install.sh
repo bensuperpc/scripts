@@ -56,7 +56,7 @@ echo "create symlink..."
 find /usr/bin/ben_script -type f \( -name "*.sh" -o -name "*.py" \) ! -path "*./git/*" \
     ! -path "*/install.sh" ! -path "*/uninstall.sh" ! -path "*/Bash-Snippet/*" \
     ! -path "*/git-scripts/*" ! -path "*/git-extras/*" ! -path "*/git-extra-commands/*" \
-    ! -path "*/cryptr/*" ! -path "*/bash-scripts/*" ! -path "*/fff/*" \
+    ! -path "*/cryptr/*" ! -path "*/bash-scripts/*" ! -path "*/fff/*" ! -path "*/adb-sync/*" \
     ! -path "*/shell-scripts/*" -print0 | xargs -0 -P"$(nproc)" -I{} sudo ln -s "{}" /usr/bin || true
 echo "create symlink done"
 echo "Install ben's scripts done"
@@ -108,6 +108,10 @@ echo "Install bash-scripts..."
 find /usr/bin/ben_script/bash-scripts -type f -name "*.sh" \
     ! -path "*./git/*" -print0 | xargs -P"$(nproc)" -0 -I{} sudo ln -s "{}" /usr/bin || true
 echo "Install bash-scripts done"
+
+echo "Install adb-sync.."
+ln -s /usr/bin/ben_script/file/adb-sync /usr/bin/adb-sync
+echo "Install adb-sync done"
 
 echo "Remove *.sh ..."
 # Move it by remove file extension (if does not exit)

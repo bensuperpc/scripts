@@ -37,3 +37,6 @@
 [submodule "internet/spoofpoint"]
 	path = internet/spoofpoint
 	url = https://github.com/grahamhelton/spoofpoint.git
+[submodule "file/adb-sync"]
+	path = file/adb-sync
+	url = https://github.com/google/adb-sync.git
