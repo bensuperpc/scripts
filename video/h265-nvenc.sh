@@ -13,12 +13,14 @@
 #//  Modified: 24, July, 2021                                //
 #//  file: -                                                 //
 #//  -                                                       //
-#//  Source: -                                               //
+#//  Source: https://superuser.com/questions/1236275/how-can-i-use-crf-encoding-with-nvenc-in-ffmpeg/1236387#1236387                                               //
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
 if (( $# == 2 )); then
-    ffmpeg -strict 2 -hwaccel auto -i "$1"  -c:v hevc_nvenc -preset slow -rc vbr_hq -cq 18 -qmin 16 -qmax 20 -profile:v main10 -b:v 0K -c:a copy -map 0 "$2" 
+    # Old CUDA version
+    #ffmpeg -strict 2 -hwaccel auto -i "$1"  -c:v hevc_nvenc -preset slow -rc vbr_hq -cq 18 -qmin 16 -qmax 20 -profile:v main10 -b:v 0K -c:a copy -map 0 "$2"
+    ffmpeg -strict 2 -i "$1" -c:v hevc_nvenc -preset:v p7 -tune:v hq -rc:v vbr -cq:v 18 -b:v 0 -c:a copy -map 0 "$2"
 fi
