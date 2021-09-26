@@ -22,8 +22,8 @@
 if (( $# == 1 )); then
     #gource --multi-sampling --output-framerate 60 --seconds-per-day 2.0 --auto-skip-seconds 0.1 ./ -1920x1080 -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec hevc_nvenc -preset slow -b:v 64M -maxrate 96M -bufsize 384M $1
     gource --multi-sampling --output-framerate 60 --seconds-per-day 1.0 \
-    --auto-skip-seconds 0.2 ./ -1920x1080 -o - | ffmpeg -y -r 60 \
-    -f image2pipe -vcodec ppm -i - -vcodec hevc_nvenc -preset:v p7 -tune:v hq -rc:v vbr -cq:v 18 -b:v 0 "$1"
+    --auto-skip-seconds 0.2 ./ -2560x1440 -o - | ffmpeg -y -r 60 \
+    -f image2pipe -vcodec ppm -i - -vcodec hevc_nvenc -preset:v p7 -tune:v hq -rc:v vbr -cq:v 18 -b:v 0 -minrate:v 5M -maxrate:v 30M -bufsize:v 120M "$1"
 else
     echo "Usage: ${0##*/} <ouput file>"
     exit 1
