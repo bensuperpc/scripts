@@ -10,7 +10,7 @@
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 31, July, 2021                                 //
-#//  Modified: 03, August, 2021                              //
+#//  Modified: 27, September, 2021                           //
 #//  file: https://gist.github.com/jhamfler/cb21414d70696ba4a8957db80f186374                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -19,12 +19,13 @@
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-# --highlight-users
 if (( $# == 1 )); then
-    gource --multi-sampling --output-framerate 60 --seconds-per-day 3.0 \
-        --auto-skip-seconds 0.2 ./ -1920x1080 -o - | ffmpeg -y -r 60 \
-        -f image2pipe -vcodec ppm -i - -vcodec libx265 -preset slow \
-        -pix_fmt yuv420p -crf 21 -bf 0 "$1"
+    # -2560x1440 # If not --fullscreen --date-format "%Y-%m-%d" --elasticity 0.1 --max-user-speed 500
+    gource --fullscreen --disable-input --multi-sampling --output-framerate 60 --seconds-per-day 0.3 \
+    --hide mouse --filename-time 5 --max-files 0 --bloom-multiplier 0.8 --highlight-users --file-extension-fallback --path . \
+    --auto-skip-seconds 0.9 --background-colour 000000 --key --stop-at-end --title "git" --output-ppm-stream - | ffmpeg -y -r 60 \
+        -f image2pipe -vcodec ppm -i - -vcodec libx265 -preset medium \
+        -pix_fmt yuv420p -crf 18 -bf 0 "$1"
 else
     echo "Usage: ${0##*/} <ouput file>"
     exit 1

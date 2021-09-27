@@ -146,6 +146,7 @@ For encoding, creating, recording or downloading videos
  - [`gource-nvenc`](#gource-nvenc)
  - [`gource-h265`](#gource-h265)
  - [`h265-nvenc`](#h265-nvenc)
+ - [`merge-audio-video`](#merge-audio-video)
  - [`youtube-dl-playlist-full`](#youtube-dl-playlist-full)
  - [`youtube-dl-playlist-audio`](#youtube-dl-playlist-audio)
  - [`add-video-watermark`](#add-video-watermark)
@@ -769,6 +770,15 @@ Split video in part of x time
 ```bash
 $ split-video <input video> <time (00:20:00 for parts of 20 minutes)>
 ```
+
+### merge-audio-video
+
+Merge video and audio (shortest)
+
+```bash
+$ merge-audio-video <input video> <input audio> <output video>
+```
+
 
 ### screen-capture
 

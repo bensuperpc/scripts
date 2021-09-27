@@ -8,24 +8,20 @@
 #//                             |_|             |_|          //
 #//////////////////////////////////////////////////////////////
 #//                                                          //
-#//  Script, 2020                                            //
-#//  Created: 21, November, 2020                             //
+#//  Script, 2021                                            //
+#//  Created: 27, September, 2021                            //
 #//  Modified: 27, September, 2021                           //
 #//  file: -                                                 //
 #//  -                                                       //
-#//  Source: https://gist.github.com/rafi/365926                                               //
+#//  Source:                                                 //
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-if (( $# == 1 )); then
-    # -2560x1440 # If not --fullscreen --date-format "%Y-%m-%d" --elasticity 0.1 --max-user-speed 500
-    gource --fullscreen --disable-input --multi-sampling --output-framerate 60 --seconds-per-day 0.1 \
-    --hide mouse --filename-time 5 --max-files 0 --bloom-multiplier 0.8 --highlight-users --file-extension-fallback --path . \
-    --auto-skip-seconds 0.1 --background-colour 000000 --key --stop-at-end --title "https://github.com/dockcross/dockcross" --output-ppm-stream - | ffmpeg -y -r 60 \
-    -f image2pipe -vcodec ppm -i - -vcodec hevc_nvenc -preset:v p7 -tune:v hq -rc:v vbr -cq:v 18 -b:v 0 -minrate:v 5M -maxrate:v 60M -bufsize:v 300M "$1"
+if (( $# == 3 )); then
+    ffmpeg -i "$1" -i "$2" -shortest -c copy "$3"
 else
-    echo "Usage: ${0##*/} <ouput file>"
+    echo "Usage: ${0##*/} <input video> <input audio> <output video>"
     exit 1
 fi
