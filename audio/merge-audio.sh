@@ -9,8 +9,8 @@
 #//////////////////////////////////////////////////////////////
 #//                                                          //
 #//  Script, 2021                                            //
-#//  Created: 27, September, 2021                            //
-#//  Modified: 27, September, 2021                           //
+#//  Created: 28, September, 2021                            //
+#//  Modified: 28, September, 2021                           //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: https://superuser.com/a/587553/1057976                                                //
@@ -25,7 +25,7 @@ if (($# == 3)); then
         -map '[out]' "$3"
 elif (($# == 4)); then
     ffmpeg -i "$1" -i "$2" -i "$3" \
-        -filter_complex '[0:0][1:0][2:0][3:0]concat=n=4:v=0:a=1[out]' \
+        -filter_complex '[0:0][1:0][2:0]concat=n=3:v=0:a=1[out]' \
         -map '[out]' "$4"
 elif (($# == 6)); then
     ffmpeg -i "$1" -i "$2" -i "$3" -i "$4" \
