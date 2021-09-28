@@ -9,7 +9,7 @@
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 17, June, 2021                                 //
-#//  Modified: 31, August, 2021                              //
+#//  Modified: 28, September, 2021                           //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: https://github.com/metal3d/bashsimplecurses     //
@@ -20,7 +20,7 @@
 #//////////////////////////////////////////////////////////////
 PROJECT_NAME := scripts
 SHELL := bash
-VERSION := 1.3.13
+VERSION := 1.3.14
 RM := rm
 
 all: install

@@ -17,6 +17,7 @@ Scripts for Archlinux and Manjaro
 Scripts for audio (FFMPEG ...)
 
  - [`extract-audio`](#extract-audio)
+ - [`merge-audio`](#merge-audio)
 
 ## cryptography
 
@@ -182,7 +183,17 @@ $ extract archive1.zip archive2.7z archive3.rar
 Extract audio from video files, with ffmpeg (without re-encoding)
 
 ```bash
-$ extract-audio myvideo.mkv myextractedsound.mp3
+$ extract-audio <input video file with audio> <output audio file>
+```
+
+### merge-audio
+
+Merge multiple audio files, with ffmpeg (with re-encoding)
+
+```bash
+$ merge-audio <input audio file 1> <input audio file 2> <output audio file>
+$ merge-audio <input audio file 1> <input audio file 2> <input audio file 3> <output audio file>
+$ merge-audio <input audio file 1> <input audio file 2> <input audio file 3> <input audio file 4> <output audio file>
 ```
 
 ### digital-signature-check-RSA
