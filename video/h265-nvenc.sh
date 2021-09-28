@@ -27,6 +27,6 @@ if (( $# == 2 )); then
     ffmpeg -strict 2 \
         -i "$1" \
         -c:v hevc_nvenc -gpu:v 0 \
-        -preset:v p7 -tune:v hq -rc:v vbr -cq:v 16 -b:v 0 -minrate:v 5M -maxrate:v 40M -bufsize:v 200M \
+        -preset:v p7 -tune:v hq -rc:v vbr -cq:v 14 -b:v 0 -minrate:v 5M -maxrate:v 50M -bufsize:v 400M \
         -c:a copy -map 0 "$2"
 fi

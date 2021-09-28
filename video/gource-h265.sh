@@ -22,11 +22,12 @@
 if (($# == 1)); then
     git_url=$(git config --get remote.origin.url)
     # -2560x1440 # If not --fullscreen # --date-format "%Y-%m-%d" --elasticity 0.1 --max-user-speed 500
+    # FFMPEG -pix_fmt yuv420p
     gource --fullscreen --disable-input --multi-sampling --output-framerate 60 --seconds-per-day 0.3 \
         --hide mouse --filename-time 2 --max-files 0 --bloom-multiplier 0.8 --highlight-users --file-extension-fallback --path . \
         --auto-skip-seconds 0.9 --background-colour 000000 --key --stop-at-end --title "$git_url" --output-ppm-stream - | ffmpeg -y -r 60 \
         -f image2pipe -vcodec ppm -i - -vcodec libx265 -preset medium \
-        -pix_fmt yuv420p -crf 18 -bf 0 "$1"
+        -crf 14 -bf 0 -minrate:v 10M -maxrate:v 120M -bufsize:v 800M "$1"
 else
     echo "Usage: ${0##*/} <ouput file>"
     exit 1
