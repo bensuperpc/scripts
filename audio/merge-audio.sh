@@ -27,7 +27,7 @@ elif (($# == 4)); then
     ffmpeg -i "$1" -i "$2" -i "$3" \
         -filter_complex '[0:0][1:0][2:0]concat=n=3:v=0:a=1[out]' \
         -map '[out]' "$4"
-elif (($# == 6)); then
+elif (($# == 5)); then
     ffmpeg -i "$1" -i "$2" -i "$3" -i "$4" \
         -filter_complex '[0:0][1:0][2:0][3:0]concat=n=4:v=0:a=1[out]' \
         -map '[out]' "$5"
