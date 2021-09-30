@@ -822,6 +822,7 @@ Generate video with all commit and repository evolution (with nvenc)
 
 ```bash
 $ gource-nvenc <output file .mkv>
+$ gource-nvenc <input logo file> <output file .mkv>
 ```
 
 ### gource-nvenc-screenless
@@ -830,6 +831,7 @@ Generate video with all commit and repository evolution in CLI, without screen (
 
 ```bash
 $ gource-nvenc-screenless <output file .mkv>
+$ gource-nvenc-screenless <input logo file> <output file .mkv>
 ```
 
 ### gource-nvenc-screenless-4k
@@ -838,6 +840,7 @@ Generate video with all commit and repository evolution in CLI, without screen (
 
 ```bash
 $ gource-nvenc-screenless-4k <output file .mkv>
+$ gource-nvenc-screenless-4k <input logo file> <output file .mkv>
 ```
 
 ### gource-h265
