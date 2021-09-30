@@ -31,6 +31,6 @@ if (($# == 1)); then
         -bf:v 3 -rc-lookahead:v 32 -refs:v 16 -b_ref_mode:v middle \
         -pix_fmt rgb0 -preset:v p7 -tune:v hq -rc:v vbr -cq:v 10 -b:v 0 -minrate:v 1M -maxrate:v 400M -bufsize:v 800M "$1"
 else
-    echo "Usage: ${0##*/} <ouput file>"
+    echo "Usage: ${0##*/} <output file .mkv>"
     exit 1
 fi

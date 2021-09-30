@@ -820,7 +820,7 @@ $ screen-capture-webcam <output file>
 Generate video with all commit and repository evolution (with nvenc)
 
 ```bash
-$ gource-nvenc <output file>
+$ gource-nvenc <output file .mkv>
 ```
 
 ### gource-nvenc-screenless
@@ -828,7 +828,7 @@ $ gource-nvenc <output file>
 Generate video with all commit and repository evolution in CLI, without screen (with nvenc and xvfb-run)
 
 ```bash
-$ gource-nvenc-screenless <output file>
+$ gource-nvenc-screenless <output file .mkv>
 ```
 
 ### gource-h265

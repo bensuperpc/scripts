@@ -59,6 +59,6 @@ xvfb-run -a -s "-screen 0 3840x2160x24" \
     -rc:v vbr -cq:v 10 -b:v 0 \
     -minrate:v 1M -maxrate:v 800M -bufsize:v 800M "$1"
 else
-    echo "Usage: ${0##*/} <ouput file>"
+    echo "Usage: ${0##*/} <output file .mkv>"
     exit 1
 fi

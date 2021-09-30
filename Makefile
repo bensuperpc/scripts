@@ -20,7 +20,7 @@
 #//////////////////////////////////////////////////////////////
 PROJECT_NAME := scripts
 SHELL := bash
-VERSION := 1.3.17
+VERSION := 1.3.18
 RM := rm
 
 all: install
