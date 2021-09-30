@@ -145,6 +145,7 @@ For encoding, creating, recording or downloading videos
  - [`screen-capture`](#screen-capture)
  - [`screen-capture-webcam`](#screen-capture-webcam)
  - [`gource-nvenc`](#gource-nvenc)
+ - [`gource-nvenc-screenless`](#gource-nvenc-screenless)
  - [`gource-h265`](#gource-h265)
  - [`h265-nvenc`](#h265-nvenc)
  - [`merge-audio-video`](#merge-audio-video)
@@ -820,6 +821,14 @@ Generate video with all commit and repository evolution (with nvenc)
 
 ```bash
 $ gource-nvenc <output file>
+```
+
+### gource-nvenc-screenless
+
+Generate video with all commit and repository evolution in CLI, without screen (with nvenc and xvfb-run)
+
+```bash
+$ gource-nvenc-screenless <output file>
 ```
 
 ### gource-h265
