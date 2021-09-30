@@ -146,6 +146,7 @@ For encoding, creating, recording or downloading videos
  - [`screen-capture-webcam`](#screen-capture-webcam)
  - [`gource-nvenc`](#gource-nvenc)
  - [`gource-nvenc-screenless`](#gource-nvenc-screenless)
+ - [`gource-nvenc-screenless-4k`](#gource-nvenc-screenless-4k)
  - [`gource-h265`](#gource-h265)
  - [`h265-nvenc`](#h265-nvenc)
  - [`merge-audio-video`](#merge-audio-video)
@@ -829,6 +830,14 @@ Generate video with all commit and repository evolution in CLI, without screen (
 
 ```bash
 $ gource-nvenc-screenless <output file .mkv>
+```
+
+### gource-nvenc-screenless-4k
+
+Generate video with all commit and repository evolution in CLI, without screen (with nvenc and xvfb-run), you need Gource 0.52 or build from source
+
+```bash
+$ gource-nvenc-screenless-4k <output file .mkv>
 ```
 
 ### gource-h265

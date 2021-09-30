@@ -32,7 +32,7 @@
 
 if (($# == 1)); then
 git_url=$(git config --get remote.origin.url)
-xvfb-run -a -s "-screen 0 2560x1440x24" \
+xvfb-run -a -s "-screen 0 3840x2160x24" \
   gource \
     --stop-at-end \
     --fullscreen \
@@ -43,6 +43,7 @@ xvfb-run -a -s "-screen 0 2560x1440x24" \
     --auto-skip-seconds 0.1 \
     --background-colour 000000 \
     --bloom-multiplier 0.8 \
+    --font-scale 1.50 \
     --key \
     --filename-time 2 \
     --file-idle-time 0 \
@@ -59,6 +60,6 @@ xvfb-run -a -s "-screen 0 2560x1440x24" \
     -rc:v vbr -cq:v 10 -b:v 0 \
     -minrate:v 1M -maxrate:v 800M -bufsize:v 800M "$1"
 else
-    echo "Usage: ${0##*/} <output file .mkv>"
+    echo "Usage: ${0##*/} <ouput file>"
     exit 1
 fi
