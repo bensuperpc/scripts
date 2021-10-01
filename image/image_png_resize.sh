@@ -9,43 +9,15 @@
 #//////////////////////////////////////////////////////////////
 #//                                                          //
 #//  Script, 2021                                            //
-#//  Created: 24, July, 2021                                 //
-#//  Modified: 29, July, 2021                                //
+#//  Created: 01, October, 2021                              //
+#//  Modified: 01, October, 2021                             //
 #//  file: -                                                 //
 #//  -                                                       //
-#//  Source: -                                               //
+#//  Source: https://askubuntu.com/a/271797/971804                                               //
 #//  OS: ALL                                                 //
 #//  CPU: ALL                                                //
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-if [[ "$EUID" = 0 ]]; then
-    echo "(1) already root"
-else
-    sudo -k # make sure to ask for password on next sudo
-    if sudo true; then
-        echo "(2) correct password"
-    else
-        echo "(3) wrong password"
-        exit 1
-    fi
-fi
+find . -maxdepth 1 -iname "*.jpg" | xargs -P 8 -L1 -I{} convert -resize 50% "{}" _resized/"{}"
 
-#journalctl --disk-usage
-sudo journalctl --vacuum-time=3d
-echo "Clear journalctl: OK"
-
-#du -h /var/lib/snapd/snaps
-sudo find ~/.cache/ -type f -atime +3 -delete
-echo "Clear cache: OK"
-
-sudo find ~/Downloads/ -type f -atime +15 -delete || true
-echo "Clear Downloads: OK"
-
-sudo rm -rf ~/.local/share/Trash/*
-echo "Clear Trash: OK"
-
-sudo docker image prune -f || true
-echo "Clear docker: OK"
-
-echo "Clean: OK"
