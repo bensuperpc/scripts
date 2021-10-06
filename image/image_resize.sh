@@ -10,7 +10,7 @@
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 01, October, 2021                              //
-#//  Modified: 01, October, 2021                             //
+#//  Modified: 06, October, 2021                             //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: https://askubuntu.com/a/271797/971804                                               //
@@ -19,5 +19,5 @@
 #//                                                          //
 #//////////////////////////////////////////////////////////////
 
-find . -maxdepth 1 -iname "*.jpg" | xargs -P 8 -L1 -I{} convert -resize 50% "{}" _resized/"{}"
+convert -resize "$3" "$1" "$2"
 
