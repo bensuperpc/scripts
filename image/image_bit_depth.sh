@@ -10,7 +10,7 @@
 #//                                                          //
 #//  Script, 2021                                            //
 #//  Created: 01, October, 2021                              //
-#//  Modified: 06, October, 2021                             //
+#//  Modified: 27, October, 2021                             //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: https://askubuntu.com/a/271797/971804                                               //
@@ -22,10 +22,10 @@
 if (( $# >= 3 )); then
     for var in "$@"
     do
-        convert -resize "$3" "$1" "$2"
+        convert -depth "$3" +dither "$2" "$1"
     done
 else
-    echo "Usage: ${0##*/} <input image file> <ouput image file> <size (in % or pixel)>"
+    echo "Usage: ${0##*/} <input image file> <ouput image file> <color bit depth (Per chanel)>"
     exit 1
 fi
 
