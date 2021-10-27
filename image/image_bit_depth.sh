@@ -20,10 +20,7 @@
 #//////////////////////////////////////////////////////////////
 
 if (( $# >= 3 )); then
-    for var in "$@"
-    do
-        convert -depth "$3" +dither "$2" "$1"
-    done
+    convert -depth "$3" +dither "$2" "$1"
 else
     echo "Usage: ${0##*/} <input image file> <ouput image file> <color bit depth (Per chanel)>"
     exit 1

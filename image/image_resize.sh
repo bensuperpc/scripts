@@ -20,10 +20,7 @@
 #//////////////////////////////////////////////////////////////
 
 if (( $# >= 3 )); then
-    for var in "$@"
-    do
-        convert -resize "$3" "$1" "$2"
-    done
+    convert -resize "$3" "$1" "$2"
 else
     echo "Usage: ${0##*/} <input image file> <ouput image file> <size (in % or pixel)>"
     exit 1
