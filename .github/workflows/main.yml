@@ -23,7 +23,7 @@ jobs:
         os: [ubuntu-latest]
     steps:
       - name: "📥 Checkout Code"
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3
         with:
           submodules: 'recursive'
           fetch-depth: 0
