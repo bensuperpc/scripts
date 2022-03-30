@@ -47,7 +47,7 @@ if (( $# == 2 )); then
     UUID=$(uuidgen)
     echo "UUID: ${UUID}"
     sudo umount "$PARTITION" || true
-    sudo cryptsetup -v --type luks2 --pbkdf argon2id --cipher aes-xts-plain64 --key-slot 1 --key-size 512 --integrity hmac-sha512 --hash sha512 --iter-time 2000 --use-urandom --verify-passphrase luksFormat --label="$LABEL" "$PARTITION"
+    sudo cryptsetup -v --type luks2 --pbkdf argon2id --cipher aes-xts-plain64 --key-slot 1 --key-size 512 --integrity hmac-sha512 --hash sha512 --sector-size 4096 --iter-time 2000 --use-urandom --verify-passphrase luksFormat --label="$LABEL" "$PARTITION"
     sudo cryptsetup luksHeaderBackup "$PARTITION" --header-backup-file "$LABEL-luks_header_backup"
     
     sudo cryptsetup -v luksOpen "$PARTITION" "${UUID}"
