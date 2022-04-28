@@ -3,13 +3,13 @@ name: code-inspector
 on:
   push:
     branches:
-      - '*'
+      - 'old'
     paths-ignore:
       - '**/README.md'
       - '**/Commands.md'
   pull_request:
     branches:
-      - '*'
+      - 'old'
   workflow_dispatch:
 
 jobs:
