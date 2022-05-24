@@ -7,8 +7,6 @@
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/bensuperpc/scripts) ![GitHub (Pre-)Release Date](https://img.shields.io/github/release-date-pre/bensuperpc/scripts) ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/bensuperpc/scripts)
 
-[![Code Grade](https://www.code-inspector.com/project/25674/status/svg)](https://frontend.code-inspector.com/public/project/25674/github-action/dashboard) [![Code Grade](https://www.code-inspector.com/project/25674/score/svg)](https://frontend.code-inspector.com/public/project/25674/github-action/dashboard)
-
 ![GitHub](https://img.shields.io/github/license/bensuperpc/scripts) ![GitHub top language](https://img.shields.io/github/languages/top/bensuperpc/scripts) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/bensuperpc/scripts)
 
 [![Twitter](https://img.shields.io/twitter/follow/Bensuperpc?style=social)](https://twitter.com/Bensuperpc) [![Youtube](https://img.shields.io/youtube/channel/subscribers/UCJsQFFL7QW4LSX9eskq-9Yg?style=social)](https://www.youtube.com/channel/UCJsQFFL7QW4LSX9eskq-9Yg)
