@@ -47,7 +47,6 @@ dist: clean
 	mkdir -p package_build
 	rsync -azh --progress --exclude='package_build/' --exclude='*.gitignore' --exclude='*.git/' \
 		--exclude='*.circleci/' --exclude='*.github/' --exclude='*.png' --exclude='*.jpeg' --exclude='*.gif' . package_build/
-	#7z a -t7z $(PROJECT_NAME)-$(VERSION).7z package_build/ -m0=lzma2 -mx=9 -mfb=273 -ms -md=31 -myx=9 -mtm=- -mmt -mmtf -md=1536m -mmf=bt3 -mmc=10000 -mpb=0 -mlc=0
 	XZ_OPT=-e9 tar cJf $(PROJECT_NAME)-$(VERSION).tar.xz package_build/
 	sha384sum $(PROJECT_NAME)-$(VERSION).tar.xz > $(PROJECT_NAME)-$(VERSION).tar.xz.sha384
 	sha384sum --check $(PROJECT_NAME)-$(VERSION).tar.xz.sha384
@@ -56,7 +55,6 @@ dist: clean
 dist-full: clean
 	mkdir -p package_build
 	rsync -azh --progress --exclude='package_build/' . package_build/
-	#7z a $(PROJECT_NAME)-full-$(VERSION).7z package_build/ -m0=lzma2 -mx=9 -mmt -ms
 	XZ_OPT=-e9 tar cJf $(PROJECT_NAME)-full-$(VERSION).tar.xz package_build/
 	sha384sum $(PROJECT_NAME)-full-$(VERSION).tar.xz > $(PROJECT_NAME)-full-$(VERSION).tar.xz.sha384
 	sha384sum --check $(PROJECT_NAME)-full-$(VERSION).tar.xz.sha384

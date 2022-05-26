@@ -21,12 +21,17 @@
 #//////////////////////////////////////////////////////////////
 
 if (( $# == 2 )); then
-    # Old CUDA version
-    #ffmpeg -threads 0 -strict 2 -hwaccel auto -i "$1"  -c:v hevc_nvenc -preset slow -rc vbr_hq -cq 18 -qmin 16 -qmax 20 -profile:v main10 -b:v 0K -c:a copy -map 0 "$2"
-    #-threads 4 -hwaccel cuvid -c:v h264_cuvid
     ffmpeg -strict 2 \
         -i "$1" \
-        -c:v hevc_nvenc -gpu:v 0 \
-        -preset:v p7 -tune:v hq -rc:v vbr -cq:v 14 -b:v 0 -minrate:v 5M -maxrate:v 50M -bufsize:v 400M \
+        -c:v hevc_nvenc \
+        -gpu:v 0 \
+        -tier:v high \
+        -preset:v p7 \
+        -tune:v hq \
+        -rc:v vbr \
+        -cq:v 14 \
+        -b:v 0 -minrate:v 1M -maxrate:v 100M -bufsize:v 400M \
+        -bf:v 3 -b_ref_mode:v middle \
         -c:a copy -map 0 "$2"
 fi
+#-filter:v hwupload_cuda,scale_npp=w=1920:h=1080:interp_algo=lanczos
