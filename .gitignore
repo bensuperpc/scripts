@@ -139,3 +139,5 @@ package_build/
 *.7z
 *.rar
 WIP/*
+*.mkv
+*.mp4

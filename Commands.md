@@ -5,157 +5,157 @@
 
 Scripts for Archlinux and Manjaro
 
- - [`clean-arch`](#clean-arch)
- - [`update-arch`](#update-arch)
+- [`clean-arch`](#clean-arch)
+- [`update-arch`](#update-arch)
 
 ## archive
 
- - [`extract`](#extract)
+- [`extract`](#extract)
 
 ## audio
 
 Scripts for audio (FFMPEG ...)
 
- - [`extract-audio`](#extract-audio)
- - [`merge-audio`](#merge-audio)
+- [`extract-audio`](#extract-audio)
+- [`merge-audio`](#merge-audio)
 
 ## cryptography
 
 For cryptography and security
 
- - [`digital-signature-check-RSA`](#digital-signature-check-RSA)
- - [`digital-signature-RSA`](#digital-signature-RSA)
- - [`cryptr`](#cryptr)
+- [`digital-signature-check-RSA`](#digital-signature-check-RSA)
+- [`digital-signature-RSA`](#digital-signature-RSA)
+- [`cryptr`](#cryptr)
 
 ## debian
 
 Scripts for Debian and Ubuntu
 
- - [`clean-debian`](#clean-debian)
- - [`update-debian`](#update-debian)
+- [`clean-debian`](#clean-debian)
+- [`update-debian`](#update-debian)
 
 ## development
 
 Scripts for C/C++ development and cross platform
 
- - [`format-code`](#format-code)
- - [`cmake-builder`](#cmake-builder)
- - [`ninja-builder`](#ninja-builder)
- - [`dockcross-builder`](#dockcross-builder)
- - [`meson-builder`](#meson-builder)
+- [`format-code`](#format-code)
+- [`cmake-builder`](#cmake-builder)
+- [`ninja-builder`](#ninja-builder)
+- [`dockcross-builder`](#dockcross-builder)
+- [`meson-builder`](#meson-builder)
 
 ## docker
 
- - [`docker-container-diff`](#docker-container-diff)
- - [`docker-clean-all`](#docker-clean-all)
- - [`docker-clean`](#docker-clean)
- - [`docker-export`](#docker-export)
- - [`docker-import`](#docker-import)
- - [`docker-load`](#docker-load)
- - [`docker-pull`](#docker-pull)
- - [`docker-save`](#docker-save)
- - [`docker-volume-backup`](#docker-volume-backup)
- - [`docker-volume-restore`](#docker-volume-restore)
+- [`docker-container-diff`](#docker-container-diff)
+- [`docker-clean-all`](#docker-clean-all)
+- [`docker-clean`](#docker-clean)
+- [`docker-export`](#docker-export)
+- [`docker-import`](#docker-import)
+- [`docker-load`](#docker-load)
+- [`docker-pull`](#docker-pull)
+- [`docker-save`](#docker-save)
+- [`docker-volume-backup`](#docker-volume-backup)
+- [`docker-volume-restore`](#docker-volume-restore)
 
 ## file
 
 For file management or backup
 
- - [`rsync-archive`](#rsync-archive)
- - [`rsync-check`](#rsync-check)
- - [`rsync-rsa`](#rsync-rsa)
- - [`compress-max`](#compress-max)
- - [`compress-secu`](#compress-secu)
- - [`disable-baloo`](#disable-baloo)
+- [`rsync-archive`](#rsync-archive)
+- [`rsync-check`](#rsync-check)
+- [`rsync-rsa`](#rsync-rsa)
+- [`compress-max`](#compress-max)
+- [`compress-secu`](#compress-secu)
+- [`disable-baloo`](#disable-baloo)
 
 ## game
 
 To create archives of game saves
 
- - [`save-mindustry-linux`](#save-mindustry-linux)
- - [`save-satisfactory-linux`](#save-satisfactory-linux)
- - [`save-terraria-linux`](#save-terraria-linux)
- - [`save-7DaysToDie-linux`](#save-7DaysToDie-linux)
+- [`save-mindustry-linux`](#save-mindustry-linux)
+- [`save-satisfactory-linux`](#save-satisfactory-linux)
+- [`save-terraria-linux`](#save-terraria-linux)
+- [`save-7DaysToDie-linux`](#save-7DaysToDie-linux)
 
 ## git
 
- - [`git-apply-patch`](#git-apply-patch)
- - [`git-changelog`](#git-changelog)
- - [`git-clone-all`](#git-clone-all)
- - [`git-commit-undo`](#git-commit-undo)
- - [`git-commit`](#git-commit)
- - [`git-create-patch`](#git-commit)
- - [`git-find-big`](#git-find-big)
- - [`git-sync-submodule`](#git-sync-submodule)
- - [`git-update-recursive`](#git-update-recursive) 
+- [`git-apply-patch`](#git-apply-patch)
+- [`git-changelog`](#git-changelog)
+- [`git-clone-all`](#git-clone-all)
+- [`git-commit-undo`](#git-commit-undo)
+- [`git-commit`](#git-commit)
+- [`git-create-patch`](#git-commit)
+- [`git-find-big`](#git-find-big)
+- [`git-sync-submodule`](#git-sync-submodule)
+- [`git-update-recursive`](#git-update-recursive) 
 
 ## hardware
 
- - [`temperature`](#temperature) 
+- [`temperature`](#temperature) 
 
 ## image
 
- - [`image_jpeg_to_avif_aom`](#image_jpeg_to_avif_aom)
- - [`image_jpeg_to_avif_rav1e`](#image_jpeg_to_avif_rav1e)
- - [`image_jpeg_to_heic`](#image_jpeg_to_heic)
- - [`image_jpeg_to_webp`](#image_jpeg_to_webp)
- - [`image_png_to_heic`](#image_png_to_heic)
- - [`image_png_to_webp`](#image_png_to_webp)
+- [`image_jpeg_to_avif_aom`](#image_jpeg_to_avif_aom)
+- [`image_jpeg_to_avif_rav1e`](#image_jpeg_to_avif_rav1e)
+- [`image_jpeg_to_heic`](#image_jpeg_to_heic)
+- [`image_jpeg_to_webp`](#image_jpeg_to_webp)
+- [`image_png_to_heic`](#image_png_to_heic)
+- [`image_png_to_webp`](#image_png_to_webp)
 
 ## internet
 
- - [`sms-free`](#sms-free)
+- [`sms-free`](#sms-free)
 
 ## linux
 
- - [`clean-system`](#clean-system)
- - [`find-broken-link`](#find-broken-link)
- - [`find-duplicate`](#find-duplicate)
- - [`find-empty`](#find-empty)
- - [`history-count`](#history-count)
- - [`make-bootable-usb`](#make-bootable-usb)
- - [`passwordgen`](#passwordgen)
- - [`replace-recursive`](#replace-recursive)
- - [`remove-recursive`](#remove-recursive)
- - [`sysinfo`](#sysinfo)
- - [`update-grub`](#update-grub)
+- [`clean-system`](#clean-system)
+- [`find-broken-link`](#find-broken-link)
+- [`find-duplicate`](#find-duplicate)
+- [`find-empty`](#find-empty)
+- [`history-count`](#history-count)
+- [`make-bootable-usb`](#make-bootable-usb)
+- [`passwordgen`](#passwordgen)
+- [`replace-recursive`](#replace-recursive)
+- [`remove-recursive`](#remove-recursive)
+- [`sysinfo`](#sysinfo)
+- [`update-grub`](#update-grub)
 
 ## hash
 
- - [`hash_check`](#hash_check)
- - [`hash_gen`](#hash_gen)
- - [`hash`](#hash)
+- [`hash_check`](#hash_check)
+- [`hash_gen`](#hash_gen)
+- [`hash`](#hash)
 
 ## uuid
 
- - [`uuid`](#uuid)
- - [`uuid-bash`](#uuid-bash)
+- [`uuid`](#uuid)
+- [`uuid-bash`](#uuid-bash)
 
 ## partition
 
 For creating partitions (encrypted or in RAM for example)
 
- - [`luks`](#luks)
- - [`mount-ram`](#mount-ram)
+- [`luks`](#luks)
+- [`mount-ram`](#mount-ram)
 
 ## video
 
 For encoding, creating, recording or downloading videos
 
- - [`screen-capture`](#screen-capture)
- - [`screen-capture-webcam`](#screen-capture-webcam)
- - [`gource-nvenc`](#gource-nvenc)
- - [`gource-nvenc-screenless`](#gource-nvenc-screenless)
- - [`gource-nvenc-screenless-4k`](#gource-nvenc-screenless-4k)
- - [`gource-h265`](#gource-h265)
- - [`h265-nvenc`](#h265-nvenc)
- - [`merge-audio-video`](#merge-audio-video)
- - [`youtube-dl-playlist-full`](#youtube-dl-playlist-full)
- - [`youtube-dl-playlist-audio`](#youtube-dl-playlist-audio)
- - [`add-video-watermark`](#add-video-watermark)
- - [`add-video-logo`](#add-video-logo)
- - [`split-video`](#split-video)
- - (WIP)
+- [`screen-capture`](#screen-capture)
+- [`screen-capture-webcam`](#screen-capture-webcam)
+- [`gource-nvenc`](#gource-nvenc)
+- [`gource-nvenc-screenless`](#gource-nvenc-screenless)
+- [`gource-nvenc-screenless-4k`](#gource-nvenc-screenless-4k)
+- [`gource-h265`](#gource-h265)
+- [`h265-nvenc`](#h265-nvenc)
+- [`merge-audio-video`](#merge-audio-video)
+- [`youtube-dl-playlist-full`](#youtube-dl-playlist-full)
+- [`youtube-dl-playlist-audio`](#youtube-dl-playlist-audio)
+- [`add-video-watermark`](#add-video-watermark)
+- [`add-video-logo`](#add-video-logo)
+- [`split-video`](#split-video)
+- (WIP)
 ### clean-arch
 
 Clean ArchLinux and Manjaro (Remove old packages...)
@@ -300,9 +300,9 @@ $ dockcross-builder <dockcross image> <CMake arguments>
 
 Display and analyse the differences between one or two containers:
 
- - History
- - Files
- - apt & pip
+- History
+- Files
+- apt & pip
 
 For local image add: **daemon://<img>**
 For remote image add: **remote://<img>**
