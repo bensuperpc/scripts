@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 #//////////////////////////////////////////////////////////////
 #//   ____                                                   //
 #//  | __ )  ___ _ __  ___ _   _ _ __   ___ _ __ _ __   ___  //
@@ -10,7 +11,7 @@
 #//                                                          //
 #//  Script, 2020                                            //
 #//  Created: 20, June, 2020                                 //
-#//  Modified: 28, July, 2021                                //
+#//  Modified: 26, April, 2023                               //
 #//  file: -                                                 //
 #//  -                                                       //
 #//  Source: -                                               //
@@ -34,29 +35,53 @@ fi
 if (( $# == 2 )); then
     PARTITION=$1
     LABEL=$2
-    shift 2
-
-    if [ $# -eq 0 ]; then
-        read -r -p "you are going to format a partition/device with LUKS and BTRFS.
-        All data on the partition/devices will be erased ! Do you want to continue ? [Y/n]: " answ
-        if [ "$answ" == 'n' ]; then
-            exit 1
-        fi
-    fi
 
     UUID=$(uuidgen)
     echo "UUID: ${UUID}"
+
+    SECTORSIZESIZE=$(sudo blockdev --getpbsz "$PARTITION")
+    echo "Sector size: ${SECTORSIZESIZE}"
+
+    echo "Unmount partition..."
     sudo umount "$PARTITION" || true
-    sudo cryptsetup -v --type luks2 --pbkdf argon2id --cipher aes-xts-plain64 --key-slot 1 --key-size 512 --integrity hmac-sha512 --hash sha512 --sector-size 4096 --iter-time 2000 --use-urandom --verify-passphrase luksFormat --label="$LABEL" "$PARTITION"
-    sudo cryptsetup luksHeaderBackup "$PARTITION" --header-backup-file "$LABEL-luks_header_backup"
+
+    # head -c 512 /dev/random > KEYFILE
+    # cryptsetup luksAddKey --key-file /chemin/vers/nouveau_keyfile /dev/sdb1
+    # --integrity hmac-sha512
+
+    echo "Create LUKS2 partition..."
+    sudo cryptsetup -v --type luks2 --pbkdf argon2id --key-slot 0 \
+        --cipher aes-xts-plain64 --key-size 512 --hash sha512 --sector-size "${SECTORSIZESIZE}" \
+        --iter-time 5000 --use-urandom --verify-passphrase luksFormat --label="$LABEL" "$PARTITION"
     
-    sudo cryptsetup -v luksOpen "$PARTITION" "${UUID}"
+    echo "Backup header: $LABEL-luks_header_backup"
+    rm -f "$LABEL-luks_header_backup" || true
+    sudo cryptsetup luksHeaderBackup "$PARTITION" --header-backup-file "$LABEL-luks_header_backup"
+
+    echo "Add keyfile..."
+    rm -f "keyfile-$LABEL" || true
+    dd if=/dev/urandom of="keyfile-$LABEL" bs=512 count=1
+    sudo cryptsetup luksAddKey --keyslot-cipher aes-xts-plain64 --keyslot-key-size 512 --hash sha512 \
+        --key-slot 1 --pbkdf argon2id --iter-time 5000 "$PARTITION" "keyfile-$LABEL"
+    echo "Test keyfile..."
+    sudo cryptsetup open --test-passphrase --key-file "keyfile-$LABEL" "$PARTITION"
+    # echo "Remove keyfile..."
+    # sudo cryptsetup luksRemoveKey "$PARTITION" "keyfile-$LABEL"
+    
+    echo "Open partition..."
+    sudo cryptsetup --type luks open --allow-discards "$PARTITION" "${UUID}"
+
+    echo "Format partition with BTRFS..."
     sudo mkfs.btrfs --force --checksum blake2 --label "$LABEL" "/dev/mapper/${UUID}"
 
-    # sudo chown -R $USER:$GROUP "$PARTITION"
+    #echo "Chown partition: $USER:$GROUP"
+    #sudo chown -R $USER:$GROUP "$PARTITION" "/dev/mapper/${UUID}"
     
-    sudo cryptsetup -v luksClose "${UUID}"
-    echo "Partition: OK"
+    echo "Close partition..."
+    sudo cryptsetup --type luks close "${UUID}"
+
+    sudo cryptsetup luksDump "$PARTITION"
+
     echo "Now you can unplug, replug device and use it :) "
 else
     echo "Usage: ${0##*/} <Device> <Label>"
