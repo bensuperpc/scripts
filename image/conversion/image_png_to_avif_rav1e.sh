@@ -20,7 +20,5 @@
 #//////////////////////////////////////////////////////////////
 #Convert png to Webp
 find . -name "*.png" | parallel -eta avifenc -c rav1e --speed 3 --lossless "{}" -o "{.}.avif"
-find . -name "*.png" | parallel -eta avifenc -c rav1e --speed 3 --lossless "{}" -o "{.}.avif"
 #Copy atime and mtime
-find . -name "*.png" -exec sh -c 'touch -r "${0%.*}.png" "${0%.*}.avif"' "{}" ';'
 find . -name "*.png" -exec sh -c 'touch -r "${0%.*}.png" "${0%.*}.avif"' "{}" ';'
