@@ -22,24 +22,20 @@
 
 ARG1=${1:-"input.mp4"}
 ARG2=${2:-"output.mp4"}
-ARG3=${3:-"40"}
-ARG4=${4:-"0"}
-ARG5=${5:-"1M"}
-ARG6=${6:-"100M"}
+ARG3=${3:-"0"}
+ARG4=${4:-"4"}
+ARG5=${5:-"250K"}
+ARG6=${6:-"8M"}
 
 
 if (( $# >= 2 )); then
-    ffmpeg -strict 2 \
-        -i "$ARG1" \
-        -c:v hevc_nvenc \
-        -gpu:v 0 \
-        -tier:v high \
-        -preset:v p7 \
-        -tune:v hq \
-        -rc:v vbr \
-        -cq:v "$ARG3" -b:v "$ARG4" \
-        -minrate:v "$ARG5" -maxrate:v "$ARG6" -bufsize:v 800M \
-        -c:a copy -map 0 "$ARG2"
+    ffmpeg -loglevel debug -threads 1 -hwaccel cuvid \
+    -hwaccel_output_format cuda -i "$ARG1" \
+    -filter:v scale_cuda=w=1920:h=1080:interp_algo=lanczos \
+    -c:v hevc_nvenc -b:v 4M -maxrate:v 5M -bufsize:v 8M -profile:v main \
+    -level:v 4.1 -rc:v vbr -preset:v p7 -tune:v hq -rc-lookahead:v 32 -refs:v 16 \
+    -bf:v 3 -coder:v cabac -b_ref_mode:v middle \
+    -f mp4 "$ARG2"
 else
     echo "Usage: ${0##*/} <input video> <output video>"
     echo "Optional: <constant quality 0-51)> <bitrate (0-800M)> <min bitrate (1M-800M)> <max bitrate (1M-800M)>"

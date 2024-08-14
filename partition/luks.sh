@@ -39,9 +39,6 @@ if (( $# == 2 )); then
     UUID=$(uuidgen)
     echo "UUID: ${UUID}"
 
-    SECTORSIZESIZE=$(sudo blockdev --getpbsz "$PARTITION")
-    echo "Sector size: ${SECTORSIZESIZE}"
-
     echo "Unmount partition..."
     sudo umount "$PARTITION" || true
 
@@ -51,8 +48,8 @@ if (( $# == 2 )); then
 
     echo "Create LUKS2 partition..."
     sudo cryptsetup -v --type luks2 --pbkdf argon2id --key-slot 0 \
-        --cipher aes-xts-plain64 --key-size 512 --hash sha512 --sector-size "${SECTORSIZESIZE}" \
-        --iter-time 5000 --use-urandom --verify-passphrase luksFormat --label="$LABEL" "$PARTITION"
+        --cipher aes-xts-plain64 --key-size 512 --hash sha3-512 \
+        --iter-time 10000 --use-urandom --verify-passphrase luksFormat --label="$LABEL" "$PARTITION"
     
     echo "Backup header: $LABEL-luks_header_backup"
     rm -f "$LABEL-luks_header_backup" || true
@@ -61,8 +58,8 @@ if (( $# == 2 )); then
     echo "Add keyfile..."
     rm -f "keyfile-$LABEL" || true
     dd if=/dev/urandom of="keyfile-$LABEL" bs=512 count=1
-    sudo cryptsetup luksAddKey --keyslot-cipher aes-xts-plain64 --keyslot-key-size 512 --hash sha512 \
-        --key-slot 1 --pbkdf argon2id --iter-time 5000 "$PARTITION" "keyfile-$LABEL"
+    sudo cryptsetup luksAddKey --keyslot-cipher aes-xts-plain64 --keyslot-key-size 512 --hash sha3-512 \
+        --key-slot 1 --pbkdf argon2id --iter-time 10000 "$PARTITION" "keyfile-$LABEL"
     echo "Test keyfile..."
     sudo cryptsetup open --test-passphrase --key-file "keyfile-$LABEL" "$PARTITION"
     # echo "Remove keyfile..."
